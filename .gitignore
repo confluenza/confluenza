@@ -1,0 +1,13 @@
+# mac os
+.DS_Store
+
+# js
+node_modules
+lib
+yarn-error.log
+
+# lerna
+lerna-debug.log
+
+# test coverage
+coverage

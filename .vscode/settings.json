@@ -1,0 +1,5 @@
+{
+  "jest.pathToJest": "npm test --",
+  "jest.restartJestOnSnapshotUpdate": true,
+  "typescript.validate.enable": false
+}
