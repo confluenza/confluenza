@@ -10,3 +10,8 @@ workspaces/homepage/node_modules
 workspaces/homepage/public
 workspaces/homepage/.eslintignore
 workspaces/homepage/.gitignore
+!workspaces/homepage/*.md
+!workspaces/homepage/gatsby-config.js
+!workspaces/homepage/gatsby-node.js
+!workspaces/homepage/package.json
+!workspaces/homepage/src/**
