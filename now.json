@@ -1,12 +1,11 @@
 {
   "version": 2,
   "name": "confluenza",
-  "scope": "confluenza",
+  "scope": "confluenza-online",
   "builds": [
     { "src": "workspaces/homepage/package.json", "use": "@now/static-build", "config": {"distDir": "public"} }
   ],
   "routes": [
     { "src": "/(?<path>.*)", "dest": "/workspaces/homepage/$path"}
-  ],
-  "alias": "confluenza"
+  ]
 }
