@@ -3,35 +3,6 @@
 Even in its very early release Confluenza is still easy to adjust so that it
 fits the needs of your project.
 
-## Start your own Confluenza
-
-1.  **Create a Confluenza site.**
-
-    Use the Gatsby CLI to create a new site, specifying the default starter.
-
-    ```bash
-    # create a new Confluenza site
-    npx gatsby new my-confluenza https://github.com/charterhouse/confluenza
-    ```
-
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```bash
-    cd my-confluenza/
-    yarn develop
-    ```
-
-1.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    *Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
-
-    Open the `my-confluenza` directory in your code editor of choice and edit `src/pages/`. Save your changes and the browser will update in real time!
-
-
 ## Frontmatter
 
 Every markdown file that is supposed to be rendered by Confluenza needs to have a so called `frontmatter`
@@ -43,9 +14,9 @@ The frontmatter of a Confluenza file normally looks like this:
 
 ```yaml
 ---
-path: /components/user-login
-title: User Login
-tag: component
+path: /users/using-confluenza
+title: Using Confluenza
+tag: user
 ---
 ```
 
@@ -56,10 +27,9 @@ The `tag` field needs a bit more in depth explanation.
 
 By *tagging* your file it will automatically be
 assigned to one of the groups displayed in the navigation menu. For example, the Confluenza page
-has three categories: *User Documentation*, *Developer Documentation*, and *Other Documents*.
-Each of these categories is associated a tag: `user-documentation`, `developer-documentation`, and
+has (among others) the following categories: *User Documentation*, *Developer Documentation*, and *Other Documents*. Each of these categories is associated a tag: `user`, `developer`, and
 `other` respectively. The tags are currently tightly coupled with the Confluenza source code in
-the `src/components/navigation/Navigation.js` file.
+the `homepage/src/confluenza/navigation/Navigation.js` file.
 
 > We will make Confluenza more intelligent about tags in the future.
 
@@ -70,8 +40,10 @@ above mentioned source file:
 export class Navigation extends React.PureComponent {
   state = {
     otherDeltas: [],
-    userDocumentationDeltas: [],
-    developerDocumentationDeltas: []
+    userDeltas: [],
+    developerDeltas: [],
+    demo1Deltas: [],
+    demo2Deltas: []
   }
   // ...
 ```
@@ -83,22 +55,36 @@ and then in the constructor:
 constructor (props) {
   super(props)
 
+  // ...
+
   this.navigationGroups = [
-    this.createNavigationGroupForTag({
-      title: 'User Documentation',
-      tag: 'user-documentation',
-      deltaGroupName: 'userDocumentation'
-    }),
-    this.createNavigationGroupForTag({
-      title: 'Developer Documentation',
-      tag: 'developer-documentation',
-      deltaGroupName: 'developerDocumentation'
-    }),
-    this.createNavigationGroupForTag({
-      title: 'Other Documents',
-      tag: 'other',
-      deltaGroupName: 'other'
-    })
+    this.navigationGroups = [
+      this.createNavigationGroupForTag({
+        title: 'User Documentation',
+        tag: 'user',
+        deltaGroupName: 'user'
+      }),
+      this.createNavigationGroupForTag({
+        title: 'Developer Documentation',
+        tag: 'developer',
+        deltaGroupName: 'developer'
+      }),
+      this.createNavigationGroupForTag({
+        title: 'Other Documents',
+        tag: 'other',
+        deltaGroupName: 'other'
+      }),
+      this.createNavigationGroupForTag({
+        title: 'Demo Workspace 1',
+        tag: 'demo1',
+        deltaGroupName: 'demo1'
+      }),
+      this.createNavigationGroupForTag({
+        title: 'Demo Workspace 2',
+        tag: 'demo2',
+        deltaGroupName: 'demo2'
+      })
+    ]
   ]
 }
 // ...
@@ -109,10 +95,13 @@ You then first need to extend the state object shown above as follows:
 
 ```javascript
 state = {
-  otherDeltas: [],
-  userDocumentationDeltas: [],
-  developerDocumentationDeltas: [],
-  componentsDeltas: []
+    otherDeltas: [],
+    userDeltas: [],
+    developerDeltas: [],
+    demo1Deltas: [],
+    demo2Deltas: [],
+    componentsDeltas: [] // <== this one has been added here
+  }
 }
 ```
 
@@ -137,13 +126,13 @@ The `content` field indicates that the intended content of this markdown file is
 another file, as indicated by the value of the `content` field.
 
 For example, the page you are reading now is the external content for
-file `WorkingWithExternalContent.md` having the following frontmatter:
+file `01-MakingConfluenzaYours.md` having the following frontmatter:
 
 ```yaml
 ---
-path: /developer-documentation/making-confluenza-yours
+path: /developers/making-confluenza-yours
 title: Making Confluenza Yours
-tag: developer-documentation
+tag: developer
 content: ExternalContent.md
 ---
 ```
@@ -158,7 +147,7 @@ it will process it as a regular markdown file and the result of this processing 
 ```json
 {
   "node": {
-    "fileAbsolutePath": "/Users/.../confluenza/src/pages/developer-documentation/MakingConfluenzaYours.md",
+    "fileAbsolutePath": "/Users/.../homepage/src/pages/developers/01-MakingConfluenzaYours.md",
     "headings": [
       {
         "value": "More"
@@ -166,10 +155,10 @@ it will process it as a regular markdown file and the result of this processing 
     ],
     "frontmatter": {
       "title": "Making Confluenza Yours",
-      "path": "/developer-documentation/making-confluenza-yours",
+      "path": "/developers/making-confluenza-yours",
       "content": {
         "childMarkdownRemark": {
-          "fileAbsolutePath": "/Users/.../confluenza/src/pages/developer-documentation/ExternalContent.md",
+          "fileAbsolutePath": "/Users/.../homepage/src/pages/developers/ExternalContent.md",
           "headings": [
             {
               "value": "Frontmatter"
@@ -188,7 +177,7 @@ it will process it as a regular markdown file and the result of this processing 
       }
     }
   }
-},
+}
 ```
 
 Now, for each rendered content, Confluenza checks if the `frontmatter` of the corresponding node contains the `content` field. If it does, Confluenza uses the `childMarkdownRemark` to render the page, otherwise it will use the original content. This way, the markdown files with `frontmatter` without the `content` field will be rendered  without any change. If the original file (the one with frontmatter containing the
