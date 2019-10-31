@@ -18,7 +18,7 @@ local environment:
 
 ## Code organization
 
-React Frontend Developer is a monorepo. It consists of a number of packages that all live under the `workspaces` folder. We use a combination of [lerna](https://lernajs.io) and [yarn
+Confluenza is a monorepo. It consists of a number of packages that all live under the `workspaces` folder. We use a combination of [lerna](https://lernajs.io) and [yarn
 workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) to manage them.
 
 ### yarn install
@@ -118,7 +118,7 @@ keep your local master branch pointing to the upstream master branch. Remaining
 in sync then becomes really easy:
 
 ```bash
-git remote add upstream https://github.com/Charterhouse/react-frontend-developer.git
+git remote add upstream https://github.com/confluenza/confluenza.git
 git fetch upstream
 git branch --set-upstream-to=upstream/master master
 ```
