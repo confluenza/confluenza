@@ -16,4 +16,4 @@ sure that your setup is aligned with what Confluenza needs. We are working on ma
 automated.
 
 We therefore recommend to get started by cloning this repository and learning the basics of Confluenza.
-Please start with [Making Confluenza Yours](/developers/making-confluenza-yours).
+Please start with [Making Confluenza Yours](https://confluenza.online/developers/making-confluenza-yours).
