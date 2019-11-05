@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
@@ -9,7 +9,26 @@ import { Footer } from 'src/content/footer'
 
 import { Box1, Box2, Box3 } from 'src/content'
 
+const useUnusualReloader = location => {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setReady(true)
+    }, 300)
+  }, [])
+
+  return ready
+}
+
 const Home = ({ data, location }) => {
+  console.log('                CONFLUENZA \n\n\n\n               *************,\n             *************,,,\n                          ,,,\n                          ,,,\n                          ,,,\n                          ,,,\n                          ,,,\n                          ,  \n\n\n\n       flexible markdown documentation \n ')
+
+  const pageReady = useUnusualReloader(location)
+
+  if (!pageReady) {
+    return null
+  }
   return (
     <>
       <Helmet title='Confluenza'>
