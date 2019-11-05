@@ -66,13 +66,13 @@ const Header = ({ data }) => (
       <Menu>
         <MenuLinkExternal
           styles={{ color: 'white' }}
-          href='https://github.com/marcinczenko/identity-box'
+          href='https://github.com/confluenza/confluenza'
           target='_blank'
         >Github
         </MenuLinkExternal>
         <MenuLinkExternal
           styles={{ color: 'white' }}
-          href='https://twitter.com/identity_box'
+          href='https://twitter.com/confluenza1'
           target='_blank'
         >Twitter
         </MenuLinkExternal>
