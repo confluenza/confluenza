@@ -1,6 +1,4 @@
 *.*
-*.psd
-*.ai
 !*.md
 .DS_Store
 workspaces/demo-workspace-1/**
