@@ -1,6 +1,5 @@
 import React from 'react'
-import { getImage } from 'src/components/assets'
-import { TextBox, Img } from 'src/components/ui-blocks'
+import { TextBox } from 'src/components/ui-blocks'
 
 import { BoxContentWrapper, Title } from './ui'
 

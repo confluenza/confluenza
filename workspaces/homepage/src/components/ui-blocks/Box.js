@@ -5,13 +5,12 @@ const Box = styled.div({
   flexFlow: 'column',
   alignItems: 'center',
   backgroundImage: 'linear-gradient(#0C3C52, #5182BD)',
-  padding: '15px',
+  padding: '15px 0',
+  '@media (min-width: 800px)': {
+    padding: '15px'
+  },
   width: '100%',
-  fontSize: '12pt',
-  '@media (max-width: 568px)': {
-    padding: '10px',
-    fontSize: '10pt'
-  }
+  fontSize: '12pt'
 }, ({ backgroundStyles }) => (
   { ...backgroundStyles }
 ))

@@ -36,10 +36,13 @@ const Menu = styled.div({
 const HyperWrapper = styled.div({
   display: 'flex',
   justifyContent: 'center',
-  position: 'fixed',
-  top: 0,
-  zIndex: 0,
-  width: '100%',
+  width: '100vw',
+  '@media (min-width: 800px)': {
+    position: 'fixed',
+    width: '100%',
+    top: 0,
+    zIndex: 0
+  },
   backgroundColor: 'black'
 })
 

@@ -6,7 +6,10 @@ const BodyFrame = styled.div({
   justifyContent: 'center',
   alignItems: 'center',
   minWidth: '300px',
-  width: '80%',
+  width: '100%',
+  '@media (min-width: 800px)': {
+    width: '80%'
+  },
   maxWidth: '1200px'
 })
 

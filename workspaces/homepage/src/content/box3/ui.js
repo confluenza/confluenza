@@ -1,8 +1,11 @@
 import styled from '@emotion/styled'
 
 const BoxContentWrapper = styled.div({
-  width: '80%',
-  maxWidth: '800px',
+  width: '100%',
+  '@media (min-width: 800px)': {
+    width: '80%',
+    maxWidth: '800px'
+  },
   display: 'flex',
   flexFlow: 'column',
   justifyContent: 'center',
@@ -10,30 +13,50 @@ const BoxContentWrapper = styled.div({
 })
 
 const ContentBox = styled.div({
-  border: '2px solid #f57344',
-  marginTop: '25px',
-  marginBottom: '25px',
-  borderRadius: '13px',
+  marginTop: 0,
+  paddingLeft: '20px',
+  paddingRight: '20px',
   display: 'flex',
   flexFlow: 'row wrap',
   width: '100%',
-  minWidth: '350px',
+  minWidth: '320px',
   justifyContent: 'space-around',
-  alignItems: 'center'
+  alignItems: 'center',
+  backgroundColor: 'light-grey',
+  borderBottom: '25px solid #f57344',
+  '@media (min-width: 800px)': {
+    border: '2px solid #f57344',
+    borderRadius: '13px',
+    paddingTop: 0,
+    marginTop: '25px'
+  }
 })
 
 const Text = styled.p({
   fontFamily: 'HelveticaNeue-Italic, Helvetica Neue, sans-serif',
-  margin: '15px 0',
   color: 'black',
-  width: '55%',
-  fontSize: '14pt',
+  width: '100%',
+  margin: '0 15px 25px 15px',
+  fontSize: '12pt',
+  '@media (min-width: 500px)': {
+    margin: '15px 0',
+    width: '55%',
+    fontSize: '14pt'
+  },
   textAlign: 'left'
 })
 
 const Img = styled.img({
-  width: '300px',
-  margin: '20px 0'
+  maxWidth: '300px',
+  width: '100%',
+  margin: '20px 0',
+  '@media (min-width: 800px)': {
+    width: '35%',
+    margin: '20px'
+  },
+  '@media (min-width: 1265px)': {
+    width: '45%'
+  }
 })
 
 export { BoxContentWrapper, ContentBox, Text, Img }

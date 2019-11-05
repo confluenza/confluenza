@@ -1,4 +1,5 @@
 import React from 'react'
+import Media from 'react-media'
 
 import { getImage } from 'src/components/assets'
 import { Link } from 'src/components/forms'
@@ -8,13 +9,20 @@ import { BoxContentWrapper, ContentBox, Text, Img } from './ui'
 const Box3Content = ({ data }) => (
   <BoxContentWrapper>
     <ContentBox>
+      <Media query='(max-width: 499px)' render={() => (
+        <Img alt='Intro' src={getImage(data, 'use-react')} />
+      )}
+      />
       <Text>
       Use React in the way you normally do. You can decide if you
       want to style the page yourself using unrestricted React or
       you want to take advantage of our responsive documentation browser.
       Creativity is yours.
       </Text>
-      <Img alt='Intro' src={getImage(data, 'use-react')} />
+      <Media query='(min-width: 500px)' render={() => (
+        <Img alt='Intro' src={getImage(data, 'use-react')} />
+      )}
+      />
     </ContentBox>
     <ContentBox>
       <Img alt='Intro' src={getImage(data, 'gatsby-logo')} />
@@ -27,6 +35,10 @@ const Box3Content = ({ data }) => (
       </Text>
     </ContentBox>
     <ContentBox>
+      <Media query='(max-width: 499px)' render={() => (
+        <Img alt='Intro' src={getImage(data, 'confluenza-menu')} />
+      )}
+      />
       <Text>
       Confluenza can be used to host any markdown documentation to make
       it browsable and easily editable. But where it really shines are
@@ -37,7 +49,10 @@ const Box3Content = ({ data }) => (
       easily indicate under which category given document should be put in
       the navigation menu.
       </Text>
-      <Img alt='Intro' src={getImage(data, 'confluenza-menu')} />
+      <Media query='(min-width: 500px)' render={() => (
+        <Img alt='Intro' src={getImage(data, 'confluenza-menu')} />
+      )}
+      />
     </ContentBox>
     <ContentBox>
       <Img alt='Intro' src={getImage(data, 'confluenza-open-source')} />

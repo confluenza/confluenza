@@ -1,25 +1,41 @@
 import React, { useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
+import Media from 'react-media'
 
 import { getImage } from 'src/components/assets'
 
 const Panel = styled.div({
   width: '100%',
   backgroundColor: 'black',
-  height: 'calc(100vh - 80px)',
-  marginTop: '80px',
+  height: 'calc(100vh - 114px)',
   display: 'flex',
-  flexFlow: 'row',
+  flexFlow: 'column',
+  justifyContent: 'flex-start',
+  marginTop: '40px',
   alignItems: 'center',
-  justifyContent: 'space-around'
+  '@media (min-width: 800px)': {
+    height: 'calc(100vh - 80px)',
+    marginTop: '80px',
+    flexFlow: 'row',
+    justifyContent: 'space-around'
+  }
 })
 
 const Title = styled.h1({
-  marginBottom: '10px',
+  marginBottom: '30px',
   fontFamily: 'Roboto Mono, monospace',
-  fontSize: '56pt',
-  '@media (max-width: 568px)': {
-    fontSize: '22pt'
+  fontSize: '18pt',
+  '@media (min-width: 500px)': {
+    fontSize: '32pt',
+    marginBottom: '50px'
+  },
+  '@media (min-width: 800px)': {
+    marginBottom: '10px',
+    fontSize: '48pt'
+  },
+  '@media (min-width: 1000px)': {
+    marginBottom: '10px',
+    fontSize: '56pt'
   },
   fontWeight: '400',
   color: '#568a80',
@@ -34,30 +50,54 @@ const TitleContainer = styled.div({
 })
 
 const Subtitle = styled.h2({
-  margin: '5px 0 20px 0',
   fontFamily: 'Roboto Mono, monospace',
-  fontSize: '20pt',
   fontWeight: 400,
   lineHeight: '1.4',
-  '@media (max-width: 568px)': {
-    fontSize: '12pt',
-    fontWeight: 400,
-    margin: '30px'
+  fontSize: '12pt',
+  margin: '20px',
+  '@media (min-width: 500px)': {
+    margin: '50px',
+    fontSize: '20pt'
+  },
+  '@media (min-width: 800px)': {
+    margin: '5px 0 20px 0',
+    fontSize: '24pt'
   },
   color: '#f57344',
   textAlign: 'center'
+})
+
+const Img = styled.img({
+  margin: 0,
+  width: '50%',
+  '@media (min-width: 500px)': {
+    width: '60%'
+  },
+  '@media (min-width: 800px)': {
+    width: '400px'
+  }
 })
 
 const IntroPanel = ({ data }) => {
   const panel = useRef(null)
 
   const updateSize = () => {
+    const width = window.innerWidth
     const height = window.innerHeight
-    if (height < 746) {
-      // panel.current.style.height = '656px'
+
+    console.log(width, height)
+
+    if (width > 370) {
       panel.current.style.height = 'calc(100vh - 80px)'
+      if (width > 500 && height < 768) {
+        panel.current.style.height = '768px'
+      }
     } else {
-      panel.current.style.height = 'calc(100vh - 80px)'
+      if (height < 568) {
+        panel.current.style.height = '568px'
+      } else {
+        panel.current.style.height = 'calc(100vh - 154px)'
+      }
     }
   }
 
@@ -69,11 +109,22 @@ const IntroPanel = ({ data }) => {
 
   return (
     <Panel ref={panel}>
-      <img alt='Intro' width='400px' css={{ margin: 0 }} src={getImage(data, 'intro-panel')} />
-      <TitleContainer>
+      <Media query='(max-width: 799px)' render={() => (
         <Title>Confluenza</Title>
+      )}
+      />
+      <Img alt='Intro' src={getImage(data, 'intro-panel')} />
+      <Media query='(min-width: 800px)' render={() => (
+        <TitleContainer>
+          <Title>Confluenza</Title>
+          <Subtitle>flexible markdown documentation</Subtitle>
+        </TitleContainer>
+      )}
+      />
+      <Media query='(max-width: 799px)' render={() => (
         <Subtitle>flexible markdown documentation</Subtitle>
-      </TitleContainer>
+      )}
+      />
     </Panel>
   )
 }
