@@ -1,4 +1,4 @@
-## Confluenza Mono
+## Confluenza
 
 Confluenza is a flexible Markdown documentation browser. Confluenza can get quite well on its own,
 but it likes monorepos. For instance, you can use Confluenza to create your project's landing page
@@ -6,7 +6,7 @@ in one of the workspaces and use Confluenza's built-in, flexible markdown docume
 conveniently browse all your markdown documents from other workspaces.
 
 We are working to make Confluenza easier to use and better documented and if you would like to help
-then [Contributions](https://react-frontend-developer.now.sh/developers/contributing) are welcomed!
+then [Contributions](https://confluenza.online/developers/contributing) are welcomed!
 
 This repository can be used as a working example of how to use Confluenza in a monorepo. It is fully
 functional. You can start from here and have a ready to use monorepo with a working Confluenza setup in
