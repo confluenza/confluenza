@@ -62,7 +62,7 @@ const DocumentationLayout = ({ children, location }) => {
                   { children }
                 </DocumentationLayoutWide>
               ) : (
-                <Media query='(min-width: 768px)'>
+                <Media query='(min-width: 800px)'>
                   {matches =>
                     matches ? (
                       <DocumentationLayoutMedium location={location} data={data}>
