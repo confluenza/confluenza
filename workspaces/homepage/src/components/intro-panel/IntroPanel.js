@@ -87,8 +87,6 @@ const IntroPanel = ({ data }) => {
     const width = window.innerWidth
     const height = window.innerHeight
 
-    console.log(width, height)
-
     if (width > 370) {
       panel.current.style.height = 'calc(100vh - 80px)'
       if (width > 500 && width < 800 && height < 768) {

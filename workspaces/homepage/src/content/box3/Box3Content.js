@@ -9,7 +9,7 @@ import { BoxContentWrapper, ContentBox, Text, Img } from './ui'
 const Box3Content = ({ data }) => (
   <BoxContentWrapper>
     <ContentBox>
-      <Media query='(max-width: 499px)' render={() => (
+      <Media query='(max-width: 699px)' render={() => (
         <Img alt='Intro' src={getImage(data, 'use-react')} />
       )}
       />
@@ -19,7 +19,7 @@ const Box3Content = ({ data }) => (
       you want to take advantage of our responsive documentation browser.
       Creativity is yours.
       </Text>
-      <Media query='(min-width: 500px)' render={() => (
+      <Media query='(min-width: 700px)' render={() => (
         <Img alt='Intro' src={getImage(data, 'use-react')} />
       )}
       />
@@ -35,7 +35,7 @@ const Box3Content = ({ data }) => (
       </Text>
     </ContentBox>
     <ContentBox>
-      <Media query='(max-width: 499px)' render={() => (
+      <Media query='(max-width: 699px)' render={() => (
         <Img alt='Intro' src={getImage(data, 'confluenza-menu')} />
       )}
       />
@@ -49,7 +49,7 @@ const Box3Content = ({ data }) => (
       easily indicate under which category given document should be put in
       the navigation menu.
       </Text>
-      <Media query='(min-width: 500px)' render={() => (
+      <Media query='(min-width: 700px)' render={() => (
         <Img alt='Intro' src={getImage(data, 'confluenza-menu')} />
       )}
       />

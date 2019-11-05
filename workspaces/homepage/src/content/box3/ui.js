@@ -38,7 +38,12 @@ const Text = styled.p({
   width: '100%',
   margin: '0 15px 25px 15px',
   fontSize: '12pt',
-  '@media (min-width: 500px)': {
+  '@media (min-width: 700px)': {
+    margin: '15px 0',
+    width: '45%',
+    fontSize: '14pt'
+  },
+  '@media (min-width: 720px)': {
     margin: '15px 0',
     width: '55%',
     fontSize: '14pt'
@@ -50,7 +55,7 @@ const Img = styled.img({
   maxWidth: '300px',
   width: '100%',
   margin: '20px 0',
-  '@media (min-width: 800px)': {
+  '@media (min-width: 700px)': {
     width: '35%',
     margin: '20px'
   },
