@@ -22,7 +22,7 @@ const useUnusualReloader = location => {
 }
 
 const Home = ({ data, location }) => {
-  console.log('                CONFLUENZA \n\n\n\n               *************,\n             *************,,,\n                          ,,,\n                          ,,,\n                          ,,,\n                          ,,,\n                          ,,,\n                          ,  \n\n\n\n       flexible markdown documentation \n ')
+  console.log('                CONFLUENZA \n\n       flexible markdown documentation\n ')
 
   const pageReady = useUnusualReloader(location)
 
