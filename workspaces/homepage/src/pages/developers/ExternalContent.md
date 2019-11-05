@@ -140,9 +140,9 @@ content: ExternalContent.md
 ### How does it actually work
 Confluenza is based on [Gatsby](https://www.gatsbyjs.org).
 The [gatsby-transformer-remark](https://www.npmjs.com/package/gatsby-transformer-remark) plugin
-that is used by Confluenza to process the markdown files, recognizes the `content` field in the `frontmatter` and if it can resolve the file indicated by its value,
+that is used by Confluenza to process the markdown files, recognizes the `content` field in the `frontmatter`, and if it can resolve the file indicated by its value,
 it will process it as a regular markdown file and the result of this processing will be captured in the
-`content` field of the corresponding Gatsby node. Below is an example of the remark node corresponding to the `MakingConfluenzaYours.md` (the file of which external content you are now reading):
+`content` field of the corresponding Gatsby node. Below is an example of the remark node corresponding to the `01-MakingConfluenzaYours.md` (the file of which external content you are now reading):
 
 ```json
 {
