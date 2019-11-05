@@ -1,4 +1,6 @@
 *.*
+*.psd
+*.ai
 !*.md
 .DS_Store
 workspaces/demo-workspace-1/**
@@ -15,3 +17,4 @@ workspaces/homepage/.gitignore
 !workspaces/homepage/gatsby-node.js
 !workspaces/homepage/package.json
 !workspaces/homepage/src/**
+workspaces/homepage/src/**/*.psd
