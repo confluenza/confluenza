@@ -7,7 +7,7 @@ const BodyFrame = styled.div({
   alignItems: 'center',
   minWidth: '300px',
   width: '100%',
-  '@media (min-width: 800px)': {
+  '@media (min-width: 950px)': {
     width: '80%'
   },
   maxWidth: '1200px'

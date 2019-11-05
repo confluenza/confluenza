@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 const BoxContentWrapper = styled.div({
   width: '100%',
-  '@media (min-width: 800px)': {
+  '@media (min-width: 1300px)': {
     width: '80%',
     maxWidth: '800px'
   },
@@ -24,7 +24,7 @@ const ContentBox = styled.div({
   alignItems: 'center',
   backgroundColor: 'light-grey',
   borderBottom: '25px solid #f57344',
-  '@media (min-width: 800px)': {
+  '@media (min-width: 1300px)': {
     border: '2px solid #f57344',
     borderRadius: '13px',
     paddingTop: 0,
@@ -54,8 +54,8 @@ const Img = styled.img({
     width: '35%',
     margin: '20px'
   },
-  '@media (min-width: 1265px)': {
-    width: '45%'
+  '@media (min-width: 1300px)': {
+    width: '43%'
   }
 })
 

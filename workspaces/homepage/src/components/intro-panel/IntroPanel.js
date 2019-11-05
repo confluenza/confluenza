@@ -6,6 +6,8 @@ import { getImage } from 'src/components/assets'
 
 const Panel = styled.div({
   width: '100%',
+  paddingLeft: '30px',
+  paddingRight: '30px',
   backgroundColor: 'black',
   height: 'calc(100vh - 114px)',
   display: 'flex',
