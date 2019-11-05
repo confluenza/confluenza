@@ -95,8 +95,8 @@ const IntroPanel = ({ data }) => {
         panel.current.style.height = '768px'
       }
     } else {
-      if (height < 568) {
-        panel.current.style.height = '568px'
+      if (height < 435) {
+        panel.current.style.height = '435px'
       } else {
         panel.current.style.height = 'calc(100vh - 154px)'
       }
