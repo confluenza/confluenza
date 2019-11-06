@@ -1,6 +1,13 @@
 *.*
 !*.md
 .DS_Store
+!/package.json
+!/yarn.lock
+!/babel.config.js
+!/lerna.json
+
+!tools/**
+!workspaces/confluenza/**
 workspaces/demo-workspace-1/**
 !workspaces/demo-workspace-1/*.md
 workspaces/demo-workspace-2/**

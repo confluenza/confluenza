@@ -36,6 +36,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.23",
     "@testing-library/react": "^9.1.4"
   },
   "publishConfig": {

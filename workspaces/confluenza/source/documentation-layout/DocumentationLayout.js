@@ -1,6 +1,4 @@
 import React from 'react'
-import 'src/prismjs/themes/prism-tomorrow.css'
-import { StaticQuery, graphql } from 'gatsby'
 import Media from 'react-media'
 
 import { useUnusualReloader } from './useUnusualReloader'
@@ -9,78 +7,35 @@ import { DocumentationLayoutSmall } from './DocumentationLayoutSmall'
 import { DocumentationLayoutMedium } from './DocumentationLayoutMedium'
 import { DocumentationLayoutWide } from './DocumentationLayoutWide'
 
-const DocumentationLayout = ({ children, location }) => {
+const DocumentationLayout = ({ children, location, data }) => {
   const pageReady = useUnusualReloader(location)
+  if (!pageReady) {
+    return null
+  }
   return (
-    <StaticQuery
-      query={graphql`
-        query Navigation {
-          site {
-            siteMetadata {
-              title
-            }
-          }
-          file(base: { eq: "MenuButton.png" }) {
-            publicURL
-          }
-          navigation: allMarkdownRemark(
-            filter: { frontmatter: { path: { ne: "/404.html" } } }
-            sort: { fields: [fileAbsolutePath], order: ASC }
-          ) {
-            docs: edges {
-              node {
-                frontmatter {
-                  title
-                  path
-                  tag
-                  content {
-                    childMarkdownRemark {
-                      html
-                      headings(depth: h2) {
-                        value
-                      }
-                    }
-                  }
-                }
-                headings(depth: h2) {
-                  value
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={data => {
-        if (!pageReady) {
-          return null
-        }
-        return (
-          <Media query='(min-width: 1100px)'>
+    <Media query='(min-width: 1100px)'>
+      {matches =>
+        matches ? (
+          <DocumentationLayoutWide location={location} data={data}>
+            { children }
+          </DocumentationLayoutWide>
+        ) : (
+          <Media query='(min-width: 800px)'>
             {matches =>
               matches ? (
-                <DocumentationLayoutWide location={location} data={data}>
+                <DocumentationLayoutMedium location={location} data={data}>
                   { children }
-                </DocumentationLayoutWide>
+                </DocumentationLayoutMedium>
               ) : (
-                <Media query='(min-width: 800px)'>
-                  {matches =>
-                    matches ? (
-                      <DocumentationLayoutMedium location={location} data={data}>
-                        { children }
-                      </DocumentationLayoutMedium>
-                    ) : (
-                      <DocumentationLayoutSmall location={location} data={data}>
-                        { children }
-                      </DocumentationLayoutSmall>
-                    )
-                  }
-                </Media>
+                <DocumentationLayoutSmall location={location} data={data}>
+                  { children }
+                </DocumentationLayoutSmall>
               )
             }
           </Media>
         )
-      }}
-    />
+      }
+    </Media>
   )
 }
 

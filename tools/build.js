@@ -1,11 +1,12 @@
-const fs = require('fs')
+const path = require('path')
 const execSync = require('child_process').execSync
-const prettyBytes = require('pretty-bytes')
-const gzipSize = require('gzip-size')
+const packageJson = require(path.join(process.cwd(), 'package.json'))
 
 class Builder {
-  constructor ({ iifeFileName }) {
-    this.iifeFileName = iifeFileName
+  constructor ({ copyFiles } = {}) {
+    this.packageName = packageJson.name
+    this.esModule = packageJson.module
+    this.copyFiles = copyFiles ? '--copy-files' : ''
   }
 
   exec (command, extraEnv) {
@@ -15,40 +16,37 @@ class Builder {
     })
   }
 
+  transpile ({ logMessage, babelEnv, outputDir }) {
+    console.log(logMessage)
+
+    this.exec(`babel source -d ${outputDir} --delete-dir-on-start ${this.copyFiles} --source-maps`, {
+      BABEL_ENV: babelEnv
+    })
+  }
+
+  commonjs () {
+    this.transpile({
+      logMessage: '\nBuilding CommonJS modules...',
+      babelEnv: 'commonjs',
+      outputDir: 'lib'
+    })
+  }
+
+  es () {
+    if (this.esModule) {
+      this.transpile({
+        logMessage: '\nBuilding ES modules...',
+        babelEnv: 'es',
+        outputDir: 'es'
+      })
+    }
+  }
+
   build () {
     console.log('\n---------------------------------------------------')
-    console.log(`Building ${this.iifeFileName}`)
-    console.log('Building CommonJS modules ...')
-
-    this.exec('babel source -d lib --delete-dir-on-start --no-babelrc --source-maps', {
-      BABEL_ENV: 'commonjs'
-    })
-
-    console.log('\nBuilding ES modules ...')
-
-    this.exec('babel source -d es --delete-dir-on-start --no-babelrc --source-maps', {
-      BABEL_ENV: 'es'
-    })
-
-    console.log('\nBuilding IIFE module ...')
-
-    this.exec(`rollup -c -m -f iife -o iife/${this.iifeFileName}.js`, {
-      BABEL_ENV: 'iife',
-      NODE_ENV: 'development'
-    })
-
-    console.log('\nBuilding minimized IIFE module ...')
-
-    this.exec(`rollup -c -m -f iife -o iife/${this.iifeFileName}.min.js`, {
-      BABEL_ENV: 'iife',
-      NODE_ENV: 'production'
-    })
-
-    const size = gzipSize.sync(
-      fs.readFileSync(`iife/${this.iifeFileName}.min.js`)
-    )
-
-    console.log('\ngzipped, the IIFE build is %s', prettyBytes(size))
+    console.log(`Building ${this.packageName}`)
+    this.commonjs()
+    this.es()
     console.log('---------------------------------------------------\n')
   }
 }

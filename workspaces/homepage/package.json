@@ -9,6 +9,7 @@
     "url": "https://github.com/confleunza/confluenza.git"
   },
   "dependencies": {
+    "@confluenza/confluenza": "^0.1.0",
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
     "@react-frontend-developer/css-grid-helper": "^1.0.22",
@@ -43,7 +44,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "now-build": "yarn build",
+    "now-build": "(cd ../../ && yarn build) && yarn build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"

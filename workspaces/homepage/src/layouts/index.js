@@ -1,7 +1,7 @@
 import { React } from 'react'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
-import { DocumentationLayout } from './documentation'
+import { ConfluenzaDocumentationLayout } from './ConfluenzaDocumentationLayout'
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -42,7 +42,7 @@ const Layout = ({ location, children }) => {
           }
         }}
         />
-        <DocumentationLayout location={location}>{children}</DocumentationLayout>
+        <ConfluenzaDocumentationLayout location={location}>{children}</ConfluenzaDocumentationLayout>
       </div>
     )
   }
