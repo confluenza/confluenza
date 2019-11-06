@@ -1,0 +1,44 @@
+{
+  "name": "@confluenza/confluenza",
+  "version": "0.1.0",
+  "description": "Confluenza - Browsable Markdown Documentation for Gatsby",
+  "homepage": "https://confluenza.online/packages/confluenza",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "node ./tools/build.js"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "lib",
+    "es",
+    "source"
+  ],
+  "dependencies": {
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
+    "@react-frontend-developer/css-grid-helper": "^1.0.22",
+    "gatsby": "^2.13.61",
+    "prismjs": "^1.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-media": "^1.9.2",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-moraga": "^0.16.19"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
