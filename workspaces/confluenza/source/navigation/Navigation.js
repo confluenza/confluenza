@@ -29,6 +29,8 @@ export class Navigation extends React.PureComponent {
 
     this.restoreNavigationState()
 
+    console.log(this.props.navigationGroups)
+
     this.navigationGroups = [
       this.createNavigationGroupForTag({
         title: 'User Documentation',

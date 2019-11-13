@@ -12,6 +12,7 @@
     "babel-plugin-emotion": "^10.0.15",
     "eslint": "^6.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "gatsby": "^2.13.61",
     "gzip-size": "^5.1.1",
     "jest": "^24.8.0",
     "jest-emotion": "^10.0.14",
@@ -20,15 +21,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "rollup": "^1.19.4",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.0.2",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-uglify": "^6.0.2",
     "standard": "^13.1.0"
   },
   "workspaces": {
@@ -41,13 +33,14 @@
     "test:watch": "yarn jest --watch",
     "lint": "yarn standard",
     "lint-fix": "yarn standard --fix --verbose",
-    "build": "yarn lerna run build --scope @confluenza/**",
+    "build": "yarn lerna run build --scope @confluenza/** --ignore @confluenza/gatsby-theme-confluenza",
     "deploy": "yarn lerna run build --ignore homepage && yarn lerna run build --scope homepage"
   },
   "standard": {
     "parser": "babel-eslint",
     "ignore": [
       "workspaces/homepage/public/**",
+      "workspaces/gatsby-theme-confluenza/public/**",
       "workspaces/design-assets/**",
       "**/node_modules/**",
       "**/lib/**",

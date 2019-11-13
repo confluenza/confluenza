@@ -21,17 +21,12 @@
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
     "@react-frontend-developer/css-grid-helper": "^1.0.22",
-    "gatsby": "^2.13.61",
-    "prismjs": "^1.17.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1",
     "react-media": "^1.9.2",
-    "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-moraga": "^0.16.19"
   },
   "peerDependencies": {
+    "gatsby": "^2.13.61",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },

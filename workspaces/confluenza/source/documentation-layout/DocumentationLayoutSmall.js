@@ -10,7 +10,7 @@ import { FixedNavigation } from './FixedNavigation'
 import { useScrollResoration } from './useScrollRestoration'
 import { useMobileDocumentNavigator } from './useMobileDocumentNavigator'
 
-const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, deltas }) => {
+const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, deltas, rhythm }) => {
   const [menuActive, setMenuActive] = useState(false)
   const [position, setPosition] = useState('relative')
   const [grid, setGrid] = useState('300px 100vw')
@@ -81,9 +81,9 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
     }
   }, [menuActive])
 
-  const { site: { siteMetadata: { title } }, navigation: { docs }, file: { publicURL: menuButtonBackgroundImage } } = data
+  const { site: { siteMetadata: { title, navigationGroups } }, navigation: { docs }, file: { publicURL: menuButtonBackgroundImage } } = data
   return (<>
-    <DocumentationLayoutGrid css={{
+    <DocumentationLayoutGrid rhythm={rhythm} css={{
       position,
       height: '100vh',
       left: menuActive ? 0 : '-300px',
@@ -93,14 +93,20 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       transition: `all .2s ease-in-out ${animationDelay}s`
     }}>
       <SidebarGridItem>
-        <FixedNavigation css={{
+        <FixedNavigation rhythm={rhythm} css={{
           minWidth: menuActive ? '100vw' : '300px',
           maxWidth: menuActive ? '100vw' : '300px',
           transition: `all .2s ease-in-out ${animationDelay}s`,
           height: '100vh'
         }}>
           <SiteTitle title={title} />
-          <Navigation docs={docs} location={location} onStateChanged={onStateChanged} deltas={deltas} />
+          <Navigation
+            docs={docs}
+            location={location}
+            navigationGroups={navigationGroups}
+            onStateChanged={onStateChanged}
+            deltas={deltas}
+          />
         </FixedNavigation>
       </SidebarGridItem>
       <ContentGridItem>

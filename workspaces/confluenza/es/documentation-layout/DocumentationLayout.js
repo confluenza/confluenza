@@ -9,7 +9,8 @@ import { jsx as ___EmotionJSX } from "@emotion/core";
 var DocumentationLayout = function DocumentationLayout(_ref) {
   var children = _ref.children,
       location = _ref.location,
-      data = _ref.data;
+      data = _ref.data,
+      rhythm = _ref.rhythm;
   var pageReady = useUnusualReloader(location);
 
   if (!pageReady) {
@@ -21,16 +22,19 @@ var DocumentationLayout = function DocumentationLayout(_ref) {
   }, function (matches) {
     return matches ? ___EmotionJSX(DocumentationLayoutWide, {
       location: location,
-      data: data
+      data: data,
+      rhythm: rhythm
     }, children) : ___EmotionJSX(Media, {
       query: "(min-width: 800px)"
     }, function (matches) {
       return matches ? ___EmotionJSX(DocumentationLayoutMedium, {
         location: location,
-        data: data
+        data: data,
+        rhythm: rhythm
       }, children) : ___EmotionJSX(DocumentationLayoutSmall, {
         location: location,
-        data: data
+        data: data,
+        rhythm: rhythm
       }, children);
     });
   });

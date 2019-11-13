@@ -10,14 +10,22 @@ var DocumentationLayoutWide = function DocumentationLayoutWide(_ref) {
       location = _ref.location,
       data = _ref.data,
       onStateChanged = _ref.onStateChanged,
-      deltas = _ref.deltas;
-  var title = data.site.siteMetadata.title,
+      deltas = _ref.deltas,
+      rhythm = _ref.rhythm;
+  var _data$site$siteMetada = data.site.siteMetadata,
+      title = _data$site$siteMetada.title,
+      navigationGroups = _data$site$siteMetada.navigationGroups,
       docs = data.navigation.docs;
-  return ___EmotionJSX(DocumentationLayoutGrid, null, ___EmotionJSX(SidebarGridItem, null, ___EmotionJSX(FixedNavigation, null, ___EmotionJSX(SiteTitle, {
+  return ___EmotionJSX(DocumentationLayoutGrid, {
+    rhythm: rhythm
+  }, ___EmotionJSX(SidebarGridItem, null, ___EmotionJSX(FixedNavigation, {
+    rhythm: rhythm
+  }, ___EmotionJSX(SiteTitle, {
     title: title
   }), ___EmotionJSX(Navigation, {
     docs: docs,
     location: location,
+    navigationGroups: navigationGroups,
     onStateChanged: onStateChanged,
     deltas: deltas
   }))), ___EmotionJSX(ContentGridItem, null, children));

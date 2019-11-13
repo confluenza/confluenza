@@ -5,14 +5,20 @@ import { SiteTitle } from './SiteTitle'
 
 import { FixedNavigation } from './FixedNavigation'
 
-const DocumentationLayoutWide = ({ children, location, data, onStateChanged, deltas }) => {
-  const { site: { siteMetadata: { title } }, navigation: { docs } } = data
+const DocumentationLayoutWide = ({ children, location, data, onStateChanged, deltas, rhythm }) => {
+  const { site: { siteMetadata: { title, navigationGroups } }, navigation: { docs } } = data
   return (
-    <DocumentationLayoutGrid>
+    <DocumentationLayoutGrid rhythm={rhythm}>
       <SidebarGridItem>
-        <FixedNavigation>
+        <FixedNavigation rhythm={rhythm}>
           <SiteTitle title={title} />
-          <Navigation docs={docs} location={location} onStateChanged={onStateChanged} deltas={deltas} />
+          <Navigation
+            docs={docs}
+            location={location}
+            navigationGroups={navigationGroups}
+            onStateChanged={onStateChanged}
+            deltas={deltas}
+          />
         </FixedNavigation>
       </SidebarGridItem>
       <ContentGridItem>

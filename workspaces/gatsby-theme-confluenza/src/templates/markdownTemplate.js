@@ -24,7 +24,7 @@ const Template = ({ data: { site: { siteMetadata }, doc }, location }) => {
 }
 
 export const pageQuery = graphql`
-  query MarkdownByPath($path: String!) {
+  query ($path: String!) {
     site: site {
       siteMetadata {
         title

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { rhythm } from '../typography'
 
 import { Navigation } from '../navigation'
 import { MenuButton } from '../navigation/MenuButton'
 import { SiteTitle } from './SiteTitle'
 
-const MobileNavigation = ({ menuActive, title, docs, location, onStateChanged, deltas }) => {
+const MobileNavigation = ({
+  menuActive,
+  title,
+  docs,
+  location,
+  onStateChanged,
+  deltas,
+  navigationGroups,
+  rhythm
+}) => {
   return (
     <div css={{
       position: 'fixed',
@@ -38,12 +46,18 @@ const MobileNavigation = ({ menuActive, title, docs, location, onStateChanged, d
       transform: menuActive ? 'translate(100%, 0)' : 'none'
     }}>
       <SiteTitle title={title} />
-      <Navigation docs={docs} location={location} onStateChanged={onStateChanged} deltas={deltas} />
+      <Navigation
+        docs={docs}
+        location={location}
+        navigationGroups={navigationGroups}
+        onStateChanged={onStateChanged}
+        deltas={deltas}
+      />
     </div>
   )
 }
 
-const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, deltas }) => {
+const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, deltas, rhythm }) => {
   const [menuActive, setMenuActive] = useState(false)
   const [prevLocation, setPrevLocation] = useState()
 
@@ -61,12 +75,21 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
     }
   }, [location])
 
-  const { site: { siteMetadata: { title } }, navigation: { docs }, file: { publicURL: menuButtonBackgroundImage } } = data
+  const { site: { siteMetadata: { title, navigationGroups } }, navigation: { docs }, file: { publicURL: menuButtonBackgroundImage } } = data
   return (
     <div css={{
       padding: '1rem'
     }}>
-      <MobileNavigation menuActive={menuActive} title={title} docs={docs} location={location} onStateChanged={onStateChanged} deltas={deltas} />
+      <MobileNavigation
+        menuActive={menuActive}
+        title={title}
+        docs={docs}
+        location={location}
+        onStateChanged={onStateChanged}
+        deltas={deltas}
+        navigationGroups={navigationGroups}
+        rhythm={rhythm}
+      />
       <MenuButton onClick={showMenu} backgroundImage={menuButtonBackgroundImage} css={{
         position: 'fixed',
         zIndex: 20,
