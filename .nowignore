@@ -8,6 +8,7 @@
 
 !tools/**
 !workspaces/confluenza/**
+!workspaces/gatsby-theme-confluenza/**
 workspaces/demo-workspace-1/**
 !workspaces/demo-workspace-1/*.md
 workspaces/demo-workspace-2/**
