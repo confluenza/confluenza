@@ -11,7 +11,7 @@ const MobileNavigation = ({
   location,
   onStateChanged,
   deltas,
-  navigationGroups,
+  confluenzaConfig,
   rhythm
 }) => {
   return (
@@ -49,7 +49,7 @@ const MobileNavigation = ({
       <Navigation
         docs={docs}
         location={location}
-        navigationGroups={navigationGroups}
+        confluenzaConfig={confluenzaConfig}
         onStateChanged={onStateChanged}
         deltas={deltas}
       />
@@ -75,7 +75,7 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
     }
   }, [location])
 
-  const { site: { siteMetadata: { title, navigationGroups } }, navigation: { docs }, file: { publicURL: menuButtonBackgroundImage } } = data
+  const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, file: { publicURL: menuButtonBackgroundImage } } = data
   return (
     <div css={{
       padding: '1rem'
@@ -87,7 +87,7 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
         location={location}
         onStateChanged={onStateChanged}
         deltas={deltas}
-        navigationGroups={navigationGroups}
+        confluenzaConfig={confluenzaConfig}
         rhythm={rhythm}
       />
       <MenuButton onClick={showMenu} backgroundImage={menuButtonBackgroundImage} css={{

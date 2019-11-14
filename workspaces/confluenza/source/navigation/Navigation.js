@@ -12,14 +12,6 @@ const List = styled.ul({
 })
 
 export class Navigation extends React.PureComponent {
-  state = {
-    otherDeltas: [],
-    userDeltas: [],
-    developerDeltas: [],
-    demo1Deltas: [],
-    demo2Deltas: []
-  }
-
   navigationGroups
 
   constructor (props) {
@@ -27,37 +19,20 @@ export class Navigation extends React.PureComponent {
 
     this.scrollerRef = React.createRef()
 
+    const { confluenzaConfig } = this.props
+
+    this.initializaNavigationState(confluenzaConfig)
+
     this.restoreNavigationState()
 
-    console.log(this.props.navigationGroups)
+    this.createNavigationGroups(confluenzaConfig)
+  }
 
-    this.navigationGroups = [
-      this.createNavigationGroupForTag({
-        title: 'User Documentation',
-        tag: 'user',
-        deltaGroupName: 'user'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Developer Documentation',
-        tag: 'developer',
-        deltaGroupName: 'developer'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Other Documents',
-        tag: 'other',
-        deltaGroupName: 'other'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Demo Workspace 1',
-        tag: 'demo1',
-        deltaGroupName: 'demo1'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Demo Workspace 2',
-        tag: 'demo2',
-        deltaGroupName: 'demo2'
-      })
-    ]
+  initializaNavigationState = config => {
+    this.state = config.reduce((acc, c) => {
+      acc[`${c.tag}Deltas`] = []
+      return acc
+    }, {})
   }
 
   restoreNavigationState = () => {
@@ -72,6 +47,16 @@ export class Navigation extends React.PureComponent {
         this.clearNavigationState()
       }
     }
+  }
+
+  createNavigationGroups = config => {
+    this.navigationGroups = config.map(c => {
+      const { title, tag } = c
+      return this.createNavigationGroupForTag({
+        title,
+        tag
+      })
+    })
   }
 
   readNavigationState = () => {
@@ -95,12 +80,11 @@ export class Navigation extends React.PureComponent {
     return undefined
   }
 
-  createNavigationGroupForTag = ({ title, tag, deltaGroupName }) => {
+  createNavigationGroupForTag = ({ title, tag }) => {
     return {
       title,
       docs: this.props.docs.filter(d => d.node.frontmatter.tag === tag),
-      tag,
-      deltaGroupName
+      tag
     }
   }
 
@@ -119,8 +103,8 @@ export class Navigation extends React.PureComponent {
     return false
   }
 
-  updateDeltas = (group, index, d) => {
-    let deltas = [...this.state[`${group}Deltas`]]
+  updateDeltas = (tag, index, d) => {
+    let deltas = [...this.state[`${tag}Deltas`]]
     deltas[index] = d
     deltas = [...deltas].map(d => {
       if (d === undefined) {
@@ -128,7 +112,7 @@ export class Navigation extends React.PureComponent {
       }
       return d
     })
-    this.setState({ [`${group}Deltas`]: deltas })
+    this.setState({ [`${tag}Deltas`]: deltas })
   }
 
   calculateRequiredScroll = ({ top, addedContentHeight, navigationElementTotalHeight }) => {
@@ -173,8 +157,8 @@ export class Navigation extends React.PureComponent {
     })
   }
 
-  midLevelNavigationItemChanged = (group, index, delta, element, triggerElement) => {
-    this.updateDeltas(group, index, delta)
+  midLevelNavigationItemChanged = (tag, index, delta, element, triggerElement) => {
+    this.updateDeltas(tag, index, delta)
 
     const navigationElementTotalHeight = this.getElementHeight(triggerElement)
 
@@ -192,7 +176,7 @@ export class Navigation extends React.PureComponent {
       title={group.title}
       onChange={(delta, el, triggerElement) => this.topLevelNavigationItemChanged(delta, el, triggerElement)}
       active={this.isActive(group.docs)}
-      delta={this.aggregateDeltas(this.state[`${group.deltaGroupName}Deltas`])}>
+      delta={this.aggregateDeltas(this.state[`${group.tag}Deltas`])}>
       <div>
         <List>
           {
@@ -202,7 +186,7 @@ export class Navigation extends React.PureComponent {
                 location={this.props.location}
                 {...doc}
                 onChange={(delta, el, triggerElement) =>
-                  this.midLevelNavigationItemChanged(group.deltaGroupName, i, delta, el, triggerElement)
+                  this.midLevelNavigationItemChanged(group.tag, i, delta, el, triggerElement)
                 } />
             ))
           }

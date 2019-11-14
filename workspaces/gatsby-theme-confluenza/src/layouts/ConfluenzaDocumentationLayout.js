@@ -5,20 +5,25 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { DocumentationLayout } from '@confluenza/confluenza'
 
-export const ConfluenzaSiteInformation = graphql`
-  fragment ConfluenzaSiteInformation on Site {
+export const SiteInformation = graphql`
+  fragment SiteInformation on Site {
     siteMetadata {
       title
-      navigationGroups {
-        title
-        tag
-      }
     }
   }
 `
 
-export const ConfluenzaMarkdownConnection = graphql`
-  fragment ConfluenzaMarkdownConnection on MarkdownRemarkConnection {
+export const ConfluenzaConfig = graphql`
+  fragment ConfluenzaConfig on ConfluenzaYamlConnection {
+    nodes {
+      tag
+      title
+    }
+  }
+`
+
+export const MarkdownConnection = graphql`
+  fragment MarkdownConnection on MarkdownRemarkConnection {
     docs: edges {
       node {
         frontmatter {
@@ -45,16 +50,19 @@ export const ConfluenzaMarkdownConnection = graphql`
 const confluenzaQuery = graphql`
   query Navigation {
     site {
-      ...ConfluenzaSiteInformation
+      ...SiteInformation
     }
     file(base: { eq: "MenuButton.png" }) {
       publicURL
+    }
+    config: allConfluenzaYaml(filter: {tag: {ne: null}}) {
+      ...ConfluenzaConfig
     }
     navigation: allMarkdownRemark(
       filter: { frontmatter: { path: { ne: "/404.html" } } }
       sort: { fields: [fileAbsolutePath], order: ASC }
     ) {
-      ...ConfluenzaMarkdownConnection
+      ...MarkdownConnection
     }
   }
 `

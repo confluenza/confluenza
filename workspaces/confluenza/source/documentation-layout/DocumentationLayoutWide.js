@@ -6,7 +6,7 @@ import { SiteTitle } from './SiteTitle'
 import { FixedNavigation } from './FixedNavigation'
 
 const DocumentationLayoutWide = ({ children, location, data, onStateChanged, deltas, rhythm }) => {
-  const { site: { siteMetadata: { title, navigationGroups } }, navigation: { docs } } = data
+  const { site: { siteMetadata: { title } }, config: { nodes: confluenzaConfig }, navigation: { docs } } = data
   return (
     <DocumentationLayoutGrid rhythm={rhythm}>
       <SidebarGridItem>
@@ -15,7 +15,7 @@ const DocumentationLayoutWide = ({ children, location, data, onStateChanged, del
           <Navigation
             docs={docs}
             location={location}
-            navigationGroups={navigationGroups}
+            confluenzaConfig={confluenzaConfig}
             onStateChanged={onStateChanged}
             deltas={deltas}
           />

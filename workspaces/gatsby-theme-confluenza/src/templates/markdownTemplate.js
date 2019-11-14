@@ -31,6 +31,12 @@ export const pageQuery = graphql`
         editBaseUrl
       }
     }
+    config: allConfluenzaYaml(filter: {tag: {ne: null}}) {
+      nodes {
+        tag
+        title
+      }
+    }
     doc: markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       fileAbsolutePath

@@ -12,9 +12,8 @@ var DocumentationLayoutWide = function DocumentationLayoutWide(_ref) {
       onStateChanged = _ref.onStateChanged,
       deltas = _ref.deltas,
       rhythm = _ref.rhythm;
-  var _data$site$siteMetada = data.site.siteMetadata,
-      title = _data$site$siteMetada.title,
-      navigationGroups = _data$site$siteMetada.navigationGroups,
+  var title = data.site.siteMetadata.title,
+      confluenzaConfig = data.config.nodes,
       docs = data.navigation.docs;
   return ___EmotionJSX(DocumentationLayoutGrid, {
     rhythm: rhythm
@@ -25,7 +24,7 @@ var DocumentationLayoutWide = function DocumentationLayoutWide(_ref) {
   }), ___EmotionJSX(Navigation, {
     docs: docs,
     location: location,
-    navigationGroups: navigationGroups,
+    confluenzaConfig: confluenzaConfig,
     onStateChanged: onStateChanged,
     deltas: deltas
   }))), ___EmotionJSX(ContentGridItem, null, children));
