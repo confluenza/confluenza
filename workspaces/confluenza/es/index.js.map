@@ -1,1 +1,0 @@
-{"version":3,"sources":["../source/index.js"],"names":["DocumentationLayout","EditFile"],"mappings":"AAAA,SAASA,mBAAT,QAAoC,wBAApC;AACA,SAASC,QAAT,QAAyB,WAAzB","sourcesContent":["export { DocumentationLayout } from './documentation-layout'\nexport { EditFile } from './Editing'\n"],"file":"index.js"}

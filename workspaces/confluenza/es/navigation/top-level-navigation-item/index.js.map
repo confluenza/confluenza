@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../source/navigation/top-level-navigation-item/index.js"],"names":["TopLevelNavigationItem"],"mappings":"AAAA,SAASA,sBAAT,QAAuC,0BAAvC","sourcesContent":["export { TopLevelNavigationItem } from './TopLevelNavigationItem'\n"],"file":"index.js"}

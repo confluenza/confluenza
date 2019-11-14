@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../source/documentation-layout/index.js"],"names":["DocumentationLayout"],"mappings":"AAAA,SAASA,mBAAT,QAAoC,uBAApC","sourcesContent":["export { DocumentationLayout } from './DocumentationLayout'\n"],"file":"index.js"}
