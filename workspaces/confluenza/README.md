@@ -28,3 +28,7 @@ const ConfluenzaDocumentationLayout = ({ children, location }) => {
 
 export { ConfluenzaDocumentationLayout }
 ```
+
+## Using in monorepos
+
+When using in a monorepo `@confluenza/gatsby-theme-confluenza` assumes that all your workspaces are placed under either `workspaces` or `packages` directory.

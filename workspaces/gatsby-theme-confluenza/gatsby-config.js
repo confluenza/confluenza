@@ -1,3 +1,16 @@
+const path = require('path')
+
+const workspacesDirNames = ['workspaces', 'packages']
+
+const rootPath = () => {
+  const parentDirName = path.basename(path.resolve(process.cwd(), '..'))
+  if (workspacesDirNames.includes(parentDirName)) {
+    return `${process.cwd()}/../../`
+  } else {
+    return process.cwd()
+  }
+}
+
 module.exports = {
   siteMetadata: {
     title: 'Confluenza',
@@ -7,7 +20,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/../../`,
+        path: `${rootPath()}`,
         ignore: [
           '**/.git/**',
           '**/coverage/**',
