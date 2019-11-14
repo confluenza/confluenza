@@ -102,6 +102,9 @@ The `confluenza.yml` file holds associations between tags and the corresponding 
 
 - title: 'Demo Workspace 2'
   tag: 'demo2'
+
+- title: 'Packages'
+  tag: 'package'
 ```
 
 We can clearly see which tag receives which title.
