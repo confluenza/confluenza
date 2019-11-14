@@ -21,6 +21,7 @@ workspaces/homepage/.gitignore
 !workspaces/homepage/*.md
 !workspaces/homepage/gatsby-config.js
 !workspaces/homepage/gatsby-node.js
+!workspaces/homepage/confluenza.yml
 !workspaces/homepage/package.json
 !workspaces/homepage/src/**
 workspaces/homepage/src/**/*.psd
