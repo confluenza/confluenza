@@ -21,17 +21,48 @@ local environment:
 Confluenza is a monorepo. It consists of a number of packages that all live under the `workspaces` folder. We use a combination of [lerna](https://lernajs.io) and [yarn
 workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) to manage them.
 
-### yarn install
+## Workspaces
+
+Confluenza monorepo currently uses a number of workspaces described below.
+
+### confluenza
+
+This workspace holds the code for the navigation menu allowing to conveniently browse through markdown documents managed by Confluenza. It is an npm package (`@confluenza/confluenza`) that is then used by the `gatsby-theme-confluenza` workspace described below. Although it has a peer dependency to `gatsby`, it is independent of Gatsby build system and it does not hold any GraphQL queries.
+
+### gatsby-theme-confluenza
+
+This is a Gatsby Theme - the core of Confluenza and only direct dependency for any other sites wanting to use Confluenza navigation capability. It is published as `@confluenza/gatsby-theme-confluenza`.
+
+Because a Gatsby theme is also a fully functional Gatsby site, any changes in the gatsby-theme-confluenza can be easily validated by simply running:
+
+```bash
+$ yarn workspace @confluenza/gatsby-theme-confluenza develop
+```
+
+And, even more, you do not need to create a dummy test data or create test pages. Because our repository is a monorepo, gatsby-theme-confluenza has access to any other document published in the `homepage` workspace. In other words, the only difference between running `yarn workspace @confluenza/gatsby-theme-confluenza develop` and `yarn workspace homepage develop` (realize that `homepage` uses the Confluenza theme), is the index page.
+
+### homepage
+
+This is a Gatsby site that uses `gatsby-theme-confluenza`. This is what you see when you visit `https://confluenza.online`.
+
+### demo-workspace-1 and demo-workspace-2
+
+Demonstration workspaces to show that Confluenza makes it easy to make the documentation of every workspace accessible.
+
+### design-assets
+
+Most of our design assets live here.
+
+## Installing dependencies
 
 We install all mono-repo dependencies with single top-level `yarn install`. 
 
-### Build packages
+## Building packages
 
-Our monorepo contains a number of *packages* under the `workspaces` 
-directory. They have to be build before client apps like
-`homepage` (Gatsby-based, so also React) can use them. 
+Because our monorepo contains a number of *packages* under the `workspaces` 
+directory, some of them may need to be build before they can be published.
 The build command uses `lerna` in order to trigger the build script
-for every single workspace.
+for every single workspace. Please use a convenience script `build` defined in the root `package.json`.
 
 ### Run tests
 
@@ -42,18 +73,6 @@ especially if the number of workspaces in the monorepo increases:
 » yarn test
 » yarn test --no-cache    // good to know this
 » yarn jest --clearCache  // a nice one
-```
-
-### Confluenza-based homepage
-
-This is our landing page. It uses [Confluenza](https://confluenza.now.sh), which is based on [Gatsby](https://www.gatsbyjs.org/). We currently deploy it with [Netlify](https://www.netlify.com/).
-
-To start development server or to build version that is ready for distribution you can run:
-
-```bash
-» cd workspaces/homepage
-» yarn develop
-» yarn build
 ```
 
 ## Babel 7
@@ -138,6 +157,8 @@ Also, make sure to check if all packages build and that the tests pass before yo
 ```bash
 $ yarn build && yarn test
 ```
+
+Finally, when you rebase, please use `--force-with-lease` instead of bare `--force`.
 
 ## Read more
 

@@ -1,9 +1,29 @@
 # This top level header will be ignored
 
-Even in its very early release Confluenza is still easy to adjust so that it
-fits the needs of your project.
+Using Confluenza in your own gatsby site is super easy. Here is how.
 
-## Frontmatter
+> Below, we assume that you want to use Confluenza in a Gatsby site that you have in a monorepo in one of your workspaces. We assume that the name of the workspace where you have your Gatsby site to which you want to add Confluenza theme is `homepage`. 
+
+## gatsby-theme-confluenza
+
+Add `gatsby-theme-confluenza` to your Gatsby site's `gatsby-config.js`. Like this:
+
+```javascript
+module.exports = {
+  siteMetadata: {
+    title: 'Confluenza',
+    editBaseUrl: 'https://github.com/confluenza/confluenza/blob/master'
+  },
+  plugins: [
+    '@confluenza/gatsby-theme-confluenza',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-root-import'
+  ]
+}
+```
+
+## frontmatter and confluenza.yml
 
 Every markdown file that is supposed to be rendered by Confluenza needs to have a so called `frontmatter`
 containing important metadata like `title`, `path` and `tag`.
@@ -25,98 +45,70 @@ The `tag` field needs a bit more in depth explanation.
 
 ## Tags
 
-By *tagging* your file it will automatically be
-assigned to one of the groups displayed in the navigation menu. For example, the Confluenza page
-has (among others) the following categories: *User Documentation*, *Developer Documentation*, and *Other Documents*. Each of these categories is associated a tag: `user`, `developer`, and
-`other` respectively. The tags are currently tightly coupled with the Confluenza source code in
-the `homepage/src/confluenza/navigation/Navigation.js` file.
+When confluenza discovers relevant content, it learns the _tag_ corresponding to the given document. Many documents can share the same tag. Let's take the Confluenza navigation menu shown on the picture below.
 
-> We will make Confluenza more intelligent about tags in the future.
+<a name="figure-1"></a> 
+<div class="scrollable flex-wrap responsive">
+<div class="bordered-content-300">
+  <img alt="Confluenza Navigation Menu" src="MakingConfluenzaYours-assets/confluenza-menu.png"/>
+</div>
+</div>
+<div class="flex-wrap responsive">
+<p class="figure-title"><b>Figure 1</b> Confluenza Navigation Menu</p>
+</div>
 
-For the current set of supported tags you will find the following two code fragments in the
-above mentioned source file:
+Here, the _Making Confluenza Yours_ section comes from `01-MakingConfluenzaYours.md` file, while _Contributing_ comes from `02-Contributing.md` file.
+The frontmatter of the `01-MakingConfluenzaYours.md` file is the following:
 
-```javascript
-export class Navigation extends React.PureComponent {
-  state = {
-    otherDeltas: [],
-    userDeltas: [],
-    developerDeltas: [],
-    demo1Deltas: [],
-    demo2Deltas: []
-  }
-  // ...
+```yaml
+---
+path: /developers/making-confluenza-yours
+title: Making Confluenza Yours
+tag: developer
+content: ExternalContent.md
+---
 ```
 
-and then in the constructor:
+while the frontmatter of the `02-Contributing.md` file is:
 
-```javascript
-// ...
-constructor (props) {
-  super(props)
-
-  // ...
-
-  this.navigationGroups = [
-    this.navigationGroups = [
-      this.createNavigationGroupForTag({
-        title: 'User Documentation',
-        tag: 'user',
-        deltaGroupName: 'user'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Developer Documentation',
-        tag: 'developer',
-        deltaGroupName: 'developer'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Other Documents',
-        tag: 'other',
-        deltaGroupName: 'other'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Demo Workspace 1',
-        tag: 'demo1',
-        deltaGroupName: 'demo1'
-      }),
-      this.createNavigationGroupForTag({
-        title: 'Demo Workspace 2',
-        tag: 'demo2',
-        deltaGroupName: 'demo2'
-      })
-    ]
-  ]
-}
-// ...
+```yaml
+---
+path: /developers/contributing
+title: Contributing
+tag: developer
+content: ../../../../../CONTRIBUTING.md
+---
 ```
 
-Let's say you would like to add another category *Components* identified by tag `component`.
-You then first need to extend the state object shown above as follows:
+Here we see that both documents have the same tag: `developer`. On the other hand, the tag for the document corresponding to Section _Using Confluenza_ is `user`.
+You can use any name you like for a tag. Tags simply inform Confluenza that documents with the given tag should be grouped together under one category in the navigation menu. Following our example, the documents tagged `developer` appear under _Developer Documentation_ category, while the documents tagged `user` under _User Documentation_. How does Confluenza know which category title to use for the given tag? This is what `confluenza.yml` file is for.
 
-```javascript
-state = {
-    otherDeltas: [],
-    userDeltas: [],
-    developerDeltas: [],
-    demo1Deltas: [],
-    demo2Deltas: [],
-    componentsDeltas: [] // <== this one has been added here
-  }
-}
+## confluenza.yml
+
+The `confluenza.yml` file holds associations between tags and the corresponding navigation menu category titles. For instance, in our example, the contents of `confluenza.yml` is the following:
+
+```yaml
+- title: 'User Documentation'
+  tag: 'user'
+
+- title: 'Developer Documentation'
+  tag: 'developer'
+
+- title: 'Other Documents'
+  tag: 'other'
+
+- title: 'Demo Workspace 1'
+  tag: 'demo1'
+
+- title: 'Demo Workspace 2'
+  tag: 'demo2'
 ```
 
-and add the following to the constructor:
+We can clearly see which tag receives which title.
 
-```javascript
-this.createNavigationGroupForTag({
-  title: 'Components',
-  tag: 'component',
-  deltaGroupName: 'components'
-})
-```
+### One confluenza.yml is enough
 
-Notice that the `deltaGroupName` corresponds to the name of the attribute in the state.
-So if `deltaGroupName` is `components` then the attribute in the state must be named `componentsDeltas`.
+Looking at Confluenza monorepo, you may wonder why there is only one `confluenza.yml` (under `workspaces/homepage`) and still correct navigation headers are rendered even when running `yarn workspace @confluenza/gatsby-theme-confluenza develop` (see more details in Section [gatsby-theme-confluenza](/developers/contributing#gatsby-theme-confluenza) in [Contributing](/developers/contributing)). This is because Confluenza tracks your whole monorepo and so it will find the `confluenza.yml` file even if it is not in the current workspace. This is very convenient as it allows us to keep the Confluenza Gatsby Theme truly content agnostic.
 
 ## External content
 
@@ -199,3 +191,32 @@ important metadata like `title`, `path` and `tag`. These metadata do not have an
 Confluenza environment and therefore should not be kept e.g. in the actual README file of your npm package.
 This is not only a cleaner solution (the frontmatter may confuse the reader who is not aware of Confluenza),
 but also helps sites that do not render the frontmatter correctly (like npmjs).
+
+<style scoped>
+.scrollable {
+  width: 100%;
+  overflow-x: auto;
+}
+.flex-wrap {
+  display:flex;
+  flex-flow:column;
+  justify-content:center;
+  align-items: center;
+}
+@media (max-width: 650px) {
+  .responsive {
+    align-items: flex-start;
+  }  
+}
+.figure-title {
+  font-size: 0.8em
+}
+.bordered-content-600 {
+  width: 600px;
+  border: 1px solid black;
+}
+.bordered-content-300 {
+  width: 300px;
+  border: 1px solid black;
+}
+</style>
