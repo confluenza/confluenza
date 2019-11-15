@@ -1,11 +1,11 @@
-// import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+import MenuButtonImage from './MenuButton.png'
 
-const MenuButton = styled.button(({ backgroundImage }) => ({
+const MenuButton = styled.button(({ backgroundImage } = {}) => ({
   width: '48px',
   height: '48px',
   backgroundColor: 'white',
-  backgroundImage: `url(${backgroundImage})`,
+  backgroundImage: `url(${backgroundImage || MenuButtonImage})`,
   backgroundSize: 'auto 100%',
   backgroundPosition: 'center center',
   backgroundRepeat: 'no-repeat',
