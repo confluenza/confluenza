@@ -52,7 +52,7 @@ const confluenzaQuery = graphql`
     site {
       ...SiteInformation
     }
-    file(base: { eq: "MenuButton.png" }) {
+    menuButton: file(base: { eq: "confluenza-menu-button.png" }) {
       publicURL
     }
     config: allConfluenzaYaml(filter: {tag: {ne: null}}) {

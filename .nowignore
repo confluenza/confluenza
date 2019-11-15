@@ -19,7 +19,6 @@
 !workspaces/gatsby-theme-confluenza/package.json
 
 !workspaces/homepage/gatsby-config.js
-!workspaces/homepage/gatsby-node.js
 !workspaces/homepage/confluenza.yml
 !workspaces/homepage/package.json
 !workspaces/homepage/src/**

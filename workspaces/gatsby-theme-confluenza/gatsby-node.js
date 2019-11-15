@@ -1,12 +1,3 @@
-exports.sourceNodes = ({
-  actions,
-  createNodeId,
-  createContentDigest
-}, configOptions, done) => {
-  console.log('configOptions=', configOptions)
-  done()
-}
-
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const markdownTemplate = require.resolve(`./src/templates/markdownTemplate.js`)
