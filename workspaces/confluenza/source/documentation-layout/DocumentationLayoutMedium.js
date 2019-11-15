@@ -75,7 +75,7 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
     }
   }, [location])
 
-  const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, file: { publicURL: menuButtonBackgroundImage } } = data
+  const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, menuButton } = data
   return (
     <div css={{
       padding: '1rem'
@@ -90,7 +90,7 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
         confluenzaConfig={confluenzaConfig}
         rhythm={rhythm}
       />
-      <MenuButton onClick={showMenu} backgroundImage={menuButtonBackgroundImage} css={{
+      <MenuButton onClick={showMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
         position: 'fixed',
         zIndex: 20,
         bottom: '30px',

@@ -81,7 +81,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
     }
   }, [menuActive])
 
-  const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, file: { publicURL: menuButtonBackgroundImage } } = data
+  const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, menuButton } = data
   return (<>
     <DocumentationLayoutGrid rhythm={rhythm} css={{
       position,
@@ -113,7 +113,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
         { children }
       </ContentGridItem>
     </DocumentationLayoutGrid>
-    <MenuButton onClick={toggleMenu} backgroundImage={menuButtonBackgroundImage} css={{
+    <MenuButton onClick={toggleMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
       position: 'fixed',
       zIndex: 20,
       bottom: '30px',
