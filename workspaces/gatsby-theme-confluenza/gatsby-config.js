@@ -24,8 +24,6 @@ module.exports = {
         ignore: [
           '**/.git/**',
           '**/coverage/**',
-          'workspaces/design-assets/**',
-          'workspaces/gatsby-theme-confluenza/**',
           '**/node_modules/**',
           '**/.cache/**',
           '**/public/**',
@@ -33,6 +31,12 @@ module.exports = {
           '**/lib/**',
           '**/umd/**'
         ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: path.join(__dirname, 'src/pages')
       }
     },
     'gatsby-transformer-yaml',
