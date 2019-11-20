@@ -222,11 +222,11 @@ export class Navigation extends React.PureComponent {
         onScroll={this.handleOnScroll} ref={this.scrollerRef} css={{
           overflowY: 'auto',
           position: 'relative',
-          // dimensions are coming from SiteTitle component: 20px (2x10px padding), 2rem (bottom margin), 1.8rem (line-height)).
+          // dimensions are coming from SiteTitle component: 20px (2x10px padding), 2rem (bottom margin), 3.6rem (2*1.8rem line-height)).
           // 98px (70px for landscape) is the extra distance from the bottom
-          height: 'calc(100% - 20px - 2rem - 1.8rem - 128px)',
+          height: 'calc(100% - 20px - 2rem - 3.6rem - 128px)',
           '@media (orientation: landscape)': {
-            height: 'calc(100% - 20px - 2rem - 1.8rem - 100px)'
+            height: 'calc(100% - 20px - 2rem - 3.6rem - 100px)'
           },
           WebkitOverflowScrolling: 'touch',
           '::-webkit-scrollbar': {
