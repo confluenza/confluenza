@@ -4,6 +4,7 @@ import { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem } from './Doc
 import { Navigation } from '../navigation'
 import { MenuButton } from '../navigation/MenuButton'
 import { SiteTitle } from './SiteTitle'
+import { PoweredByConfluenza } from './PoweredByConfluenza'
 
 import { FixedNavigation } from './FixedNavigation'
 
@@ -112,6 +113,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
               onStateChanged={onStateChanged}
               deltas={deltas}
             />
+            <PoweredByConfluenza />
           </FixedNavigation>
         </SidebarGridItem>
         <ContentGridItem>

@@ -2,6 +2,7 @@ import React from 'react'
 import { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem } from './DocumentationLayoutGrid'
 import { Navigation } from '../navigation'
 import { SiteTitle } from './SiteTitle'
+import { PoweredByConfluenza } from './PoweredByConfluenza'
 
 import { FixedNavigation } from './FixedNavigation'
 
@@ -19,6 +20,7 @@ const DocumentationLayoutWide = ({ children, location, data, onStateChanged, del
             onStateChanged={onStateChanged}
             deltas={deltas}
           />
+          <PoweredByConfluenza />
         </FixedNavigation>
       </SidebarGridItem>
       <ContentGridItem>
