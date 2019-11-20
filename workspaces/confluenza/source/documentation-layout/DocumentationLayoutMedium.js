@@ -27,10 +27,10 @@ const MobileNavigation = ({
         height: '100vh'
       },
       backgroundColor: 'rgba(247, 247, 247, 0.9)',
-      WebkitOverflowScrolling: `touch`,
+      WebkitOverflowScrolling: 'touch',
       '::-webkit-scrollbar': {
-        width: `6px`,
-        height: `6px`
+        width: '6px',
+        height: '6px'
       },
       '::-webkit-scrollbar-thumb': {
         background: '#ccc'
@@ -44,7 +44,8 @@ const MobileNavigation = ({
       // background: 'white',
       transition: 'transform 0.2s ease-in-out 0s',
       transform: menuActive ? 'translate(100%, 0)' : 'none'
-    }}>
+    }}
+    >
       <SiteTitle title={title} />
       <Navigation
         docs={docs}
@@ -79,7 +80,8 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
   return (
     <div css={{
       padding: '1rem'
-    }}>
+    }}
+    >
       <MobileNavigation
         menuActive={menuActive}
         title={title}
@@ -90,15 +92,17 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
         confluenzaConfig={confluenzaConfig}
         rhythm={rhythm}
       />
-      <MenuButton onClick={showMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
-        position: 'fixed',
-        zIndex: 20,
-        bottom: '30px',
-        right: '30px',
-        backgroundColor: menuActive ? '#F486CA' : 'white'
+      <MenuButton
+        onClick={showMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
+          position: 'fixed',
+          zIndex: 20,
+          bottom: '30px',
+          right: '30px',
+          backgroundColor: menuActive ? '#F486CA' : 'white'
         // marginBottom: '10px'
-      }} />
-      { children }
+        }}
+      />
+      {children}
     </div>
   )
 }

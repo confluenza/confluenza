@@ -109,21 +109,24 @@ const IntroPanel = ({ data }) => {
 
   return (
     <Panel ref={panel}>
-      <Media query='(max-width: 799px)' render={() => (
-        <Title>Confluenza</Title>
-      )}
+      <Media
+        query='(max-width: 799px)' render={() => (
+          <Title>Confluenza</Title>
+        )}
       />
       <Img alt='Intro' src={getImage(data, 'intro-panel')} />
-      <Media query='(min-width: 800px)' render={() => (
-        <TitleContainer>
-          <Title>Confluenza</Title>
-          <Subtitle>flexible markdown documentation</Subtitle>
-        </TitleContainer>
-      )}
+      <Media
+        query='(min-width: 800px)' render={() => (
+          <TitleContainer>
+            <Title>Confluenza</Title>
+            <Subtitle>flexible markdown documentation</Subtitle>
+          </TitleContainer>
+        )}
       />
-      <Media query='(max-width: 799px)' render={() => (
-        <Subtitle>flexible markdown documentation</Subtitle>
-      )}
+      <Media
+        query='(max-width: 799px)' render={() => (
+          <Subtitle>flexible markdown documentation</Subtitle>
+        )}
       />
     </Panel>
   )
