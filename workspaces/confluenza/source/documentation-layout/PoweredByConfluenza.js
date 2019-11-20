@@ -4,7 +4,10 @@ import ConfluenzaLogoImage from './ConfluenzaLogoImage.png'
 
 const Wrapper = styled.div({
   position: 'absolute',
-  bottom: '20px',
+  bottom: '75px',
+  '@media (min-width: 800px)': {
+    bottom: '20px'
+  },
   width: '100%',
   display: 'flex',
   flexFlow: 'column nowrap',
