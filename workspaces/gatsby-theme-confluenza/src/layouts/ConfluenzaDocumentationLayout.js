@@ -74,7 +74,7 @@ const ConfluenzaDocumentationLayout = ({ children, location }) => {
       render={data => {
         return (
           <DocumentationLayout location={location} data={data} rhythm={rhythm}>
-            { children }
+            {children}
           </DocumentationLayout>
         )
       }}

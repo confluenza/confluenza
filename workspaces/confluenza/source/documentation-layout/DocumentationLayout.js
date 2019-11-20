@@ -17,24 +17,22 @@ const DocumentationLayout = ({ children, location, data, rhythm }) => {
       {matches =>
         matches ? (
           <DocumentationLayoutWide location={location} data={data} rhythm={rhythm}>
-            { children }
+            {children}
           </DocumentationLayoutWide>
         ) : (
           <Media query='(min-width: 800px)'>
             {matches =>
               matches ? (
                 <DocumentationLayoutMedium location={location} data={data} rhythm={rhythm}>
-                  { children }
+                  {children}
                 </DocumentationLayoutMedium>
               ) : (
                 <DocumentationLayoutSmall location={location} data={data} rhythm={rhythm}>
-                  { children }
+                  {children}
                 </DocumentationLayoutSmall>
-              )
-            }
+              )}
           </Media>
-        )
-      }
+        )}
     </Media>
   )
 }

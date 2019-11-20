@@ -82,45 +82,52 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
   }, [menuActive])
 
   const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, menuButton } = data
-  return (<>
-    <DocumentationLayoutGrid rhythm={rhythm} css={{
-      position,
-      height: '100vh',
-      left: menuActive ? 0 : '-300px',
-      margin: 0,
-      gridGap: 0,
-      gridTemplateColumns: grid,
-      transition: `all .2s ease-in-out ${animationDelay}s`
-    }}>
-      <SidebarGridItem>
-        <FixedNavigation rhythm={rhythm} css={{
-          minWidth: menuActive ? '100vw' : '300px',
-          maxWidth: menuActive ? '100vw' : '300px',
-          transition: `all .2s ease-in-out ${animationDelay}s`,
-          height: '100vh'
-        }}>
-          <SiteTitle title={title} />
-          <Navigation
-            docs={docs}
-            location={location}
-            confluenzaConfig={confluenzaConfig}
-            onStateChanged={onStateChanged}
-            deltas={deltas}
-          />
-        </FixedNavigation>
-      </SidebarGridItem>
-      <ContentGridItem>
-        { children }
-      </ContentGridItem>
-    </DocumentationLayoutGrid>
-    <MenuButton onClick={toggleMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
-      position: 'fixed',
-      zIndex: 20,
-      bottom: '30px',
-      right: '30px',
-      backgroundColor: menuActive ? '#F486CA' : 'white'
-    }} />
-  </>
+  return (
+    <>
+      <DocumentationLayoutGrid
+        rhythm={rhythm} css={{
+          position,
+          height: '100vh',
+          left: menuActive ? 0 : '-300px',
+          margin: 0,
+          gridGap: 0,
+          gridTemplateColumns: grid,
+          transition: `all .2s ease-in-out ${animationDelay}s`
+        }}
+      >
+        <SidebarGridItem>
+          <FixedNavigation
+            rhythm={rhythm} css={{
+              minWidth: menuActive ? '100vw' : '300px',
+              maxWidth: menuActive ? '100vw' : '300px',
+              transition: `all .2s ease-in-out ${animationDelay}s`,
+              height: '100vh'
+            }}
+          >
+            <SiteTitle title={title} />
+            <Navigation
+              docs={docs}
+              location={location}
+              confluenzaConfig={confluenzaConfig}
+              onStateChanged={onStateChanged}
+              deltas={deltas}
+            />
+          </FixedNavigation>
+        </SidebarGridItem>
+        <ContentGridItem>
+          {children}
+        </ContentGridItem>
+      </DocumentationLayoutGrid>
+      <MenuButton
+        onClick={toggleMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
+          position: 'fixed',
+          zIndex: 20,
+          bottom: '30px',
+          right: '30px',
+          backgroundColor: menuActive ? '#F486CA' : 'white'
+        }}
+      />
+    </>
   )
 }
 

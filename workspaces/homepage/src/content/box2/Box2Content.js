@@ -27,7 +27,8 @@ const Box2Content = ({ data }) => (
       color: 'black',
       fontSize: '9pt',
       textAlign: 'end'
-    }}>
+    }}
+    >
       <em>*) The origins of the name Confluenza will remain our small secret for now...</em>
     </TextBox>
   </BoxContentWrapper>

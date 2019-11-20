@@ -18,7 +18,8 @@ const NotFound404 = () => (
   <Wrapper>
     <h1>Not Found :(</h1>
     <Text>This is the end of the Internet. You need to restart the Internet
-or just try another link ;).</Text>
+or just try another link ;).
+    </Text>
   </Wrapper>
 )
 
