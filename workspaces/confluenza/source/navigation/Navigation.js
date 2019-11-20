@@ -224,7 +224,7 @@ export class Navigation extends React.PureComponent {
           position: 'relative',
           // dimensions are coming from SiteTitle component: 20px (2x10px padding), 2rem (bottom margin), 3.6rem (2*1.8rem line-height)).
           // 98px (70px for landscape) is the extra distance from the bottom
-          height: 'calc(100% - 20px - 2rem - 3.6rem - 128px)',
+          height: 'calc(100% - 20px - 2rem - 3.6rem - 148px)',
           '@media (orientation: landscape)': {
             height: 'calc(100% - 20px - 2rem - 3.6rem - 100px)'
           },
