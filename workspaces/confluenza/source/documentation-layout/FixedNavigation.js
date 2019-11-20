@@ -6,7 +6,7 @@ const FixedNavigation = styled.div(({ rhythm }) => ({
   top: 0,
   minWidth: '300px',
   maxWidth: '300px',
-  height: `calc(100vh - ${rhythm(2)})`,
+  height: `100vh`,
   backgroundColor: '#F7F7F7'
 }))
 

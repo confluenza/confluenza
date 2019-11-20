@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Navigation } from '../navigation'
 import { MenuButton } from '../navigation/MenuButton'
 import { SiteTitle } from './SiteTitle'
+import { PoweredByConfluenza } from './PoweredByConfluenza'
 
 const MobileNavigation = ({
   menuActive,
@@ -18,7 +19,7 @@ const MobileNavigation = ({
     <div css={{
       position: 'fixed',
       zIndex: 20,
-      height: `calc(100vh - ${rhythm(3)})`,
+      height: `calc(100vh - ${rhythm(2)})`,
       minWidth: '300px',
       maxWidth: '300px',
       '@media (max-width: 568px)': {
@@ -54,6 +55,7 @@ const MobileNavigation = ({
         onStateChanged={onStateChanged}
         deltas={deltas}
       />
+      <PoweredByConfluenza />
     </div>
   )
 }
