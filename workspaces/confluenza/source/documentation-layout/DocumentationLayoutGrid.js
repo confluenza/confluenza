@@ -9,7 +9,7 @@ const grid = new Grid([
 
 const DocumentationLayoutGrid = styled.div(grid.container, ({ rhythm }) => ({
   boxSizing: 'border-box',
-  margin: rhythm(1),
+  margin: `0 ${rhythm(1)}`,
   fontSize: '18px'
 }))
 

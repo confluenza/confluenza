@@ -7,7 +7,8 @@ const Wrapper = styled.div({
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  height: '100vh'
+  // 2rem comes from the ContentGridItem in DocumentationLayoutGrid from @confluenza/confluenza
+  height: 'calc(100vh - 2rem)'
 })
 
 const Text = styled.p({
@@ -18,7 +19,7 @@ const NotFound404 = () => (
   <Wrapper>
     <h1>Not Found :(</h1>
     <Text>This is the end of the Internet. You need to restart the Internet
-or just try another link ;).
+or just try another url ;).
     </Text>
   </Wrapper>
 )
