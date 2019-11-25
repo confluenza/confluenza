@@ -35,7 +35,8 @@ const ConfluenzaText = styled.div({
 })
 
 const PoweredByConfluenza = ({ title }) => (
-  <a href='https://confluenza.online' target='_blank'>
+  // see https://mathiasbynens.github.io/rel-noopener
+  <a href='https://confluenza.online' target='_blank' rel='noopener noreferrer'>
     <Wrapper>
       <ConfluenzaLogo />
       <ConfluenzaText>

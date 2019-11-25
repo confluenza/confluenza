@@ -68,18 +68,22 @@ const Header = ({ data }) => (
           styles={{ color: 'white' }}
           href='https://github.com/confluenza/confluenza'
           target='_blank'
+          // see https://mathiasbynens.github.io/rel-noopener
+          rel='noopener noreferrer'
         >Github
         </MenuLinkExternal>
         <MenuLinkExternal
           styles={{ color: 'white' }}
           href='https://twitter.com/confluenza1'
           target='_blank'
+          rel='noopener noreferrer'
         >Twitter
         </MenuLinkExternal>
         {/* <MenuLinkExternal
           styles={{ color: 'white' }}
           href='http://marcinczenko.github.io'
           target='_blank'
+          rel='noopener noreferrer'
         >Blog
         </MenuLinkExternal> */}
       </Menu>
