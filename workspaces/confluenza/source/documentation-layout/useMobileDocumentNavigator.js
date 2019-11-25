@@ -27,6 +27,7 @@ const useMobileDocumentNavigator = ({
       navigateUnusually({ path, pathWithHash })
       onNewPathSelected && onNewPathSelected()
     }
+  // eslint-disable-next-line
   }, deps)
 }
 
