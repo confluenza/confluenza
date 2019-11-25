@@ -12,10 +12,10 @@ const useMobileDocumentNavigator = ({
   const navigateUnusually = ({ path, pathWithHash }) => {
     setTimeout(() => {
       setPrevLocation(pathWithHash)
-      navigate(pathWithHash)
+      navigate(pathWithHash, { replace: true })
     }, 300)
     setPrevLocation(path)
-    navigate(path)
+    navigate(path, { replace: true })
   }
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const useMobileDocumentNavigator = ({
       navigateUnusually({ path, pathWithHash })
       onNewPathSelected && onNewPathSelected()
     }
+  // eslint-disable-next-line
   }, deps)
 }
 

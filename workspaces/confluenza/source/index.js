@@ -1,2 +1,2 @@
-export { DocumentationLayout } from './documentation-layout'
+export { DocumentationLayout, useUnusualReloader } from './documentation-layout'
 export { EditFile } from './Editing'

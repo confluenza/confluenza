@@ -76,6 +76,7 @@ const DocumentationLayoutMedium = ({ children, location, data, onStateChanged, d
       setPrevLocation(currentLocation)
       setMenuActive(false)
     }
+    // eslint-disable-next-line
   }, [location])
 
   const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, menuButton } = data

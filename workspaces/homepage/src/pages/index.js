@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
@@ -9,26 +9,17 @@ import { Footer } from 'src/content/footer'
 
 import { Box1, Box2, Box3 } from 'src/content'
 
-const useUnusualReloader = location => {
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setReady(true)
-    }, 300)
-  }, [])
-
-  return ready
-}
-
 const Home = ({ data, location }) => {
   console.log('                CONFLUENZA \n\n       flexible markdown documentation\n ')
 
-  const pageReady = useUnusualReloader(location)
+  const [visibility, setVisibility] = useState('hidden')
 
-  if (!pageReady) {
-    return null
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setVisibility('visible')
+    }, 100)
+  }, [])
+
   return (
     <>
       <Helmet title='Confluenza'>
@@ -36,7 +27,7 @@ const Home = ({ data, location }) => {
         <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
       </Helmet>
       <Header data={data} />
-      <BodyFrame>
+      <BodyFrame css={{ visibility }}>
         <IntroPanel data={data} />
         <Box1 />
         <Box2 data={data} />

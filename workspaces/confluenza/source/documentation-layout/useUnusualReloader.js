@@ -6,13 +6,13 @@ const useUnusualReloader = location => {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    const { path, pathWithHash } = normalizeLocationPath(location)
+    const { pathWithHash } = normalizeLocationPath(location)
 
     setTimeout(() => {
       setReady(true)
       navigate(pathWithHash, { replace: true })
     }, 300)
-    navigate(path, { replace: true })
+    // eslint-disable-next-line
   }, [])
 
   return ready

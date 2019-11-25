@@ -30,6 +30,7 @@ export class Navigation extends React.PureComponent {
   }
 
   initializaNavigationState = config => {
+    // eslint-disable-next-line
     this.state = config.reduce((acc, c) => {
       acc[`${c.tag}Deltas`] = []
       return acc

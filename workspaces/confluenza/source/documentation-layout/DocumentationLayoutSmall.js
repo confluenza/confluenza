@@ -80,6 +80,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // before we can change the scroll position.
       restoreScrollPosition()
     }
+    // eslint-disable-next-line
   }, [menuActive])
 
   const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, menuButton } = data
