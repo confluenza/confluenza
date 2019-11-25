@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
@@ -12,6 +12,14 @@ import { Box1, Box2, Box3 } from 'src/content'
 const Home = ({ data, location }) => {
   console.log('                CONFLUENZA \n\n       flexible markdown documentation\n ')
 
+  const [visibility, setVisibility] = useState('hidden')
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVisibility('visible')
+    }, 100)
+  }, [])
+
   return (
     <>
       <Helmet title='Confluenza'>
@@ -19,7 +27,7 @@ const Home = ({ data, location }) => {
         <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
       </Helmet>
       <Header data={data} />
-      <BodyFrame>
+      <BodyFrame css={{ visibility }}>
         <IntroPanel data={data} />
         <Box1 />
         <Box2 data={data} />
