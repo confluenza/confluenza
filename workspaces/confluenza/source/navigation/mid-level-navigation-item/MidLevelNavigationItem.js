@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import { Collapsable } from '../Collapsable'
 import { NavigationLink } from '../NavigationLink'
+import { normalizeLocationPath } from '../../documentation-layout/normalizeLocationPath'
 
 const Wrapper = styled.div({
   position: 'relative',
@@ -19,7 +20,7 @@ class MidLevelNavigationItem extends React.Component {
   }
 
   getActiveProps = (currentLocation, href) => {
-    const normalizedPathName = currentLocation.pathname.replace(/\/$/, '')
+    const { path: normalizedPathName } = normalizeLocationPath(currentLocation)
     if (`${normalizedPathName}` === href) {
       return 'active'
     }

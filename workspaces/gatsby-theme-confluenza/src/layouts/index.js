@@ -1,11 +1,12 @@
 import { React } from 'react'
+import { withPrefix } from 'gatsby'
 import { Global } from '@emotion/core'
 import { ConfluenzaDocumentationLayout } from './ConfluenzaDocumentationLayout'
 
 import Home from '../components/home'
 
 const Layout = ({ location, children }) => {
-  if (location.pathname === '' || location.pathname === '/') {
+  if (location.pathname === withPrefix('') || location.pathname === withPrefix('/')) {
     return (
       <Home>
         {children}
