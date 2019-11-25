@@ -16,10 +16,10 @@ const useUnusualReloader = (location, onReady) => {
   useEffect(() => {
     setTimeout(() => {
       setReady(true)
-      window.history.back()
+      // window.history.back()
       onReady && onReady()
     }, 0)
-    navigate(location.pathname)
+    // navigate(location.pathname)
     // eslint-disable-next-line
   }, [])
 
@@ -29,18 +29,18 @@ const useUnusualReloader = (location, onReady) => {
 const Home = ({ data, location }) => {
   console.log('                CONFLUENZA \n\n       flexible markdown documentation\n ')
 
-  const [opacity, setOpacity] = useState(0)
+  // const [opacity, setOpacity] = useState(1)
 
-  const onReady = () => {
-    setTimeout(() => {
-      setOpacity(1.0)
-    }, 100)
-  }
-  const pageReady = useUnusualReloader(location, onReady)
+  // const onReady = () => {
+  //   setTimeout(() => {
+  //     setOpacity(1.0)
+  //   }, 0)
+  // }
+  // const pageReady = useUnusualReloader(location, onReady)
 
-  if (!pageReady) {
-    return null
-  }
+  // if (!pageReady) {
+  //   return null
+  // }
 
   return (
     <>
@@ -49,7 +49,7 @@ const Home = ({ data, location }) => {
         <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
       </Helmet>
       <Header data={data} />
-      <BodyFrame css={{ opacity }}>
+      <BodyFrame>
         <IntroPanel data={data} />
         <Box1 />
         <Box2 data={data} />
