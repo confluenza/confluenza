@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from 'gatsby'
 import styled from '@emotion/styled'
 
 import { TopLevelNavigationItem } from './top-level-navigation-item'
@@ -97,7 +98,7 @@ export class Navigation extends React.PureComponent {
 
   isActive = docs => {
     if (docs && docs.length > 0) {
-      const filtered = docs.filter(d => d.node.frontmatter.path === this.props.location.pathname.replace(/\/$/, ''))
+      const filtered = docs.filter(d => withPrefix(d.node.frontmatter.path) === this.props.location.pathname.replace(/\/$/, ''))
       return filtered.length > 0
     }
     return false
