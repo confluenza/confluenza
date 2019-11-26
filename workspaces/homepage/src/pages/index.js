@@ -9,16 +9,31 @@ import { Footer } from 'src/content/footer'
 
 import { Box1, Box2, Box3 } from 'src/content'
 
+const useUnusualReloader = (location, onReady) => {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    setReady(true)
+    onReady && onReady()
+  }, [])
+
+  return ready
+}
+
 const Home = ({ data, location }) => {
   console.log('                CONFLUENZA \n\n       flexible markdown documentation\n ')
 
-  const [visibility, setVisibility] = useState('hidden')
-
-  useEffect(() => {
+  const pageReady = useUnusualReloader(location, () => {
     setTimeout(() => {
       setVisibility('visible')
     }, 100)
-  }, [])
+  })
+
+  const [visibility, setVisibility] = useState('hidden')
+
+  if (!pageReady) {
+    return null
+  }
 
   return (
     <>
