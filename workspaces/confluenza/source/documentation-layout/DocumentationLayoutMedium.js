@@ -38,11 +38,8 @@ const MobileNavigation = ({
       },
       top: 0,
       right: '100vw',
-      // height: '100vh',
-      display: 'block',
-      // justifyContent: 'center',
-      // alignItems: 'center',
-      // background: 'white',
+      display: 'flex',
+      flexFlow: 'column nowrap',
       transition: 'transform 0.2s ease-in-out 0s',
       transform: menuActive ? 'translate(100%, 0)' : 'none'
     }}
