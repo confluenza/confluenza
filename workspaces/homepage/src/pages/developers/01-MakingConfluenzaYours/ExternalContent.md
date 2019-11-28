@@ -47,7 +47,7 @@ The `tag` field needs a bit more in depth explanation.
 
 When confluenza discovers relevant content, it learns the _tag_ corresponding to the given document. Many documents can share the same tag. Let's take the Confluenza navigation menu shown on the picture below.
 
-<a name="figure-1"></a> 
+<a id="figure-1"></a> 
 <div class="scrollable flex-wrap responsive">
 <div class="bordered-content-300">
   <img alt="Confluenza Navigation Menu" src="MakingConfluenzaYours-assets/confluenza-menu.png"/>

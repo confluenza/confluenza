@@ -1,0 +1,37 @@
+{
+  "name": "@confluenza/component-navigator-react",
+  "version": "1.0.12",
+  "description": "Configurable Confluenza navigation menu for pure React applications",
+  "homepage": "https://confluenza.online/packages/component-navigator-react",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "node ./tools/build.js"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "lib",
+    "es",
+    "source"
+  ],
+  "dependencies": {
+    "@emotion/core": "^10.0.15",
+    "@emotion/styled": "^10.0.15",
+    "@react-frontend-developer/css-grid-helper": "^1.0.22",
+    "react-media": "^1.9.2"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.23",
+    "@testing-library/react": "^9.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -23,3 +23,5 @@
 !workspaces/homepage/package.json
 !workspaces/homepage/src/**
 workspaces/homepage/src/**/*.psd
+
+!workspaces/component-navigator-react/ComponentNavigatorReact-assets/*.png
