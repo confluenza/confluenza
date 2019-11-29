@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import { NavigationLink } from './NavigationLink'
+import { PathPrefixContext, withPrefix } from '../documentation-layout/PathPrefixContext'
 
 const Li = styled.li({
   '&:last-child': {
@@ -10,6 +11,8 @@ const Li = styled.li({
 })
 
 class NavigationHeading extends React.Component {
+  static contextType = PathPrefixContext
+
   state = {
     cln: ''
   }
@@ -39,10 +42,12 @@ class NavigationHeading extends React.Component {
 
   render () {
     const { path, value, index } = this.props
+    const pathPrefix = this.context
+
     return (
       <Li key={index}>
         <NavigationLink
-          to={path}
+          to={withPrefix(path, pathPrefix)}
           ref={this.recordLinkNode}
           className={this.state.cln}
           getProps={({ location, href }) => this.getActiveProps(location, href)}

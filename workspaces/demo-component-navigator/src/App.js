@@ -7,6 +7,7 @@ import { Layout } from './Layout'
 
 import { globalStyles } from './globalStyles'
 import { navigationData } from './navigationData'
+import { withPrefix } from './withPrefix'
 
 const Group1 = () => <div>Group1</div>
 const Group1Heading1 = () => <div>Group1Heading1</div>
@@ -30,7 +31,7 @@ const App = () => {
       <Location>
         {({ location }) => (
           <Layout location={location} data={navigationData}>
-            <Router location={location}>
+            <Router basepath={withPrefix()}>
               <Group1 path='/' />
               <Group1Heading1 path='/heading1' />
               <Group1Heading2 path='/heading2' />

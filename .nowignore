@@ -24,4 +24,13 @@
 !workspaces/homepage/src/**
 workspaces/homepage/src/**/*.psd
 
+!workspaces/component-navigator-react/source/**
+!workspaces/component-navigator-react/tools/**
+!workspaces/component-navigator-react/babel.config.js
+!workspaces/component-navigator-react/package.json
 !workspaces/component-navigator-react/ComponentNavigatorReact-assets/*.png
+
+!workspaces/demo-component-navigator/.env
+!workspaces/demo-component-navigator/package.json
+!workspaces/demo-component-navigator/src/**
+!workspaces/demo-component-navigator/public/**
