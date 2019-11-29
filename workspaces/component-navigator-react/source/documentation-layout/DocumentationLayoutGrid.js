@@ -14,6 +14,6 @@ const DocumentationLayoutGrid = styled.div(grid.container, {
 })
 
 const SidebarGridItem = styled.div(grid.sidebar)
-const ContentGridItem = styled.div(grid.content, { width: '100%', padding: '1rem' })
+const ContentGridItem = styled.div(grid.content, { width: '100%', padding: '1rem', boxSizing: 'border-box' })
 
 export { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem }
