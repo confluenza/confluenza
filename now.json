@@ -3,9 +3,23 @@
   "public": true,
   "name": "confluenza",
   "scope": "confluenza-online",
+  "build": {
+    "env": {
+      "SKIP_PREFLIGHT_CHECK": "true",
+      "REACT_APP_PATH_PREFIX": "/demo-component-navigator"
+    }
+  },
   "builds": [
-    { "src": "workspaces/homepage/package.json", "use": "@now/static-build", "config": {"distDir": "public"} },
-    { "src": "workspaces/demo-component-navigator/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }
+    { 
+      "src": "workspaces/homepage/package.json",
+      "use": "@now/static-build",
+      "config": {"distDir": "public"}
+    },
+    { 
+      "src": "workspaces/demo-component-navigator/package.json",
+      "use": "@now/static-build",
+      "config": {"distDir": "build"}
+    }
   ],
   "routes": [
     { "src": "/demo-component-navigator", "dest": "/workspaces/demo-component-navigator/index.html"},
