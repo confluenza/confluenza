@@ -224,6 +224,36 @@ After this change, _Group 1_ document node will be placed under _Nav Group 2_ as
 
 Workspace `demo-component-navigator` contains a working example React app with component navigator as described in this document.
 
+## Path Prefix
+
+Sometimes you want to deploy your site in a subfolder. For instance, instead of having your app served from the root of your site (`/`),
+you may want to serve it from `/my-app`. To have that working you need to provide `pathPrefix` prop to the `DocumentationLayout`:
+
+```jsx
+<DocumentationLayout location={location} data={data} pathPrefix='/my-app'>
+  {children}
+</DocumentationLayout>
+```
+
+You also have to set the `basepath` prop of your router correspondingly:
+
+```jsx
+<Router basepath='/my-app'>
+  <Group1 path='/' />
+  <Group1Heading1 path='/heading1' />
+  <Group1Heading2 path='/heading2' />
+  <Group2 path='/group-2' />
+  <Group2Heading1 path='/group-2/heading1' />
+  <Group2Heading2 path='/group-2/heading2' />
+  <Group3 path='/group-3' />
+  <Group3Heading1 path='/group-3/heading1' />
+  <Group3Heading2 path='/group-3/heading2' />
+</Router>
+```
+
+> Notice that if you do not use path prefix (i.e. you deploy to the root of your site) then you need to either remove the `pathPrefix` and `basePath` from your setup or set them to `/` and `''` respectively.
+
+
 <style scoped>
 .scrollable {
   width: 100%;
