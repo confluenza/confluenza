@@ -7,7 +7,7 @@ const FixedNavigation = styled.div({
   top: 0,
   minWidth: '300px',
   maxWidth: '300px',
-  height: `100vh`,
+  height: '100vh',
   backgroundColor: '#F7F7F7'
 })
 

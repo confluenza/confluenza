@@ -29,10 +29,10 @@
     ]
   },
   "scripts": {
-    "test": "yarn lint && yarn jest",
+    "test": "yarn lint && yarn jest --passWithNoTests",
     "test:watch": "yarn jest --watch",
     "lint": "yarn standard",
-    "lint-fix": "yarn standard --fix --verbose",
+    "lint:fix": "yarn standard --fix --verbose",
     "build": "yarn lerna run build --scope @confluenza/** --ignore @confluenza/gatsby-theme-confluenza",
     "deploy": "yarn lerna run build --ignore homepage && yarn lerna run build --scope homepage"
   },
@@ -42,6 +42,7 @@
       "workspaces/homepage/public/**",
       "workspaces/gatsby-theme-confluenza/public/**",
       "workspaces/design-assets/**",
+      "workspaces/demo-component-navigator/build/**",
       "**/node_modules/**",
       "**/lib/**",
       "**/es/**",
