@@ -149,7 +149,7 @@ title of our whole site.
 <a id="figure-1"></a>
 <div class="scrollable flex-wrap responsive">
 <div class="bordered-content-300">
-  <img alt="Confluenza Navigation Menu" src="ComponentNavigatorReact-assets/navigation_menu.png"/>
+  <img alt="Confluenza Navigation Menu" src="https://github.com/confluenza/confluenza/blob/master/workspaces/component-navigator-react/ComponentNavigatorReact-assets/navigation_menu.png?raw=1"/>
 </div>
 </div>
 <div class="flex-wrap responsive">
@@ -215,7 +215,7 @@ After this change, _Group 1_ document node will be placed under _Nav Group 2_ as
 <a id="figure-2"></a>
 <div class="scrollable flex-wrap responsive">
 <div class="bordered-content-300">
-  <img alt="Confluenza Navigation Menu" src="ComponentNavigatorReact-assets/relocating_docs.png"/>
+  <img alt="Confluenza Navigation Menu" src="https://github.com/confluenza/confluenza/blob/master/workspaces/component-navigator-react/ComponentNavigatorReact-assets/relocating_docs.png?raw=1"/>
 </div>
 </div>
 <div class="flex-wrap responsive">
