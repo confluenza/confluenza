@@ -2,7 +2,7 @@
 
 Using Confluenza in your own gatsby site is super easy. Here is how.
 
-> Below, we assume that you want to use Confluenza in a Gatsby site that you have in a monorepo in one of your workspaces. We assume that the name of the workspace where you have your Gatsby site to which you want to add Confluenza theme is `homepage`. 
+> Below, we assume that you want to use Confluenza in a Gatsby site that you have in a monorepo in one of your workspaces. We assume that the name of the workspace where you have your Gatsby site to which you want to add Confluenza theme is `homepage`. Confluenza can also be used outside of a monorepo. In such a case, you do not have workspaces though and everything is relative to the root of your Gatsby project. 
 
 ## gatsby-theme-confluenza
 
@@ -12,7 +12,7 @@ Add `gatsby-theme-confluenza` to your Gatsby site's `gatsby-config.js`. Like thi
 module.exports = {
   siteMetadata: {
     title: 'Confluenza',
-    editBaseUrl: 'https://github.com/confluenza/confluenza/blob/master'
+    editBaseUrl: 'https://github.com/<your-repository-name>/blob/master'
   },
   plugins: [
     '@confluenza/gatsby-theme-confluenza',
@@ -194,6 +194,10 @@ important metadata like `title`, `path` and `tag`. These metadata do not have an
 Confluenza environment and therefore should not be kept e.g. in the actual README file of your npm package.
 This is not only a cleaner solution (the frontmatter may confuse the reader who is not aware of Confluenza),
 but also helps sites that do not render the frontmatter correctly (like npmjs).
+
+## Learn more
+
+Confluenza was initially intended to render static markdown documents in your Gatsby site. But now, you can also use a Confluenza-like navigation in any of your other React-based projects (created with `create-react-app` tool). Please consult the documentation of [@confluenza/component-navigator-react](https://confluenza.online/packages/confluenza-navigator-react) and take a look at a [demo](https://confluenza.online/demo-component-navigator).
 
 <style scoped>
 .scrollable {
