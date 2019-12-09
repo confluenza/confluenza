@@ -45,6 +45,14 @@ And, even more, you do not need to create a dummy test data or create test pages
 
 This is a Gatsby site that uses `gatsby-theme-confluenza`. This is what you see when you visit `https://confluenza.online`.
 
+### component-navigator-react
+
+A version of `@confluenza/confluenza` but for pure React apps created with `create-react-app`. Thus, no dependency on Gatsby.
+
+### demo-component-navigator
+
+A demo app using `@confluenza/component-navigator-react` package.
+
 ### demo-workspace-1 and demo-workspace-2
 
 Demonstration workspaces to show that Confluenza makes it easy to make the documentation of every workspace accessible.
@@ -125,9 +133,9 @@ option in any of the babel commands in the `tools/build.js` top-level
 script.
 
 
-So to summarize, we have a top-level `babel.config.js` and then for each package that we intend to publish to npm registry we have `babel.config.js`.
+So to summarize, we have a top-level `babel.config.js` and then for each package that we intend to publish to npm registry or which needs a custom babel configuration we have `babel.config.js`.
 
-Also notice that React apps do not need any extra babel configuration - running of the tests is nicely handled by the top-level `babel.config.js`.
+> Please notice that we run tests from the top-running of the tests is nicely handled by the top-level `babel.config.js`.
 
 ## Staying in sync with upstream
 
