@@ -15,6 +15,17 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      allMdx(
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -23,6 +34,16 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   queryResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    if (node.frontmatter.path) {
+      createPage({
+        path: node.frontmatter.path,
+        component: markdownTemplate,
+        context: {}
+      })
+    }
+  })
+
+  queryResult.data.allMdx.edges.forEach(({ node }) => {
     if (node.frontmatter.path) {
       createPage({
         path: node.frontmatter.path,

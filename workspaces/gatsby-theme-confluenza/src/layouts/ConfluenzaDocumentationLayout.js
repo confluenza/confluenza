@@ -1,5 +1,4 @@
 import React from 'react'
-import '../prismjs/themes/prism-tomorrow.css'
 import { rhythm } from '../utils/typography'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -47,6 +46,23 @@ export const MarkdownConnection = graphql`
   }
 `
 
+export const MdxDataConnection = graphql`
+  fragment MdxDataConnection on MdxConnection {
+    docs: edges {
+      node {
+        frontmatter {
+          title
+          path
+          tag
+        }
+        headings(depth: h2) {
+          value
+        }
+      }
+    }
+  }
+`
+
 const confluenzaQuery = graphql`
   query Navigation {
     site {
@@ -64,6 +80,12 @@ const confluenzaQuery = graphql`
     ) {
       ...MarkdownConnection
     }
+    mdxNavigation: allMdx(
+      filter: { frontmatter: { path: { ne: "/404.html" } } }
+      sort: { fields: [fileAbsolutePath], order: ASC }
+    ) {
+      ...MdxDataConnection
+    }
   }
 `
 
@@ -72,8 +94,9 @@ const ConfluenzaDocumentationLayout = ({ children, location }) => {
     <StaticQuery
       query={confluenzaQuery}
       render={data => {
+        const updatedData = { ...data, navigation: { docs: [...data.navigation.docs, ...data.mdxNavigation.docs] } }
         return (
-          <DocumentationLayout location={location} data={data} rhythm={rhythm}>
+          <DocumentationLayout location={location} data={updatedData} rhythm={rhythm}>
             {children}
           </DocumentationLayout>
         )
