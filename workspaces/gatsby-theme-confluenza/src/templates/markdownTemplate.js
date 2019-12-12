@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import '../prismjs/themes/prism-tomorrow.css'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { EditFile } from '@confluenza/confluenza'
 import { graphql } from 'gatsby'
@@ -7,7 +8,6 @@ import { graphql } from 'gatsby'
 const Template = ({ data: { site: { siteMetadata }, doc, mdx }, location }) => {
   const { editBaseUrl } = siteMetadata
   if (mdx) {
-    console.log('mdx=', mdx)
     const { body, fileAbsolutePath, frontmatter: { title } } = mdx
     return (
       <div>
@@ -24,7 +24,6 @@ const Template = ({ data: { site: { siteMetadata }, doc, mdx }, location }) => {
       </div>
     )
   } else {
-    console.log('doc=', doc)
     const { html, fileAbsolutePath, frontmatter: { title, content } } = doc
     return (
       <div>

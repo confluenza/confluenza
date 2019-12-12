@@ -26,3 +26,9 @@ import { WithBorder } from '../../components/mdx'
 > The import statement must be placed directly after _frontmatter_ if one is used.
 
 <ImportingMDXDocuments />
+
+In Confluenza, you can use MDX documents the same way you use regular Markdown documents.
+If you want your MDX document to be visible to Confluenza, just make sure it has a valid
+frontmatter with a `path`, `title`, and `tag`. For MDX documents, Confluenza does not
+support the `content` frontmatter attribute, but you can still import external content
+into your MDX documents the way we show above by using a regular javascript `import` statement.
