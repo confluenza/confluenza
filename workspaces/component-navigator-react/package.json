@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.23",
-    "@testing-library/react": "^9.1.4"
+    "@testing-library/react": "^9.3.3"
   },
   "publishConfig": {
     "access": "public"

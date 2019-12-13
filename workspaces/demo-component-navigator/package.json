@@ -3,6 +3,9 @@
   "version": "1.0.14",
   "private": true,
   "homepage": "https://confluenza.online/demo-component-navigator",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "dependencies": {
     "@confluenza/component-navigator-react": "^1.0.14",
     "@emotion/core": "^10.0.22",
@@ -11,7 +14,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

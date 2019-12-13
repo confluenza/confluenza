@@ -38,8 +38,7 @@
     { "handle": "filesystem" },
     { 
       "src": "/(?!/workspaces/demo-component-navigator)(.*)",
-      "dest": "/workspaces/homepage/404" ,
-      "continue": true
+      "dest": "/workspaces/homepage/404"
     }
   ]
 }
