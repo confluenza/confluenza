@@ -9,7 +9,7 @@
     "url": "https://github.com/confleunza/confluenza.git"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=12.0.0"
   },
   "dependencies": {
     "@confluenza/gatsby-theme-confluenza": "^1.0.16",
