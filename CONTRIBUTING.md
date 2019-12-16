@@ -33,13 +33,20 @@ This workspace holds the code for the navigation menu allowing to conveniently b
 
 This is a Gatsby Theme - the core of Confluenza and only direct dependency for any other sites wanting to use Confluenza navigation capability. It is published as `@confluenza/gatsby-theme-confluenza`.
 
-Because a Gatsby theme is also a fully functional Gatsby site, any changes in the gatsby-theme-confluenza can be easily validated by simply running:
+Gatsby theme is also a fully functional Gatsby site, and so it should be possible to validate changes in the `gatsby-theme-confluenza` by simply running:
 
 ```bash
 $ yarn workspace @confluenza/gatsby-theme-confluenza develop
 ```
 
-And, even more, you do not need to create a dummy test data or create test pages. Because our repository is a monorepo, gatsby-theme-confluenza has access to any other document published in the `homepage` workspace. In other words, the only difference between running `yarn workspace @confluenza/gatsby-theme-confluenza develop` and `yarn workspace homepage develop` (realize that `homepage` uses the Confluenza theme), is the index page.
+And it was, before we added the `mdx` configuration option. In order to support theme configuration
+options, the `gatsby-config.js` file needs to export a function. Unfortunately, this makes it impossible
+to ran `$ yarn workspace @confluenza/gatsby-theme-confluenza develop`. Of course, you can still validate
+the theme through the `homepage` workspace that uses the `@confluenza/gatsby-theme-confluenza` theme, but
+if you still would like to run the theme as a standalone Gatsby site, just make sure that you change
+the theme's `gatsby-config.js` in such a way that it does not export a function but a plain object.
+
+When running `gatsby-theme-confluenza` as a standalone Gatsby site, you do not need to create any dummy test data or create test pages. Because our repository is a monorepo, gatsby-theme-confluenza has access to any other document published in the `homepage` workspace. In other words, the only difference between running `yarn workspace @confluenza/gatsby-theme-confluenza develop` and `yarn workspace homepage develop` (realize that `homepage` uses the Confluenza theme), is the index page.
 
 ### homepage
 
