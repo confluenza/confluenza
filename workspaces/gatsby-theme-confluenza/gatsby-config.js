@@ -11,7 +11,7 @@ const rootPath = () => {
   }
 }
 
-module.exports = {
+module.exports = ({ mdx = false }) => ({
   siteMetadata: {
     title: 'Confluenza',
     editBaseUrl: 'https://github.com/confluenza/confluenza/blob/master'
@@ -121,4 +121,4 @@ module.exports = {
     'gatsby-plugin-layout',
     'gatsby-plugin-root-import'
   ]
-}
+})

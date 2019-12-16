@@ -27,6 +27,31 @@ import { WithBorder } from '../../components/mdx'
 
 <ImportingMDXDocuments />
 
+## Enabling MDX support in Confluenza
+
+By default, MDX support in Confluenza is disabled. It means that even if you have supported
+MDX documents in in the source tree, they will not be processed by Confluenza and will not be
+rendered in the navigation menu.
+
+> We assume that most of the repositories will use pure Markdown documents and in many cases there
+will be no single MDX document. The way Gatsby plugins work, requires that there is at least one
+document of the given type for the corresponding Gatsby plugin to create the resulting GraphQL nodes.
+If this condition is not met, the compilation would fail. Without this default setup that disables
+support for MDX, the user would be required to create a _dummy_ MDX document for the compilation
+to succeed. We prefer to avoid this burden on the user.
+
+In order to enable support for MDX, the user needs to provide the `mdx` parameter set to value `true` in
+the `gatsby-config.js` file:
+
+```javascript
+{
+  resolve: '@confluenza/gatsby-theme-confluenza',
+  options: {
+    mdx: true
+  }
+}
+```
+
 In Confluenza, you can use MDX documents the same way you use regular Markdown documents.
 If you want your MDX document to be visible to Confluenza, just make sure it has a valid
 frontmatter with a `path`, `title`, and `tag`. For MDX documents, Confluenza does not

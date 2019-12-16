@@ -9,6 +9,9 @@ export const SiteInformation = graphql`
     siteMetadata {
       title
     }
+    fields {
+      mdx
+    }
   }
 `
 
@@ -94,7 +97,11 @@ const ConfluenzaDocumentationLayout = ({ children, location }) => {
     <StaticQuery
       query={confluenzaQuery}
       render={data => {
-        const updatedData = { ...data, navigation: { docs: [...data.navigation.docs, ...data.mdxNavigation.docs] } }
+        const mdxEnabled = data.site.fields && data.site.fields.mdx
+        let updatedData = data
+        if (mdxEnabled) {
+          updatedData = { ...data, navigation: { docs: [...data.navigation.docs, ...data.mdxNavigation.docs] } }
+        }
         return (
           <DocumentationLayout location={location} data={updatedData} rhythm={rhythm}>
             {children}

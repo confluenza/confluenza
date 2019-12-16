@@ -6,7 +6,9 @@ module.exports = {
   plugins: [
     {
       resolve: '@confluenza/gatsby-theme-confluenza',
-      options: {}
+      options: {
+        mdx: true
+      }
     },
     'gatsby-plugin-emotion',
     'gatsby-plugin-catch-links',
