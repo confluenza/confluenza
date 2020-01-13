@@ -24,11 +24,21 @@ const mdxQuery = `
   }
 `
 
+const mdxEnabled = options => {
+  let mdx = true
+
+  if (Object.prototype.hasOwnProperty.call(options, 'mdx')) {
+    mdx = options.mdx
+  }
+
+  return mdx
+}
+
 exports.createPages = async ({ actions, graphql }, options) => {
   const { createPage } = actions
   const markdownTemplate = require.resolve('./src/templates/markdownTemplate.js')
 
-  const mdx = !!options.mdx
+  const mdx = mdxEnabled(options)
 
   const queryResult = await graphql(`
     {
@@ -67,7 +77,7 @@ exports.createPages = async ({ actions, graphql }, options) => {
 exports.onCreateNode = ({ node, actions }, options) => {
   const { createNodeField } = actions
   if (node.internal.type === 'Site') {
-    const mdx = !!options.mdx
+    const mdx = mdxEnabled(options)
     createNodeField({
       node,
       name: 'mdx',
