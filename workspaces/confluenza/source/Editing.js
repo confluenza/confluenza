@@ -26,7 +26,7 @@ const Wrapper = styled.div({
 
 class EditFile extends React.Component {
   renderEditThisPageLink = (fileAbsolutePath, linkText) => {
-    const match = fileAbsolutePath.match(/.*\/(workspaces.*)$/) || fileAbsolutePath.match(/.*\/(packages.*)$/) || fileAbsolutePath.match(/.*\/(.*)$/)
+    const match = fileAbsolutePath.match(/.*\/(workspaces.*)$/) || fileAbsolutePath.match(/.*\/(packages.*)$/) || fileAbsolutePath.match(/(src.*)$/) || fileAbsolutePath.match(/.*\/(.*\.mdx?)$/)
     if (match) {
       const fileRelativePath = match[1]
       const { editBaseUrl } = this.props
