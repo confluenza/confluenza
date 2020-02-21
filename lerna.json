@@ -10,6 +10,16 @@
     }
   },
   "version": "1.0.18",
+  "changelog": {
+    "ignoreCommitters": ["allcontributors"],
+    "labels": {
+      "breaking": ":bomb: Breaking Change",
+      "feature": ":rocket: New Feature",
+      "enhancement": ":heart_eyes_cat: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "documentation": ":book: Documentation"
+    }
+  },
   "npmClient": "yarn",
   "useWorkspaces": true
 }
