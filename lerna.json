@@ -9,9 +9,11 @@
       "registry": "https://registry.npmjs.org/"
     }
   },
-  "version": "1.0.18",
+  "version": "1.0.19",
   "changelog": {
-    "ignoreCommitters": ["allcontributors"],
+    "ignoreCommitters": [
+      "allcontributors"
+    ],
     "labels": {
       "breaking": ":bomb: Breaking Change",
       "feature": ":rocket: New Feature",
