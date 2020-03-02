@@ -19,3 +19,7 @@ Headers of level 3 and above will not be displayed in the navigation menu.
 ## One more header of Level 2
 
 The header of this section will also be shown in the navigation menu.
+
+## EMOJI
+
+Confluenza supports slack-style emoji: :tada:, :heart_eyes_cat:.

@@ -1,4 +1,5 @@
 const path = require('path')
+const emoji = require('remark-emoji')
 
 const workspacesDirNames = ['workspaces', 'packages']
 
@@ -71,13 +72,15 @@ module.exports = ({ mdx = false }) => ({
             options: {
               maxWidth: 600
             }
-          }
+          },
+          'gatsby-remark-emoji'
         ]
       }
     },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
+        remarkPlugins: [emoji],
         gatsbyRemarkPlugins: [
           'gatsby-remark-autolink-headers',
           {
