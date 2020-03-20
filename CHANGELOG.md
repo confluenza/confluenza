@@ -1,3 +1,11 @@
+## v1.0.21 (2020-03-20)
+
+#### :heart_eyes_cat: Enhancement
+* [#16](https://github.com/confluenza/confluenza/pull/16) gatsby-theme-confluenza: ignore .files (dot-files) ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.20 (2020-03-02)
 
 #### :heart_eyes_cat: Enhancement
