@@ -30,7 +30,8 @@ module.exports = ({ mdx = false }) => ({
           '**/public/**',
           '**/es/**',
           '**/lib/**',
-          '**/umd/**'
+          '**/umd/**',
+          '/**/.*'
         ]
       }
     },
