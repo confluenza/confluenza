@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem } from './DocumentationLayoutGrid'
 import { Navigation } from '../navigation'
@@ -17,6 +17,8 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
   const [transition, setTransition] = useState('none')
   const [animationSpan, setAnimationSpan] = useState(0)
   const animationDuration = 0.3
+  const openingTimeout = useRef(undefined)
+  const closingTimeout = useRef(undefined)
 
   const {
     recordScrollPosition,
@@ -48,8 +50,10 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
   const toggleMenu = () => {
     enableMenuAnimation(animationDuration, 0)
     if (menuActive) {
+      clearTimeout(openingTimeout.current)
       closeMenu()
     } else {
+      clearTimeout(closingTimeout.current)
       setMenuActive(true)
       // record scroll position so that we can restore it if needed
       recordScrollPosition()
@@ -72,8 +76,9 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // We do not want to change to 'position: fixed' immediately as
       // this may be visible and create unpleasant visual effect.
       // The timeout is about the same as the transition duration in CSS.
-      setTimeout(() => {
+      openingTimeout.current = setTimeout(() => {
         setPosition('fixed')
+        disableMenuAnimation()
       }, animationSpan)
     } else {
       // Restoring scroll position can only be effective
@@ -87,7 +92,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // 'position: fixed' to 'position: relative' needs to be effective
       // before we can change the scroll position.
       restoreScrollPosition()
-      setTimeout(() => {
+      closingTimeout.current = setTimeout(() => {
         disableMenuAnimation()
       }, animationSpan)
     }
@@ -111,9 +116,11 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
         <SidebarGridItem>
           <FixedNavigation
             rhythm={rhythm} css={{
+              left: menuActive ? '0' : '-100vw',
               minWidth: '100vw',
               maxWidth: '100vw',
-              height: '100vh'
+              height: '100vh',
+              transition
             }}
           >
             <SiteTitle title={title} />
