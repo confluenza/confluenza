@@ -11,11 +11,12 @@ import { FixedNavigation } from './FixedNavigation'
 import { useScrollResoration } from './useScrollRestoration'
 import { useMobileDocumentNavigator } from './useMobileDocumentNavigator'
 
-const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, deltas }) => {
+const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, deltas, rhythm }) => {
   const [menuActive, setMenuActive] = useState(false)
   const [position, setPosition] = useState('relative')
-  const [grid, setGrid] = useState('300px 100vw')
-  const [animationDelay, setAnimationDelay] = useState(0)
+  const [transition, setTransition] = useState('none')
+  const [animationSpan, setAnimationSpan] = useState(0)
+  const animationDuration = 0.3
 
   const {
     recordScrollPosition,
@@ -23,12 +24,20 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
     disableScrollRestoration
   } = useScrollResoration()
 
+  const enableMenuAnimation = (duration, delay) => {
+    setTransition(`all ${duration}s ease-in-out ${delay}s`)
+    setAnimationSpan((duration + delay) * 1000)
+  }
+
+  const disableMenuAnimation = () => {
+    setTransition('none')
+  }
+
   const closeMenu = () => {
     setMenuActive(false)
     // we will be hiding menu - thus, we need to make sure that
     // document container is again scrollable before we see it
     setPosition('relative')
-    setGrid('300px 100vw')
   }
 
   // toggleMenu is used to trigger opening menu, and one of
@@ -37,6 +46,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
   // menu is finalized in the effect below that responds to
   // the menuActive change.
   const toggleMenu = () => {
+    enableMenuAnimation(animationDuration, 0)
     if (menuActive) {
       closeMenu()
     } else {
@@ -44,7 +54,6 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // record scroll position so that we can restore it if needed
       recordScrollPosition()
     }
-    setAnimationDelay(0)
   }
 
   // This hook responds to the change of location: the user
@@ -53,7 +62,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
     onNewPathSelected: () => {
       closeMenu()
       disableScrollRestoration()
-      setAnimationDelay(0.3)
+      enableMenuAnimation(animationDuration, 0.3)
     },
     location
   }, [location])
@@ -65,8 +74,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // The timeout is about the same as the transition duration in CSS.
       setTimeout(() => {
         setPosition('fixed')
-        setGrid('100vw 100vw')
-      }, 200)
+      }, animationSpan)
     } else {
       // Restoring scroll position can only be effective
       // after position is set back to 'relative'
@@ -79,6 +87,9 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // 'position: fixed' to 'position: relative' needs to be effective
       // before we can change the scroll position.
       restoreScrollPosition()
+      setTimeout(() => {
+        disableMenuAnimation()
+      }, animationSpan)
     }
     // eslint-disable-next-line
   }, [menuActive])
@@ -87,22 +98,21 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
   return (
     <>
       <DocumentationLayoutGrid
-        css={{
+        rhythm={rhythm} css={{
           position,
           height: '100vh',
-          left: menuActive ? 0 : '-300px',
+          left: menuActive ? 0 : '-100vw',
           margin: 0,
           gridGap: 0,
-          gridTemplateColumns: grid,
-          transition: `all .2s ease-in-out ${animationDelay}s`
+          gridTemplateColumns: '100vw 100vw',
+          transition
         }}
       >
         <SidebarGridItem>
           <FixedNavigation
-            css={{
-              minWidth: menuActive ? '100vw' : '300px',
-              maxWidth: menuActive ? '100vw' : '300px',
-              transition: `all .2s ease-in-out ${animationDelay}s`,
+            rhythm={rhythm} css={{
+              minWidth: '100vw',
+              maxWidth: '100vw',
               height: '100vh'
             }}
           >
