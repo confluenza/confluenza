@@ -17,6 +17,7 @@
     "react-scripts": "4.0.0"
   },
   "scripts": {
+    "install:vercel": "rm ../../package.json && mv ../../yarn.lock . && yarn",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "now-build": "(cd ../../ && yarn build) && yarn build",

@@ -31,6 +31,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "install:vercel": "rm ../../package.json && mv ../../yarn.lock . && yarn",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "now-build": "(cd ../../ && yarn build) && yarn build",
