@@ -2,7 +2,7 @@
   "name": "demo-component-navigator",
   "version": "1.0.23",
   "private": true,
-  "homepage": "https://confluenza.online/demo-component-navigator",
+  "homepage": ".",
   "engines": {
     "node": ">=12.0.0"
   },
@@ -20,7 +20,6 @@
     "install:vercel": "rm ../../package.json && mv ../../yarn.lock . && yarn",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "now-build": "(cd ../../ && yarn build) && yarn build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
