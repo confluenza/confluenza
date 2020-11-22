@@ -29,7 +29,7 @@ You need to provide a `location` object and navigation config in `data`. First, 
 ```jsx
 import React from 'react'
 import { Router, Location } from '@reach/router'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 
 import { Layout } from './Layout'
 
