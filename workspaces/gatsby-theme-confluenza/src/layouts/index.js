@@ -1,6 +1,6 @@
-import { React } from 'react'
+import React from 'react'
 import { withPrefix } from 'gatsby'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import { ConfluenzaDocumentationLayout } from './ConfluenzaDocumentationLayout'
 
 import Home from '../components/home'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router, Location } from '@reach/router'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import { Helmet } from 'react-helmet'
 
 import { Layout } from './Layout'

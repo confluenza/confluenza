@@ -29,7 +29,7 @@ class Collapsable extends React.Component {
 
   componentDidMount () {
     const actualHeight = this.divRef.current.scrollHeight
-    const restoredHeight = Number(RegExp(/\d+/).exec(this.state.style.maxHeight)[0])
+    const restoredHeight = Number(/\d+/.exec(this.state.style.maxHeight)[0])
     if (restoredHeight > 0 && restoredHeight < actualHeight) {
       this.props.onChange && this.props.onChange(actualHeight, this.wrapperRef.current)
       this.setState({

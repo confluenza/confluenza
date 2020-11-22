@@ -145,7 +145,7 @@ export class Navigation extends React.PureComponent {
 
   getElementHeight = el => {
     if (typeof window !== 'undefined') {
-      return Number(RegExp(/\d+/).exec(window.getComputedStyle(el).height)[0])
+      return Number(/\d+/.exec(window.getComputedStyle(el).height)[0])
     }
     return 0
   }

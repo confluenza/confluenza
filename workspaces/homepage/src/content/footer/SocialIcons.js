@@ -34,9 +34,9 @@ const SocialIcons = ({ data }) => (
     }
   }}
   >
-    <a href='https://twitter.com/confluenza1'><SocialIcon imageUrl={getImage(data, 'twitter')} /></a>
+    <a aria-label='twitter' href='https://twitter.com/confluenza1'><SocialIcon imageUrl={getImage(data, 'twitter')} /></a>
     {/* <a href='https://twitter.com/identity_box'><SocialIcon imageUrl={getImage(data, 'Youtube')} css={{ width: '46px' }} /></a> */}
-    <a href='https://github.com/confluenza/confluenza'><SocialIcon imageUrl={getImage(data, 'github')} /></a>
+    <a aria-label='github' href='https://github.com/confluenza/confluenza'><SocialIcon imageUrl={getImage(data, 'github')} /></a>
   </SocialIconsRow>
 )
 
