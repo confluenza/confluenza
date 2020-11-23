@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react'
 import Media from 'react-media'
 
 import { DocumentationLayoutSmall } from './DocumentationLayoutSmall'

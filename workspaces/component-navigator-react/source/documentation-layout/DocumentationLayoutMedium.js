@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/react'
 import { useState, useEffect } from 'react'
 
 import { Navigation } from '../navigation'
