@@ -1,4 +1,3 @@
-import React from 'react'
 import { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem } from './DocumentationLayoutGrid'
 import { Navigation } from '../navigation'
 import { SiteTitle } from './SiteTitle'
