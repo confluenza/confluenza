@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
+import { useState, useEffect, useRef } from 'react'
 
 import { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem } from './DocumentationLayoutGrid'
 import { Navigation } from '../navigation'

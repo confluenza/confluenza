@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
+import { useState, useEffect } from 'react'
 
 import { Navigation } from '../navigation'
 import { MenuButton } from '../navigation/MenuButton'
