@@ -1,3 +1,32 @@
+## v1.0.25 (2020-11-24)
+
+#### :heart_eyes_cat: Enhancement
+* Updates documentation and peer-dependencies for React and Gatsby ([@marcinczenko](https://github.com/marcinczenko))
+  
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
+
+## v1.0.24 (2020-11-23)
+
+#### :heart_eyes_cat: Enhancement
+* [#21](https://github.com/confluenza/confluenza/pull/21) Finalizes setup for new monorepo setup from Vercel ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
+
+## v1.0.23 (2020-11-22)
+
+#### :heart_eyes_cat: Enhancement
+* [#20](https://github.com/confluenza/confluenza/pull/20) Update dependencies ([@marcinczenko](https://github.com/marcinczenko))
+
+#### :bug: Bug Fix
+* [#19](https://github.com/confluenza/confluenza/pull/19) Makes a confluenza custom 404 page working again ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.22 (2020-03-21)
 
 #### :heart_eyes_cat: Enhancement
