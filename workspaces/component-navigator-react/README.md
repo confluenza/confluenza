@@ -9,8 +9,6 @@ And so here it is. A version made specifically for React and tested with a React
 `@confluenza/component-navigator-react` package exposes only one React component: `DocumentationLayout`. You can use as follows:
 
 ```jsx
-import React from 'react'
-
 import { DocumentationLayout } from '@confluenza/component-navigator-react'
 
 const Layout = ({ children, location, data }) => {
@@ -24,10 +22,12 @@ const Layout = ({ children, location, data }) => {
 export { Layout }
 ```
 
+> With [New JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) introduced in React v17, you no longer need to import React
+> just to use JSX.
+
 You need to provide a `location` object and navigation config in `data`. First, location. We tested `@confluenza/component-navigator-react` with `@reach/router`:
 
 ```jsx
-import React from 'react'
 import { Router, Location } from '@reach/router'
 import { Global } from '@emotion/react'
 
