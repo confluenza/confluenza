@@ -197,7 +197,7 @@ but also helps sites that do not render the frontmatter correctly (like npmjs).
 
 ## Learn more
 
-Confluenza was initially intended to render static markdown documents in your Gatsby site. But now, you can also use a Confluenza-like navigation in any of your other React-based projects (created with `create-react-app` tool). Please consult the documentation of [@confluenza/component-navigator-react](https://confluenza.online/packages/confluenza-navigator-react) and take a look at a <a href="https://confluenza.online/demo-component-navigator" target="_blank" rel="noopener noreferrer">demo</a>.
+Confluenza was initially intended to render static markdown documents in your Gatsby site. But now, you can also use a Confluenza-like navigation in any of your other React-based projects (created with `create-react-app` tool). Please consult the documentation of [@confluenza/component-navigator-react](https://confluenza.online/packages/confluenza-navigator-react) and take a look at a <a href="https://demo-component-navigator.confluenza.online" target="_blank" rel="noopener noreferrer">demo</a>.
 
 <style scoped>
 .scrollable {
