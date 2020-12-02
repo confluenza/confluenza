@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "public": true
+  "public": true,
+  "redirects": [
+    { "source": "/demo-component-navigator", "destination": "https://demo-component-navigator.confluenza.online" }
+  ]
 }
