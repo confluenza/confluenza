@@ -79,7 +79,7 @@ const confluenzaQuery = graphql`
     }
     navigation: allMarkdownRemark(
       filter: { frontmatter: { path: { ne: "/404.html" } } }
-      sort: { fields: [fileAbsolutePath], order: ASC }
+      sort: { fields: [frontmatter___content___absolutePath], order: ASC }
     ) {
       ...MarkdownConnection
     }
