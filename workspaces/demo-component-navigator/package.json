@@ -1,13 +1,13 @@
 {
   "name": "demo-component-navigator",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "private": true,
   "homepage": ".",
   "engines": {
     "node": ">=12.0.0"
   },
   "dependencies": {
-    "@confluenza/component-navigator-react": "^1.0.25",
+    "@confluenza/component-navigator-react": "^1.0.26",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@reach/router": "^1.3.4",
