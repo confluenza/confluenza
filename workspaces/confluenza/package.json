@@ -18,20 +18,20 @@
     "source"
   ],
   "dependencies": {
-    "@emotion/react": "^11.1.1",
-    "@emotion/styled": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
     "@react-frontend-developer/css-grid-helper": "^1.0.22",
     "react-media": "^1.9.2",
     "typography": "^0.16.19",
     "typography-theme-moraga": "^0.16.19"
   },
   "peerDependencies": {
-    "gatsby": "^2.24.5",
+    "gatsby": "^3.4.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.2"
+    "@testing-library/react": "^11.2.6"
   },
   "publishConfig": {
     "access": "public"
