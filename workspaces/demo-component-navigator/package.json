@@ -18,6 +18,7 @@
   },
   "scripts": {
     "install:vercel": "rm ../../package.json && mv ../../yarn.lock . && yarn",
+    "build:local": "(cd ../../ && yarn build) && yarn build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

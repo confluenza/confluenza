@@ -33,6 +33,7 @@
   "scripts": {
     "install:vercel": "rm ../../package.json && mv ../../yarn.lock . && yarn",
     "build": "gatsby build",
+    "build:local": "(cd ../../ && yarn build) && yarn build", 
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
