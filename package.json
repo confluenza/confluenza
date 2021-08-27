@@ -35,7 +35,7 @@
     "test:watch": "yarn jest --watch",
     "lint": "yarn standard",
     "lint:fix": "yarn standard --fix --verbose",
-    "build": "yarn lerna run build --scope @confluenza/** --ignore @confluenza/gatsby-theme-confluenza",
+    "build": "yarn lerna run build --scope '@confluenza/**' --ignore '@confluenza/gatsby-theme-confluenza'",
     "deploy": "yarn lerna run build --ignore homepage && yarn lerna run build --scope homepage"
   },
   "standard": {
