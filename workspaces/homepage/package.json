@@ -31,7 +31,6 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "install:vercel": "(cd ../../ && pwd && yarn --version && yarn install)",
     "build": "gatsby build",
     "build:local": "(cd ../../ && yarn build) && yarn build",
     "clean": "gatsby clean",
