@@ -1,3 +1,11 @@
+## v1.0.28 (2021-08-28)
+
+#### :heart_eyes_cat: Enhancement
+* [#27](https://github.com/confluenza/confluenza/pull/27) Switch to Yarn 2 ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.27 (2021-08-27)
 
 #### :heart_eyes_cat: Enhancement
