@@ -14,3 +14,12 @@ lerna-debug.log
 coverage
 
 .vercel
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
