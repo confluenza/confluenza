@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@confluenza/component-navigator-react": "^1.0.28",
-    "@emotion/react": "^11.4.1",
+    "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@reach/router": "^1.3.4",
     "react": "^17.0.2",
@@ -40,6 +40,6 @@
   },
   "devDependencies": {
     "eslint-config-react-app": "^6.0.0",
-    "serve": "^12.0.0"
+    "serve": "^12.0.1"
   }
 }
