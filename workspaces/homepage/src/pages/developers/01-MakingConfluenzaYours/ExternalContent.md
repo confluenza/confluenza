@@ -23,6 +23,35 @@ module.exports = {
 }
 ```
 
+`@confluenza/gatsby-theme-confluenza` provides two options: `mdx` and `ignore`. The `mdx` option (default `true`) indicates if you want to support MDX in your documentation site. If you know that the MDX support is not needed, you can set `mdx` to `false` and MDX-related queries will not be run and MDX documents will not be processed:
+
+```javascript
+plugins: [
+  {
+    resolve: '@confluenza/gatsby-theme-confluenza',
+    options: {
+      mdx: false
+    }
+  },
+```
+
+The `ignore` option is handy if you want Confluenza to ignore part of your source tree. It is handy especially when you use confluenza in monorepos with other Markdown-oriented workspaces, which, when exposed to Confluenza, may cause some troubles. For instance, to disable `mdx` and to ignore all files from the `demo-workspace-2` you can use the following configuration:
+
+```javascript
+plugins: [
+  {
+    resolve: '@confluenza/gatsby-theme-confluenza',
+    options: {
+      mdx: false,
+      ignore: [
+        '**/demo-workspace-2/**'
+      ]
+    }
+  },
+```
+
+The format of the `ignore` option is the same as in the [gatsby-source-filesystem](https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/) plugin.
+
 ## frontmatter and confluenza.yml
 
 Every markdown file that is supposed to be rendered by Confluenza needs to have a so called `frontmatter`
@@ -82,6 +111,37 @@ content: ../../../../../CONTRIBUTING.md
 
 Here we see that both documents have the same tag: `developer`. On the other hand, the tag for the document corresponding to Section _Using Confluenza_ is `user`.
 You can use any name you like for a tag. Tags simply inform Confluenza that documents with the given tag should be grouped together under one category in the navigation menu. Following our example, the documents tagged `developer` appear under _Developer Documentation_ category, while the documents tagged `user` under _User Documentation_. How does Confluenza know which category title to use for the given tag? This is what `confluenza.yml` file is for.
+
+## Sorting
+
+In order to sort the navigation entries within each navigation group
+you can add `sortIndex` to the `frontmatter`. `sortIndex` is an integer value which indicates the position of the document in the navigation list. If `sortIndex` is not specified, the default value will be `10`.
+
+For example, the document _Making Confluenza Yours_ has the following `frontmatter`:
+
+```yaml
+---
+path: /developers/making-confluenza-yours
+title: Making Confluenza Yours
+tag: developer
+content: ExternalContent.md
+sortIndex: 0
+---
+```
+
+while _Contributing_ has:
+
+```yaml
+---
+path: /developers/contributing
+title: Contributing
+tag: developer
+content: ../../../../../CONTRIBUTING.md
+sortIndex: 1
+---
+```
+
+Thus, _Making Confluenza Yours_ will be showing in the navigation menu before _Contributing_.
 
 ## confluenza.yml
 
