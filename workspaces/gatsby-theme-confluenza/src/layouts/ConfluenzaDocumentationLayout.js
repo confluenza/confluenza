@@ -32,6 +32,7 @@ export const MarkdownConnection = graphql`
           title
           path
           tag
+          sortIndex
           content {
             childMarkdownRemark {
               html
@@ -57,6 +58,7 @@ export const MdxDataConnection = graphql`
           title
           path
           tag
+          sortIndex
         }
         headings(depth: h2) {
           value

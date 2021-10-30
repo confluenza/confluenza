@@ -1867,7 +1867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@confluenza/component-navigator-react@^1.0.27, @confluenza/component-navigator-react@workspace:workspaces/component-navigator-react":
+"@confluenza/component-navigator-react@^1.0.28, @confluenza/component-navigator-react@workspace:workspaces/component-navigator-react":
   version: 0.0.0-use.local
   resolution: "@confluenza/component-navigator-react@workspace:workspaces/component-navigator-react"
   dependencies:
@@ -1884,7 +1884,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@confluenza/confluenza@^1.0.27, @confluenza/confluenza@workspace:workspaces/confluenza":
+"@confluenza/confluenza@^1.0.28, @confluenza/confluenza@workspace:workspaces/confluenza":
   version: 0.0.0-use.local
   resolution: "@confluenza/confluenza@workspace:workspaces/confluenza"
   dependencies:
@@ -1902,11 +1902,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@confluenza/gatsby-theme-confluenza@^1.0.27, @confluenza/gatsby-theme-confluenza@workspace:workspaces/gatsby-theme-confluenza":
+"@confluenza/gatsby-theme-confluenza@^1.0.28, @confluenza/gatsby-theme-confluenza@workspace:workspaces/gatsby-theme-confluenza":
   version: 0.0.0-use.local
   resolution: "@confluenza/gatsby-theme-confluenza@workspace:workspaces/gatsby-theme-confluenza"
   dependencies:
-    "@confluenza/confluenza": ^1.0.27
+    "@confluenza/confluenza": ^1.0.28
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
@@ -10414,7 +10414,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "demo-component-navigator@workspace:workspaces/demo-component-navigator"
   dependencies:
-    "@confluenza/component-navigator-react": ^1.0.27
+    "@confluenza/component-navigator-react": ^1.0.28
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     "@reach/router": ^1.3.4
@@ -14837,7 +14837,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "homepage@workspace:workspaces/homepage"
   dependencies:
-    "@confluenza/gatsby-theme-confluenza": ^1.0.27
+    "@confluenza/gatsby-theme-confluenza": ^1.0.28
     "@emotion/react": ^11.4.1
     "@emotion/styled": ^11.3.0
     babel-eslint: ^10.1.0

@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 import { TopLevelNavigationItem } from './top-level-navigation-item'
 import { NavigationItem } from './NavigationItem'
+import { sort } from './sort'
 
 const List = styled.ul({
   listStyle: 'none',
@@ -82,10 +83,24 @@ export class Navigation extends React.PureComponent {
     return undefined
   }
 
+  sortDocs = docs => {
+    return sort({
+      selector: d => {
+        const n = Number(d.node.frontmatter.sortIndex)
+        return isNaN(n) ? 10 : n
+      },
+      data: docs
+    })
+  }
+
+  filterDocsOnTag = tag => {
+    return this.props.docs.filter(d => d.node.frontmatter.tag === tag)
+  }
+
   createNavigationGroupForTag = ({ title, tag }) => {
     return {
       title,
-      docs: this.props.docs.filter(d => d.node.frontmatter.tag === tag),
+      docs: this.sortDocs(this.filterDocsOnTag(tag)),
       tag
     }
   }
