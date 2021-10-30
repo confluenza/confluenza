@@ -12,7 +12,7 @@
     "babel-jest": "^27.3.1",
     "eslint": "^8.1.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gatsby": "^3.12.1",
+    "gatsby": "^3.14.5",
     "gzip-size": "^6.0.0",
     "jest": "^27.3.1",
     "jest-emotion": "^11.0.0",
