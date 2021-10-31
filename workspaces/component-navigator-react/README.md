@@ -80,14 +80,13 @@ Now we need to connect these with our navigation component. We use `navigationDa
 const navigationData = {
   site: {
     siteMetadata: {
-      title: 'Netscape Navigator'
+      title: 'Component Navigator'
     }
   },
   config: {
     nodes: [
       { title: 'Nav Group 1', tag: 'tag1' },
-      { title: 'Nav Group 2', tag: 'tag2' },
-      { title: 'Nav Group 3', tag: 'tag3' }
+      { title: 'Nav Group 2', tag: 'tag2' }
     ]
   },
   navigation: {
@@ -97,7 +96,8 @@ const navigationData = {
           frontmatter: {
             title: 'Group 1',
             path: '/',
-            tag: 'tag1'
+            tag: 'tag1',
+            sortIndex: 1
           },
           headings: [
             { value: 'Heading 1', path: '/heading1' },
@@ -110,7 +110,8 @@ const navigationData = {
           frontmatter: {
             title: 'Group 2',
             path: '/group-2',
-            tag: 'tag2'
+            tag: 'tag1',
+            sortIndex: 2
           }
         }
       },
@@ -119,7 +120,7 @@ const navigationData = {
           frontmatter: {
             title: 'Group 3',
             path: '/group-3',
-            tag: 'tag3'
+            tag: 'tag2'
           },
           headings: [
             { value: 'Heading 1', path: '/group-3/heading1' },
@@ -156,26 +157,26 @@ title of our whole site.
 <p class="figure-title"><b>Figure 1</b> Confluenza Navigation Menu</p>
 </div>
 
-There are three navigation groups: _Nav Group 1_, _Nav Group 2_, and _Nav Group 3_. This is reflected in the config section:
+There are two navigation groups: _Nav Group 1_, and _Nav Group 2_. This is reflected in the config section:
 
 ```javascript
 config: {
   nodes: [
     { title: 'Nav Group 1', tag: 'tag1' },
-    { title: 'Nav Group 2', tag: 'tag2' },
-    { title: 'Nav Group 3', tag: 'tag3' }
+    { title: 'Nav Group 2', tag: 'tag2' }
   ]
 }
 ```
 
-Each navigation group holds one _document node_. A document node has a `frontmatter`, which is required, and a list of `headings` (optional). A frontmatter describes one document node and corresponds to a single document under the navigation group. In [Figure 1](#figure-1), _Group 1_, _Group 2_, and _Group 3_ correspond to three document nodes. Let's take a look at _Group 1_:
+Each navigation group holds one _document node_. A document node has a `frontmatter`, which is required, and a list of `headings` (optional). A frontmatter describes one document node and corresponds to a single document under the navigation group. In [Figure 1](#figure-1), _Group 1_, and _Group 2_ correspond to two document nodes. Let's take a look at _Group 1_:
 
 ```javascript
 node: {
   frontmatter: {
     title: 'Group 1',
     path: '/',
-    tag: 'tag1'
+    tag: 'tag1',
+    sortIndex: 1
   },
   headings: [
     { value: 'Heading 1', path: '/heading1' },
@@ -188,7 +189,9 @@ The frontmatter describes the document node: its `title` (_Group 1_), a `path` w
 
 The `headings` section allows us to add one more level to the navigation. Each _heading_ has `value` and `path`. The `value` gives the name displayed under the document node, while the `path` indicates where the site should navigate when the given heading is selected.
 
-As mentioned above, headings are optional. If omitted, only the document node will be displayed under the navigation group (e.g. _Group 2_ under _Nav Group 2_ in the figure above).
+As mentioned above, headings are optional. If omitted, only the document node will be displayed under the navigation group (e.g. _Group 2_ under _Nav Group 1_ in the figure above).
+
+Finally, the `sortIndex` attribute indicate the order of groups inside their navigation group, when more than one group is present. This is reflected in our example: _Group 1_ is listed before _Group 2_. If we change the `sortIndex` in _Group 2_ to be `0`, then _Group 2_ will be listed as the first one. If no `sortIndex` is provided, it is assumed to have value `10`.
 
 Using tags it is easy to relocate document nodes to another navigation group. If, for instance, we would like _Group 1_ document node to be placed under navigation group _Nav Group 2_ instead of _Nav Group 1_ (where it is placed at the moment), we just need to change the value of the `tag` in the `frontmatter` corresponding to the given document node, so in our case we need to change from:
 
@@ -196,7 +199,8 @@ Using tags it is easy to relocate document nodes to another navigation group. If
 frontmatter: {
   title: 'Group 1',
   path: '/',
-  tag: 'tag1'
+  tag: 'tag1',
+  sortIndex: 1
 }
 ```
 
@@ -206,7 +210,8 @@ to:
 frontmatter: {
   title: 'Group 1',
   path: '/',
-  tag: 'tag2'  // <== changed from 'tag1'
+  tag: 'tag2',  // <== changed from 'tag1'
+  sortIndex: 1
 }
 ```
 
@@ -221,6 +226,8 @@ After this change, _Group 1_ document node will be placed under _Nav Group 2_ as
 <div class="flex-wrap responsive">
 <p class="figure-title"><b>Figure 2</b> <em>Group 1</em> relocated to <em>Nav Group 2</em></p>
 </div>
+
+_Group 1_ will be shown as the first on the list. This is because its `sortIndex` has value `1` while _Group 3_ does not have `sortIndex` property explicitly defined in the header, which means its `sortIndex` value will be set to `10` (which is greater then `1` that is the value of `sortIndex` of _Group 1_).
 
 Workspace `demo-component-navigator` contains a working example React app with component navigator as described in this document.
 
@@ -243,8 +250,6 @@ You also have to set the `basepath` prop of your router correspondingly:
   <Group1Heading1 path='/heading1' />
   <Group1Heading2 path='/heading2' />
   <Group2 path='/group-2' />
-  <Group2Heading1 path='/group-2/heading1' />
-  <Group2Heading2 path='/group-2/heading2' />
   <Group3 path='/group-3' />
   <Group3Heading1 path='/group-3/heading1' />
   <Group3Heading2 path='/group-3/heading2' />
