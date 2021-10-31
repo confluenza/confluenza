@@ -1,6 +1,6 @@
 {
   "name": "@confluenza/component-navigator-react",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "Configurable Confluenza navigation menu for pure React applications",
   "homepage": "https://confluenza.online/packages/component-navigator-react",
   "license": "MIT",
