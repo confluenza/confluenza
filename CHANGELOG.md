@@ -1,3 +1,15 @@
+## v1.0.29 (2021-10-31)
+
+#### :rocket: New Feature
+* [#48](https://github.com/confluenza/confluenza/pull/48) Updates component-navigator-react to also enjoy sorting with sortIndex ([@marcinczenko](https://github.com/marcinczenko))
+* [#42](https://github.com/confluenza/confluenza/pull/42) Introduces `ignore` option to allow extending the ignored files and introduces `sortIndex` to improve sorting of navigation items ([@marcinczenko](https://github.com/marcinczenko))
+
+#### :heart_eyes_cat: Enhancement
+* [#46](https://github.com/confluenza/confluenza/pull/46) Updates dependencies (Gatsby v4) ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.28 (2021-08-28)
 
 #### :heart_eyes_cat: Enhancement
