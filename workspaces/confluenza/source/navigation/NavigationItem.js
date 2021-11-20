@@ -5,9 +5,12 @@ import { MidLevelNavigationItem } from './mid-level-navigation-item'
 import { NavigationHeading } from './NavigationHeading'
 
 const List = styled.ul({
+  display: 'block',
   listStyle: 'none',
   paddingTop: '0.5rem',
   paddingBottom: 0,
+  paddingLeft: 0,
+  paddingRight: 0,
   margin: 0
 })
 
