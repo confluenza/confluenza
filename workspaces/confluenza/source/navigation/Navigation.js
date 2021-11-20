@@ -8,8 +8,11 @@ import { sort } from './sort'
 
 const List = styled.ul({
   listStyle: 'none',
+  display: 'block',
   paddingTop: '0.5rem',
   paddingBottom: 0,
+  paddingLeft: 0,
+  paddingRight: 0,
   margin: 0
 })
 
