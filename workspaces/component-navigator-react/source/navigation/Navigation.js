@@ -7,6 +7,9 @@ import { PathPrefixContext, withPrefix } from '../documentation-layout/PathPrefi
 import { sort } from './sort'
 
 const List = styled.ul({
+  display: 'block',
+  paddingLeft: 0,
+  paddingRight: 0,
   listStyle: 'none',
   paddingTop: '0.5rem',
   paddingBottom: 0,
