@@ -1,3 +1,19 @@
+## v1.0.31 (2021-11-20)
+
+#### :heart_eyes_cat: Enhancement
+* [#55](https://github.com/confluenza/confluenza/pull/55) Prepares confluenza to be used with Tailwind CSS ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
+## v1.0.30 (2021-11-20)
+
+#### :heart_eyes_cat: Enhancement
+* [#49](https://github.com/confluenza/confluenza/pull/49) Updates dependencies ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.29 (2021-10-31)
 
 #### :rocket: New Feature
