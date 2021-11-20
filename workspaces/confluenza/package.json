@@ -18,8 +18,8 @@
     "source"
   ],
   "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
     "@react-frontend-developer/css-grid-helper": "^1.0.22",
     "react-media": "^1.10.0",
     "typography": "^0.16.21",
