@@ -18,7 +18,7 @@
     "source"
   ],
   "dependencies": {
-    "@emotion/react": "^11.6.0",
+    "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@react-frontend-developer/css-grid-helper": "^1.0.22",
     "react-media": "^1.10.0",
