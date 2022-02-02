@@ -1,3 +1,11 @@
+## v1.0.34 (2022-02-02)
+
+#### :bug: Bug Fix
+* [#75](https://github.com/confluenza/confluenza/pull/75) Fixes problem of not showing active menu for root markdown pages ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.33 (2022-02-01)
 
 #### :heart_eyes_cat: Enhancement
