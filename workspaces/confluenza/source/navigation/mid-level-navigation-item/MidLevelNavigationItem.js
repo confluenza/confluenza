@@ -21,7 +21,7 @@ class MidLevelNavigationItem extends React.Component {
 
   getActiveProps = (currentLocation, href) => {
     const { path: normalizedPathName } = normalizeLocationPath(currentLocation)
-    if (`${normalizedPathName}` === href) {
+    if (`${normalizedPathName}` === href.replace(/\/$/, '')) {
       return 'active'
     }
     return ''
