@@ -59,7 +59,7 @@
     "react-media": "^1.10.0",
     "react-typography": "^0.16.20",
     "remark-emoji": "^2.2.0",
-    "sharp": "^0.29.3",
+    "sharp": "^0.30.0",
     "typography": "^0.16.21",
     "typography-theme-moraga": "^0.16.19"
   },
