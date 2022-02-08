@@ -34,7 +34,7 @@
     "build": "gatsby build",
     "build:local": "(cd ../../ && yarn build) && yarn build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

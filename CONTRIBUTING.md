@@ -13,7 +13,7 @@ local environment:
 » yarn install
 » yarn build
 » yarn test
-» (cd workspaces/homepage && yarn develop)
+» (cd workspaces/homepage && yarn dev)
 ```
 
 ## Code organization

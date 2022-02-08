@@ -2,7 +2,7 @@
 path: /users/using-confluenza
 title: Using Confluenza
 tag: user
-sortIndex: 0
+sortIndex: 20
 ---
 
 We hope that Confluenza is so simple that you do not really need further

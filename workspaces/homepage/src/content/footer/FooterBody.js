@@ -10,6 +10,7 @@ import { FooterGraphic } from './FooterGraphic'
 const FooterBody = ({ data }) => (
   <FooterRow>
     <FooterMenu title='Confluenza'>
+      <MenuLink to='/users/quick-start'>Quick Start</MenuLink>
       <MenuLink to='/users/using-confluenza'>Using Confluenza</MenuLink>
       <MenuLink to='/users/mdx'>MDX in Confluenza</MenuLink>
       <MenuLink to='/developers/making-confluenza-yours'>Making Confluenza Yours</MenuLink>

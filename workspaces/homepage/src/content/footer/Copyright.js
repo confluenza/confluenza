@@ -15,7 +15,7 @@ const Copyright = () => (
       }}
       >
         &copy;
-      </span> 2019 Confluenza
+      </span> 2022 Confluenza
     </p>
   </Row>
 )
