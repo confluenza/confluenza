@@ -1,3 +1,11 @@
+## v1.0.36 (2022-02-09)
+
+#### :bug: Bug Fix
+* [#85](https://github.com/confluenza/confluenza/pull/85) Fixes subtle bug when processing root path in Navigation menu ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.35 (2022-02-09)
 
 #### :heart_eyes_cat: Enhancement
