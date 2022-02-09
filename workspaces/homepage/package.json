@@ -15,9 +15,9 @@
     "@confluenza/gatsby-theme-confluenza": "^1.0.34",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "gatsby": "^4.6.0",
-    "gatsby-plugin-catch-links": "^4.6.0",
-    "gatsby-plugin-emotion": "^7.6.0",
+    "gatsby": "^4.7.1",
+    "gatsby-plugin-catch-links": "^4.7.0",
+    "gatsby-plugin-emotion": "^7.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -39,11 +39,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-parser": "^7.17.0",
     "eslint": "^8.8.0",
     "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "gatsby-cli": "^4.6.0",
+    "gatsby-cli": "^4.7.0",
     "gatsby-plugin-root-import": "^2.0.8",
     "jest-emotion": "^11.0.0"
   }
