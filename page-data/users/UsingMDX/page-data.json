@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-users-using-mdx-mdx",
+    "path": "/users/UsingMDX/",
+    "result": {"pageContext":{"frontmatter":{"path":"/users/mdx","title":"Using MDX in Confluenza","tag":"user","sortIndex":30}}},
+    "staticQueryHashes": ["1136224994"]}
