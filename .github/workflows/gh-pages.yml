@@ -40,7 +40,7 @@ jobs:
       - name: Build Demo component navigator 📦
         run: (cd workspaces/demo-component-navigator && yarn build)
       - name: Copy demo-component-navigator to confluenza tree
-        run: (mv workspaces/demo-component-navigator/build workspaces/confluenza/public/demo-component-navigator)
+        run: (mv workspaces/demo-component-navigator/build workspaces/homepage/public/demo-component-navigator)
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
