@@ -1,0 +1,49 @@
+name: GH Pages
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  nodejs:
+    name: Deploy GH-pages
+    runs-on: ubuntu-latest
+
+    env:
+      CI: true
+    
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Check out code 🛎️
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: restore lerna
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            .yarn
+          key: m-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies
+        run: yarn install
+      - name: Build Packages 📦
+        run: yarn build
+      - name: Build Homepage 📦
+        run: (cd workspaces/homepage && yarn build)
+      - name: Build Demo component navigator 📦
+        run: (cd workspaces/demo-component-navigator && yarn build)
+      - name: Copy demo-component-navigator to confluenza tree
+        run: (mv workspaces/demo-component-navigator/build workspaces/confluenza/public/demo-component-navigator)
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: workspaces/confluenza/public
+          CLEAN: true
