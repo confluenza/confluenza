@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import { Collapsable } from '../Collapsable'
 import { NavigationLink } from '../NavigationLink'
 import { normalizeLocationPath } from '../../documentation-layout/normalizeLocationPath'
-import { PathPrefixContext, withPrefix } from '../../documentation-layout/PathPrefixContext'
 
 const Wrapper = styled.div({
   position: 'relative',
@@ -14,17 +13,15 @@ const Wrapper = styled.div({
 })
 
 class MidLevelNavigationItem extends React.Component {
-  static contextType = PathPrefixContext
-
   constructor (props) {
     super(props)
 
     this.triggerRef = React.createRef()
   }
 
-  getActiveProps = (currentLocation, href, pathPrefix) => {
+  getActiveProps = (currentLocation, href) => {
     const normalizedHref = href.replace(/\/$/, '')
-    const { path: normalizedPathName } = normalizeLocationPath(currentLocation, pathPrefix)
+    const { path: normalizedPathName } = normalizeLocationPath(currentLocation)
     if (`${normalizedPathName}` === normalizedHref) {
       return 'active'
     }
@@ -37,7 +34,6 @@ class MidLevelNavigationItem extends React.Component {
 
   render () {
     const { title, path, location } = this.props
-    const pathPrefix = this.context
 
     return (
       <Collapsable
@@ -45,8 +41,8 @@ class MidLevelNavigationItem extends React.Component {
           <Wrapper onClick={() => unfold()}>
             <NavigationLink
               ref={this.triggerRef}
-              to={withPrefix(path, pathPrefix)}
-              className={this.getActiveProps(location, path, pathPrefix)}
+              to={path}
+              className={this.getActiveProps(location, path)}
             >
               {title}
             </NavigationLink>

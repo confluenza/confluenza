@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
-// import { useMatch, useLocation, useHref } from 'react-router-dom'
 import { useMatch, useLocation } from 'react-router-dom'
 
 import { NavigationLink } from './NavigationLink'
-import { PathPrefixContext, withPrefix } from '../documentation-layout/PathPrefixContext'
 
 const Li = styled.li({
   '&:last-child': {
@@ -13,9 +11,7 @@ const Li = styled.li({
 })
 
 const NavigationHeading = ({ path, value, index }) => {
-  const pathPrefix = useContext(PathPrefixContext)
   const [cln, setCln] = useState('')
-  console.log(pathPrefix)
   const ref = useRef('')
   const location = useLocation()
   console.log('location=', location)
@@ -61,7 +57,7 @@ const NavigationHeading = ({ path, value, index }) => {
   return (
     <Li key={index}>
       <NavigationLink
-        to={withPrefix(path, pathPrefix)}
+        to={path}
         ref={ref}
         className={match ? `${cln} active` : cln}
       >
