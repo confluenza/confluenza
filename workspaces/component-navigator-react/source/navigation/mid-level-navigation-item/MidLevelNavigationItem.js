@@ -19,10 +19,19 @@ class MidLevelNavigationItem extends React.Component {
     this.triggerRef = React.createRef()
   }
 
-  getActiveProps = (currentLocation, href) => {
-    const normalizedHref = href.replace(/\/$/, '')
+  getActiveProps = (currentLocation, path, headings) => {
+    const normalizedPath = path.replace(/\/$/, '')
     const { path: normalizedPathName } = normalizeLocationPath(currentLocation)
-    if (`${normalizedPathName}` === normalizedHref) {
+    // this part (inside the 'if') is responsible for making midlevel item bold
+    // when one of the children is rendered
+    if (headings) {
+      const headingsPaths = headings.map(h => h.path)
+      if (`${normalizedPathName}` === normalizedPath || headingsPaths.includes(normalizedPathName)) {
+        return 'active'
+      }
+      return ''
+    }
+    if (`${normalizedPathName}` === normalizedPath) {
       return 'active'
     }
     return ''
@@ -33,7 +42,7 @@ class MidLevelNavigationItem extends React.Component {
   }
 
   render () {
-    const { title, path, location } = this.props
+    const { title, path, location, headings } = this.props
 
     return (
       <Collapsable
@@ -42,7 +51,7 @@ class MidLevelNavigationItem extends React.Component {
             <NavigationLink
               ref={this.triggerRef}
               to={path}
-              className={this.getActiveProps(location, path)}
+              className={this.getActiveProps(location, path, headings)}
             >
               {title}
             </NavigationLink>
