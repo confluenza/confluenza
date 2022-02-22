@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
+// import { useMatch, useLocation, useHref } from 'react-router-dom'
+import { useMatch, useLocation } from 'react-router-dom'
 
 import { NavigationLink } from './NavigationLink'
 import { PathPrefixContext, withPrefix } from '../documentation-layout/PathPrefixContext'
@@ -10,53 +12,63 @@ const Li = styled.li({
   }
 })
 
-class NavigationHeading extends React.Component {
-  static contextType = PathPrefixContext
+const NavigationHeading = ({ path, value, index }) => {
+  const pathPrefix = useContext(PathPrefixContext)
+  const [cln, setCln] = useState('')
+  console.log(pathPrefix)
+  const ref = useRef('')
+  const location = useLocation()
+  console.log('location=', location)
+  // const href = useHref()
 
-  state = {
-    cln: ''
-  }
+  console.log('path[]=', path)
 
-  getActiveProps = (currentLocation, href) => {
-    this.location = currentLocation.pathname.replace(/\/$/, '')
-    this.hash = currentLocation.hash
-    this.href = href
-    if (this.linkClassName) {
-      if (`${this.location}${this.hash}` === this.href) {
-        return { className: `${this.linkClassName} active` }
-      } else {
-        return { className: this.linkClassName }
-      }
-    }
-    return null
-  }
+  const match = useMatch(path)
 
-  recordLinkNode = node => {
-    this.linkClassName = node && node.className
-    if (`${this.location}${this.hash}` === this.href) {
-      this.setState({ cln: `${this.linkClassName} active` })
-    } else {
-      this.setState({ cln: this.linkClassName })
-    }
-  }
+  console.log('match=', match)
 
-  render () {
-    const { path, value, index } = this.props
-    const pathPrefix = this.context
+  // const getActiveProps = (currentLocation, href) => {
+  //   this.location = currentLocation.pathname.replace(/\/$/, '')
+  //   this.hash = currentLocation.hash
+  //   this.href = href
+  //   if (this.linkClassName) {
+  //     if (`${this.location}${this.hash}` === this.href) {
+  //       return { className: `${this.linkClassName} active` }
+  //     } else {
+  //       return { className: this.linkClassName }
+  //     }
+  //   }
+  //   return null
+  // }
 
-    return (
-      <Li key={index}>
-        <NavigationLink
-          to={withPrefix(path, pathPrefix)}
-          ref={this.recordLinkNode}
-          className={this.state.cln}
-          getProps={({ location, href }) => this.getActiveProps(location, href)}
-        >
-          {value}
-        </NavigationLink>
-      </Li>
-    )
-  }
+  useEffect(() => {
+    setCln(ref.current.className.replace(/\w*active\w*/, ''))
+  }, [])
+
+  // const recordLinkNode = node => {
+  //   const linkClassName = node && node.className
+  //   console.log('linkClassName=', linkClassName)
+  //   // setCln(linkClassName)
+  //   // const currentLocation = location.pathname.replace(/\/$/, '')
+  //   // const hash = location.hash
+  //   // if (`${currentLocation}${hash}` === href) {
+  //   //   setCln(`${linkClassName} active`)
+  //   // } else {
+  //   //   setCln(linkClassName)
+  //   // }
+  // }
+
+  return (
+    <Li key={index}>
+      <NavigationLink
+        to={withPrefix(path, pathPrefix)}
+        ref={ref}
+        className={match ? `${cln} active` : cln}
+      >
+        {value}
+      </NavigationLink>
+    </Li>
+  )
 }
 
 export { NavigationHeading }
