@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
+import { useMatch } from 'react-router-dom'
 
 import { NavigationLink } from './NavigationLink'
-import { PathPrefixContext, withPrefix } from '../documentation-layout/PathPrefixContext'
 
 const Li = styled.li({
   '&:last-child': {
@@ -10,53 +10,27 @@ const Li = styled.li({
   }
 })
 
-class NavigationHeading extends React.Component {
-  static contextType = PathPrefixContext
+const NavigationHeading = ({ path, value, index }) => {
+  const [cln, setCln] = useState('')
+  const linkRef = useRef('')
 
-  state = {
-    cln: ''
-  }
+  const match = useMatch(path)
 
-  getActiveProps = (currentLocation, href) => {
-    this.location = currentLocation.pathname.replace(/\/$/, '')
-    this.hash = currentLocation.hash
-    this.href = href
-    if (this.linkClassName) {
-      if (`${this.location}${this.hash}` === this.href) {
-        return { className: `${this.linkClassName} active` }
-      } else {
-        return { className: this.linkClassName }
-      }
-    }
-    return null
-  }
+  useEffect(() => {
+    setCln(linkRef.current.className.replace(/\w*active\w*/, ''))
+  }, [])
 
-  recordLinkNode = node => {
-    this.linkClassName = node && node.className
-    if (`${this.location}${this.hash}` === this.href) {
-      this.setState({ cln: `${this.linkClassName} active` })
-    } else {
-      this.setState({ cln: this.linkClassName })
-    }
-  }
-
-  render () {
-    const { path, value, index } = this.props
-    const pathPrefix = this.context
-
-    return (
-      <Li key={index}>
-        <NavigationLink
-          to={withPrefix(path, pathPrefix)}
-          ref={this.recordLinkNode}
-          className={this.state.cln}
-          getProps={({ location, href }) => this.getActiveProps(location, href)}
-        >
-          {value}
-        </NavigationLink>
-      </Li>
-    )
-  }
+  return (
+    <Li key={index}>
+      <NavigationLink
+        to={path}
+        ref={linkRef}
+        className={match ? `${cln} active` : cln}
+      >
+        {value}
+      </NavigationLink>
+    </Li>
+  )
 }
 
 export { NavigationHeading }

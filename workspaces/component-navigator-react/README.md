@@ -25,11 +25,12 @@ export { Layout }
 > With [New JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) introduced in React v17, you no longer need to import React
 > just to use JSX.
 
-You need to provide a `location` object and navigation config in `data`. First, location. We tested `@confluenza/component-navigator-react` with `@reach/router`:
+You need to provide a `location` object and navigation config in `data`. First, location. With React Router v6 you can use `useLocation` hook to get the current location: :
 
 ```jsx
-import { Router, Location } from '@reach/router'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { Global } from '@emotion/react'
+import { Helmet } from 'react-helmet'
 
 import { Layout } from './Layout'
 
@@ -45,6 +46,7 @@ const Group3Heading1 = () => <div>Group3Heading1</div>
 const Group3Heading2 = () => <div>Group3Heading2</div>
 
 const App = () => {
+  const location = useLocation()
   return (
     <div>
       <Global styles={globalStyles} />
@@ -53,27 +55,23 @@ const App = () => {
         <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i&display=swap' rel='stylesheet' />
       </Helmet>
 
-      <Location>
-        {({ location }) => (
-          <Layout location={location} data={navigationData}>
-            <Router location={location}>
-              <Group1 path='/' />
-              <Group1Heading1 path='/heading1' />
-              <Group1Heading2 path='/heading2' />
-              <Group2 path='/group-2' />
-              <Group3 path='/group-3' />
-              <Group3Heading1 path='/group-3/heading1' />
-              <Group3Heading2 path='/group-3/heading2' />
-            </Router>
-          </Layout>
-        )}
-      </Location>
+      <Layout location={location} data={navigationData}>
+        <Routes>
+          <Route path='/' element={<Group1 />} />
+          <Route path='/heading1' element={<Group1Heading1 />} />
+          <Route path='/heading2' element={<Group1Heading2 />} />
+          <Route path='/group-2' element={<Group2 />} />
+          <Route path='/group-3' element={<Group3 />} />
+          <Route path='/group-3/heading1' element={<Group3Heading1 />} />
+          <Route path='/group-3/heading2' element={<Group3Heading2 />} />
+        </Routes>
+      </Layout>
     </div>
   )
 }
 ```
 
-As we see, `location` comes directly from the router. We see a number of routes and we also see the corresponding intended paths associated with them.
+In the example above, we see a number of routes and we also see the corresponding intended paths associated with them.
 Now we need to connect these with our navigation component. We use `navigationData` to achieve this:
 
 ```javascript

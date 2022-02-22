@@ -1,7 +1,5 @@
-import { useContext } from 'react'
 import styled from '@emotion/styled'
-import { Link } from '@reach/router'
-import { PathPrefixContext, withPrefix } from './PathPrefixContext'
+import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div({
   backgroundColor: 'black',
@@ -26,9 +24,8 @@ const HomeLink = styled(Link)({
 })
 
 const SiteTitle = ({ title }) => {
-  const pathPrefix = useContext(PathPrefixContext)
   return (
-    <HomeLink to={withPrefix('/', pathPrefix)}>
+    <HomeLink to='/'>
       <Wrapper>
         {title}
       </Wrapper>

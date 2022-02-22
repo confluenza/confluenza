@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 
 import { TopLevelNavigationItem } from './top-level-navigation-item'
 import { NavigationItem } from './NavigationItem'
-import { PathPrefixContext, withPrefix } from '../documentation-layout/PathPrefixContext'
 import { sort } from './sort'
 
 const List = styled.ul({
@@ -17,8 +16,6 @@ const List = styled.ul({
 })
 
 export class Navigation extends React.PureComponent {
-  static contextType = PathPrefixContext
-
   navigationGroups
 
   constructor (props) {
@@ -117,12 +114,12 @@ export class Navigation extends React.PureComponent {
     return 0
   }
 
-  isActive = (docs, pathPrefix) => {
+  isActive = docs => {
     if (docs && docs.length > 0) {
       const filtered = docs.filter(d => {
         const headings = d.node.headings || []
-        const subPaths = headings.map(h => withPrefix(h.path, pathPrefix))
-        const normalizedGroupPath = withPrefix(d.node.frontmatter.path, pathPrefix)
+        const subPaths = headings.map(h => h.path)
+        const normalizedGroupPath = d.node.frontmatter.path.replace(/\/$/, '')
         const normalizedLocationPath = this.props.location.pathname.replace(/\/$/, '')
         return normalizedGroupPath === normalizedLocationPath || subPaths.includes(normalizedLocationPath)
       })
@@ -203,7 +200,7 @@ export class Navigation extends React.PureComponent {
       tag={group.tag}
       title={group.title}
       onChange={(delta, el, triggerElement) => this.topLevelNavigationItemChanged(delta, el, triggerElement)}
-      active={this.isActive(group.docs, this.context)}
+      active={this.isActive(group.docs)}
       delta={this.aggregateDeltas(this.state[`${group.tag}Deltas`])}
     >
       <div>

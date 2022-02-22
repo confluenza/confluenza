@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import { Collapsable } from '../Collapsable'
 import { NavigationLink } from '../NavigationLink'
 import { normalizeLocationPath } from '../../documentation-layout/normalizeLocationPath'
-import { PathPrefixContext, withPrefix } from '../../documentation-layout/PathPrefixContext'
 
 const Wrapper = styled.div({
   position: 'relative',
@@ -14,18 +13,25 @@ const Wrapper = styled.div({
 })
 
 class MidLevelNavigationItem extends React.Component {
-  static contextType = PathPrefixContext
-
   constructor (props) {
     super(props)
 
     this.triggerRef = React.createRef()
   }
 
-  getActiveProps = (currentLocation, href, pathPrefix) => {
-    const normalizedHref = href.replace(/\/$/, '')
-    const { path: normalizedPathName } = normalizeLocationPath(currentLocation, pathPrefix)
-    if (`${normalizedPathName}` === normalizedHref) {
+  getActiveProps = (currentLocation, path, headings) => {
+    const normalizedPath = path.replace(/\/$/, '')
+    const { path: normalizedPathName } = normalizeLocationPath(currentLocation)
+    // this part (inside the 'if') is responsible for making midlevel item bold
+    // when one of the children is rendered
+    if (headings) {
+      const headingsPaths = headings.map(h => h.path)
+      if (`${normalizedPathName}` === normalizedPath || headingsPaths.includes(normalizedPathName)) {
+        return 'active'
+      }
+      return ''
+    }
+    if (`${normalizedPathName}` === normalizedPath) {
       return 'active'
     }
     return ''
@@ -36,8 +42,7 @@ class MidLevelNavigationItem extends React.Component {
   }
 
   render () {
-    const { title, path, location } = this.props
-    const pathPrefix = this.context
+    const { title, path, location, headings } = this.props
 
     return (
       <Collapsable
@@ -45,8 +50,8 @@ class MidLevelNavigationItem extends React.Component {
           <Wrapper onClick={() => unfold()}>
             <NavigationLink
               ref={this.triggerRef}
-              to={withPrefix(path, pathPrefix)}
-              className={this.getActiveProps(location, path, pathPrefix)}
+              to={path}
+              className={this.getActiveProps(location, path, headings)}
             >
               {title}
             </NavigationLink>

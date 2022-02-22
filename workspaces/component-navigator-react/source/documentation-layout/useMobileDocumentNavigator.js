@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { navigate } from '@reach/router'
+import { useNavigate } from 'react-router-dom'
 
 import { normalizeLocationPath } from './normalizeLocationPath'
 
@@ -8,6 +8,7 @@ const useMobileDocumentNavigator = ({
   location
 }, deps) => {
   const [prevLocation, setPrevLocation] = useState(undefined)
+  const navigate = useNavigate()
 
   const navigateUnusually = ({ path, pathWithHash }) => {
     setTimeout(() => {
