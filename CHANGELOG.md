@@ -1,3 +1,11 @@
+## v1.0.37 (2022-02-22)
+
+#### :heart_eyes_cat: Enhancement
+* [#90](https://github.com/confluenza/confluenza/pull/90) React router 6 in component-navigator-react ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.36 (2022-02-09)
 
 #### :bug: Bug Fix
