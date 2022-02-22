@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/demo-component-navigator/static/js/main.7ecc953e.js",
+    "main.js": "/demo-component-navigator/static/js/main.ffc3429a.js",
     "index.html": "/demo-component-navigator/index.html",
-    "main.7ecc953e.js.map": "/demo-component-navigator/static/js/main.7ecc953e.js.map"
+    "main.ffc3429a.js.map": "/demo-component-navigator/static/js/main.ffc3429a.js.map"
   },
   "entrypoints": [
-    "static/js/main.7ecc953e.js"
+    "static/js/main.ffc3429a.js"
   ]
 }
