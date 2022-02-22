@@ -42,7 +42,7 @@ jobs:
       - name: Copy demo-component-navigator to confluenza tree
         run: (mv workspaces/demo-component-navigator/build workspaces/homepage/public/demo-component-navigator)
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.2.5
+        uses: JamesIves/github-pages-deploy-action@4.2.4
         with:
           branch: gh-pages
           folder: workspaces/homepage/public
