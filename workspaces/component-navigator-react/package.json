@@ -18,9 +18,9 @@
     "source"
   ],
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@react-frontend-developer/css-grid-helper": "^1.0.22",
+    "@react-frontend-developer/css-grid-helper": "^2.0.0",
     "react-media": "^1.10.0"
   },
   "peerDependencies": {
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
-    "@testing-library/react": "^12.1.3"
+    "@testing-library/react": "^12.1.4"
   },
   "publishConfig": {
     "access": "public"
