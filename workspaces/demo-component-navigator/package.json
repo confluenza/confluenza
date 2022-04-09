@@ -1,13 +1,13 @@
 {
   "name": "demo-component-navigator",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "private": true,
   "homepage": "https://confluenza.online/demo-component-navigator",
   "engines": {
     "node": "16.x"
   },
   "dependencies": {
-    "@confluenza/component-navigator-react": "^1.0.38",
+    "@confluenza/component-navigator-react": "^1.0.39",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "react": "^18.0.0",
