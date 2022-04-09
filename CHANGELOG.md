@@ -1,3 +1,12 @@
+## v1.0.39 (2022-04-09)
+
+#### :heart_eyes_cat: Enhancement
+* [#112](https://github.com/confluenza/confluenza/pull/112) Hides scrollbars in navigation ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 2
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+- [@dependabot[bot]](https://github.com/apps/dependabot)
+
 ## v1.0.38 (2022-02-22)
 
 #### :heart_eyes_cat: Enhancement
