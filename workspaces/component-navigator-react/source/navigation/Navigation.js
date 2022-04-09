@@ -250,12 +250,10 @@ export class Navigation extends React.PureComponent {
           flex: '1 1 0',
           WebkitOverflowScrolling: 'touch',
           '::-webkit-scrollbar': {
-            width: '6px',
-            height: '6px'
+            display: 'none'
           },
-          '::-webkit-scrollbar-thumb': {
-            background: '#ccc'
-          }
+          '-ms-overflow-style': 'none', /* IE and Edge */
+          scrollbarWidth: 'none'
         }}
       >
         {this.navigationGroups.map(g => this.renderNavigationGroup(g))}
