@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
-    "@testing-library/react": "^12.1.4"
+    "@testing-library/react": "^13.0.1"
   },
   "publishConfig": {
     "access": "public"
