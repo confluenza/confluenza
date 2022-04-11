@@ -35,7 +35,7 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@emotion/styled-base": "^11.0.0",
-    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/mdx": "^2.1.1",
     "@mdx-js/react": "^1.6.22",
     "@react-frontend-developer/css-grid-helper": "^2.0.0",
     "gatsby-plugin-catch-links": "^4.11.0",
