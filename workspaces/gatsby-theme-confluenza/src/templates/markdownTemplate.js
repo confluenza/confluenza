@@ -72,7 +72,7 @@ export const pageQuery = graphql`
   }
 `
 
-export const Head = ({ data: { doc, mdx }}) => {
+export const Head = ({ data: { doc, mdx } }) => {
   const { frontmatter: { title } } = doc
 
   return (
