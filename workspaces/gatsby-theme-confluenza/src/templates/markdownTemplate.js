@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import '../prismjs/themes/prism-tomorrow.css'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { EditFile } from '@confluenza/confluenza'
@@ -11,10 +10,6 @@ const Template = ({ data: { site: { siteMetadata }, doc, mdx }, location }) => {
     const { body, fileAbsolutePath, frontmatter: { title } } = mdx
     return (
       <div>
-        <Helmet title={title}>
-          <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-          <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
-        </Helmet>
         <EditFile
           fileAbsolutePath={fileAbsolutePath}
           editBaseUrl={editBaseUrl}
@@ -27,10 +22,6 @@ const Template = ({ data: { site: { siteMetadata }, doc, mdx }, location }) => {
     const { html, fileAbsolutePath, frontmatter: { title, content } } = doc
     return (
       <div>
-        <Helmet title={title}>
-          <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-          <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
-        </Helmet>
         <EditFile
           fileAbsolutePath={fileAbsolutePath}
           externalContent={content}
@@ -80,5 +71,15 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = ({ data: { doc, mdx } }) => {
+  return (
+    <>
+      <title>{mdx ? mdx.frontmatter.title : doc.frontmatter.title}</title>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
+    </>
+  )
+}
 
 export default Template

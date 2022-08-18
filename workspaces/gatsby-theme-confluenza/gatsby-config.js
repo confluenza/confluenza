@@ -115,7 +115,6 @@ module.exports = ({ mdx = false, ignore = [] }) => {
           ]
         }
       },
-      'gatsby-plugin-react-helmet',
       {
         resolve: 'gatsby-plugin-typography',
         options: {
