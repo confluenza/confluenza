@@ -73,11 +73,9 @@ export const pageQuery = graphql`
 `
 
 export const Head = ({ data: { doc, mdx } }) => {
-  const { frontmatter: { title } } = doc
-
   return (
     <>
-      <title>{title}</title>
+      <title>{mdx ? mdx.frontmatter.title : doc.frontmatter.title}</title>
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
       <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
     </>
