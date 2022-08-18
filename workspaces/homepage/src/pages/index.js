@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 
 import { Header } from 'src/components/header'
 import { IntroPanel } from 'src/components/intro-panel'
@@ -39,10 +38,6 @@ const Home = ({ data, location }) => {
 
   return (
     <>
-      <Helmet title='Confluenza'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
-      </Helmet>
       <Header data={data} />
       <BodyFrame css={{ visibility }}>
         <IntroPanel data={data} />
@@ -67,5 +62,14 @@ export const query = graphql`
     }
   }
 `
+
+export const Head = () => (
+  <>
+    <title>Confluenza</title>
+    <meta name="description" content="Confluenza - flexible Markdown documentation browser" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
+  </>
+)
 
 export default Home
