@@ -73,7 +73,7 @@ module.exports = ({ mdx = false, ignore = [] }) => {
             {
               resolve: 'gatsby-remark-images',
               options: {
-                maxWidth: 600
+                maxWidth: 800
               }
             },
             'gatsby-remark-emoji'
@@ -109,7 +109,7 @@ module.exports = ({ mdx = false, ignore = [] }) => {
             {
               resolve: 'gatsby-remark-images',
               options: {
-                maxWidth: 600
+                maxWidth: 800
               }
             }
           ]
