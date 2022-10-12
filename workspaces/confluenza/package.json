@@ -1,6 +1,6 @@
 {
   "name": "@confluenza/confluenza",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "Confluenza - Browsable Markdown Documentation for Gatsby",
   "homepage": "https://confluenza.online/packages/confluenza",
   "license": "MIT",
