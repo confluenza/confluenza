@@ -4415,7 +4415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@confluenza/component-navigator-react@^1.0.40, @confluenza/component-navigator-react@workspace:workspaces/component-navigator-react":
+"@confluenza/component-navigator-react@^1.0.41, @confluenza/component-navigator-react@workspace:workspaces/component-navigator-react":
   version: 0.0.0-use.local
   resolution: "@confluenza/component-navigator-react@workspace:workspaces/component-navigator-react"
   dependencies:
@@ -4432,7 +4432,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@confluenza/confluenza@^1.0.40, @confluenza/confluenza@workspace:workspaces/confluenza":
+"@confluenza/confluenza@^1.0.41, @confluenza/confluenza@workspace:workspaces/confluenza":
   version: 0.0.0-use.local
   resolution: "@confluenza/confluenza@workspace:workspaces/confluenza"
   dependencies:
@@ -4450,12 +4450,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@confluenza/gatsby-theme-confluenza@^1.0.40, @confluenza/gatsby-theme-confluenza@workspace:workspaces/gatsby-theme-confluenza":
+"@confluenza/gatsby-theme-confluenza@^1.0.41, @confluenza/gatsby-theme-confluenza@workspace:workspaces/gatsby-theme-confluenza":
   version: 0.0.0-use.local
   resolution: "@confluenza/gatsby-theme-confluenza@workspace:workspaces/gatsby-theme-confluenza"
   dependencies:
     "@babel/eslint-parser": ^7.19.1
-    "@confluenza/confluenza": ^1.0.40
+    "@confluenza/confluenza": ^1.0.41
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
     "@emotion/styled-base": ^11.0.0
@@ -13020,7 +13020,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "demo-component-navigator@workspace:workspaces/demo-component-navigator"
   dependencies:
-    "@confluenza/component-navigator-react": ^1.0.40
+    "@confluenza/component-navigator-react": ^1.0.41
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
     react: ^18.2.0
@@ -17127,7 +17127,7 @@ __metadata:
   resolution: "homepage@workspace:workspaces/homepage"
   dependencies:
     "@babel/eslint-parser": ^7.19.1
-    "@confluenza/gatsby-theme-confluenza": ^1.0.40
+    "@confluenza/gatsby-theme-confluenza": ^1.0.41
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
     eslint: ^8.25.0
