@@ -1,7 +1,7 @@
 ## v1.0.41 (2022-10-12)
 
 #### :heart_eyes_cat: Enhancement
-* [#177](https://github.com/confluenza/confluenza/pull/177) Max image width markdown ([@marcinczenko](https://github.com/marcinczenko))
+* [#177](https://github.com/confluenza/confluenza/pull/177) Increases max image width in markdown and MDX ([@marcinczenko](https://github.com/marcinczenko))
 
 #### Committers: 1
 - Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
