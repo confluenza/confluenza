@@ -16798,6 +16798,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gzip-size@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "gzip-size@npm:7.0.0"
+  dependencies:
+    duplexer: ^0.1.2
+  checksum: 52d0bf586307082428b99f7b04d56d756d640e1f84d4a56debf9fb8c972d9db679143b067dd4024ebef42e9f6787e9dc8b9dcad344372b9dc87e55d942276f49
+  languageName: node
+  linkType: hard
+
 "handle-thing@npm:^2.0.0":
   version: 2.0.1
   resolution: "handle-thing@npm:2.0.1"
@@ -24381,10 +24390,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-bytes@npm:^5.3.0, pretty-bytes@npm:^5.4.1, pretty-bytes@npm:^5.6.0":
+"pretty-bytes@npm:^5.3.0, pretty-bytes@npm:^5.4.1":
   version: 5.6.0
   resolution: "pretty-bytes@npm:5.6.0"
   checksum: 9c082500d1e93434b5b291bd651662936b8bd6204ec9fa17d563116a192d6d86b98f6d328526b4e8d783c07d5499e2614a807520249692da9ec81564b2f439cd
+  languageName: node
+  linkType: hard
+
+"pretty-bytes@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "pretty-bytes@npm:6.0.0"
+  checksum: 0bb9f95e617236404b29a8392c6efd82d65805f622f5e809ecd70068102be857d4e3276c86d2a32fa2ef851cc29472e380945dab7bec83ec79bd57a19a10faf7
   languageName: node
   linkType: hard
 
@@ -26038,12 +26054,12 @@ resolve@^2.0.0-next.3:
     eslint: ^8.25.0
     eslint-plugin-react-hooks: ^4.6.0
     gatsby: ^4.24.4
-    gzip-size: ^6.0.0
+    gzip-size: ^7.0.0
     jest: ^29.1.2
     jest-emotion: ^11.0.0
     lerna: ^5.6.2
     lerna-changelog: ^2.2.0
-    pretty-bytes: ^5.6.0
+    pretty-bytes: ^6.0.0
     prop-types: ^15.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
