@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -26,9 +25,7 @@ const HomeLink = styled(Link)({
 
 const SiteTitle = ({ title }) => (
   <HomeLink to='/'>
-    <Wrapper>
-      {title}
-    </Wrapper>
+    <Wrapper>{title}</Wrapper>
   </HomeLink>
 )
 

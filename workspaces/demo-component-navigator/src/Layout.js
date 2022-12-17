@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { DocumentationLayout } from '@confluenza/component-navigator-react'
 
 const Layout = ({ children, location, data }) => {

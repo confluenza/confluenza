@@ -13,7 +13,7 @@ const Wrapper = styled.div({
 })
 
 class MidLevelNavigationItem extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.triggerRef = React.createRef()
@@ -25,8 +25,11 @@ class MidLevelNavigationItem extends React.Component {
     // this part (inside the 'if') is responsible for making midlevel item bold
     // when one of the children is rendered
     if (headings) {
-      const headingsPaths = headings.map(h => h.path)
-      if (`${normalizedPathName}` === normalizedPath || headingsPaths.includes(normalizedPathName)) {
+      const headingsPaths = headings.map((h) => h.path)
+      if (
+        `${normalizedPathName}` === normalizedPath ||
+        headingsPaths.includes(normalizedPathName)
+      ) {
         return 'active'
       }
       return ''
@@ -41,12 +44,14 @@ class MidLevelNavigationItem extends React.Component {
     this.props.onChange(delta, collpasableElement, this.triggerRef.current)
   }
 
-  render () {
+  render() {
     const { title, path, location, headings } = this.props
 
     return (
       <Collapsable
-        id={`collapsable${this.props.path}${this.props.title}`} onChange={this.handleOnChange} trigger={(unfold, folded) => (
+        id={`collapsable${this.props.path}${this.props.title}`}
+        onChange={this.handleOnChange}
+        trigger={(unfold) => (
           <Wrapper onClick={() => unfold()}>
             <NavigationLink
               ref={this.triggerRef}

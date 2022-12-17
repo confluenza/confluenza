@@ -92,7 +92,7 @@ const DocumentationLayoutMedium = ({
   } = data
   return (
     <div
-      css={{
+      style={{
         padding: '1rem'
       }}
     >

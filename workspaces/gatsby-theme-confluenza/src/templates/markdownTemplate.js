@@ -1,21 +1,19 @@
-import React from "react";
-import { MDXProvider } from "@mdx-js/react";
-import "../prismjs/themes/prism-tomorrow.css";
-import { EditFile } from "@confluenza/confluenza";
-import { graphql } from "gatsby";
+import '../prismjs/themes/prism-tomorrow.css'
+import { EditFile } from '@confluenza/confluenza'
+import { graphql } from 'gatsby'
 
-const Template = ({ data, location, children }) => {
+const Template = ({ data, children }) => {
   const {
     site: { siteMetadata },
     doc,
-    mdx,
-  } = data;
-  const { editBaseUrl } = siteMetadata;
+    mdx
+  } = data
+  const { editBaseUrl } = siteMetadata
   if (mdx) {
     const {
       internal: { contentFilePath: fileAbsolutePath },
-      frontmatter: { title },
-    } = mdx;
+      frontmatter: { title }
+    } = mdx
     return (
       <div>
         <EditFile
@@ -25,13 +23,13 @@ const Template = ({ data, location, children }) => {
         <h1>{title}</h1>
         {children}
       </div>
-    );
+    )
   } else {
     const {
       html,
       fileAbsolutePath,
-      frontmatter: { title, content },
-    } = doc;
+      frontmatter: { title, content }
+    } = doc
     return (
       <div>
         <EditFile
@@ -43,17 +41,17 @@ const Template = ({ data, location, children }) => {
         <div
           dangerouslySetInnerHTML={{
             __html: content
-              ? content.childMarkdownRemark.html.split("\n").slice(1).join("\n")
-              : html,
+              ? content.childMarkdownRemark.html.split('\n').slice(1).join('\n')
+              : html
           }}
         />
-        {content && html !== "" && (
+        {content && html !== '' && (
           <div dangerouslySetInnerHTML={{ __html: html }} />
         )}
       </div>
-    );
+    )
   }
-};
+}
 
 export const pageQuery = graphql`
   query ($templatePath: String!) {
@@ -92,10 +90,10 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 export const Head = ({ data }) => {
-  const { doc, mdx } = data;
+  const { doc, mdx } = data
   return (
     <>
       <title>{mdx ? mdx.frontmatter.title : doc.frontmatter.title}</title>
@@ -108,7 +106,7 @@ export const Head = ({ data }) => {
         rel='stylesheet'
       />
     </>
-  );
-};
+  )
+}
 
-export default Template;
+export default Template

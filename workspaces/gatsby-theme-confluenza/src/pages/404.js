@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 
 const Wrapper = styled.div({
@@ -18,8 +17,9 @@ const Text = styled.p({
 const NotFound404 = () => (
   <Wrapper>
     <h1>Not Found :(</h1>
-    <Text>This is the end of the Internet. You need to restart the Internet
-      or just try another url ;).
+    <Text>
+      This is the end of the Internet. You need to restart the Internet or just
+      try another url ;).
     </Text>
   </Wrapper>
 )

@@ -1,7 +1,7 @@
 import Typography from 'typography'
 import moragaTheme from 'typography-theme-moraga'
 
-moragaTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+moragaTheme.overrideThemeStyles = () => ({
   a: {
     textDecoration: 'none',
     color: '#F486CA'

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 
 const MarkerPositioner = styled.div({
@@ -13,7 +12,7 @@ const Circle = styled.div(({ radius }) => ({
   borderRadius: '50%'
 }))
 
-const ActiveMarker = ({ active }) => (
+const ActiveMarker = () => (
   <MarkerPositioner>
     <Circle radius='5px' />
   </MarkerPositioner>

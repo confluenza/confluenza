@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Global } from '@emotion/react'
 import { Helmet } from 'react-helmet'
@@ -23,7 +22,10 @@ const App = () => {
       <Global styles={globalStyles} />
       <Helmet>
         <title>{navigationData.site.siteMetadata.title}</title>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i&display=swap' rel='stylesheet' />
+        <link
+          href='https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i&display=swap'
+          rel='stylesheet'
+        />
       </Helmet>
 
       <Layout location={location} data={navigationData}>

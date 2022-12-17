@@ -1,3 +1,4 @@
+**/build.js
 workspaces/homepage/public/**
 workspaces/gatsby-theme-confluenza/public/**
 workspaces/gatsby-theme-confluenza/remark-headings-plugin.js

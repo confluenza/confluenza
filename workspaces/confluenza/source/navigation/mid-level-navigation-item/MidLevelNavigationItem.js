@@ -13,7 +13,7 @@ const Wrapper = styled.div({
 })
 
 class MidLevelNavigationItem extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.triggerRef = React.createRef()
@@ -31,12 +31,14 @@ class MidLevelNavigationItem extends React.Component {
     this.props.onChange(delta, collpasableElement, this.triggerRef.current)
   }
 
-  render () {
+  render() {
     const { title, path, location } = this.props
 
     return (
       <Collapsable
-        id={`collapsable${this.props.path}${this.props.title}`} onChange={this.handleOnChange} trigger={(unfold, folded) => (
+        id={`collapsable${this.props.path}${this.props.title}`}
+        onChange={this.handleOnChange}
+        trigger={(unfold) => (
           <Wrapper onClick={() => unfold()}>
             <NavigationLink
               ref={this.triggerRef}
