@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@confluenza/gatsby-theme-confluenza": "^1.0.41",
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "gatsby": "^4.24.4",
-    "gatsby-plugin-catch-links": "^4.24.0",
-    "gatsby-plugin-emotion": "^7.24.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-catch-links": "^4.25.0",
+    "gatsby-plugin-emotion": "^7.25.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-media": "^1.10.0"
@@ -39,11 +39,11 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
-    "eslint": "^8.25.0",
+    "eslint": "^8.30.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "gatsby-cli": "^4.24.0",
-    "gatsby-plugin-root-import": "^2.0.8",
+    "gatsby-cli": "^4.25.0",
+    "gatsby-plugin-root-import": "^2.0.9",
     "jest-emotion": "^11.0.0"
   }
 }
