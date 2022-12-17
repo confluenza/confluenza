@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { graphql } from 'gatsby'
 
 import { Header } from 'src/components/header'
@@ -20,7 +20,9 @@ const useUnusualReloader = (location, onReady) => {
 }
 
 const Home = ({ data, location }) => {
-  console.log('                CONFLUENZA \n\n       flexible markdown documentation\n ')
+  console.log(
+    '                CONFLUENZA \n\n       flexible markdown documentation\n '
+  )
 
   const onReady = useCallback(() => {
     setTimeout(() => {
@@ -52,7 +54,13 @@ const Home = ({ data, location }) => {
 
 export const query = graphql`
   query {
-    allFile(filter: {relativeDirectory: {regex: "/homepage/src/(images|assets/Confluenza-assets)/"}}) {
+    allFile(
+      filter: {
+        relativeDirectory: {
+          regex: "/homepage/src/(images|assets/Confluenza-assets)/"
+        }
+      }
+    ) {
       edges {
         node {
           publicURL
@@ -66,9 +74,18 @@ export const query = graphql`
 export const Head = () => (
   <>
     <title>Confluenza</title>
-    <meta name='description' content='Confluenza - flexible Markdown documentation browser' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' />
+    <meta
+      name='description'
+      content='Confluenza - flexible Markdown documentation browser'
+    />
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1.0, maximum-scale=1.0'
+    />
+    <link
+      href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap'
+      rel='stylesheet'
+    />
   </>
 )
 

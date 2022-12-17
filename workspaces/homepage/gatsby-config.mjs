@@ -1,4 +1,5 @@
-module.exports = {
+const config = {
+  jsxRuntime: 'automatic',
   siteMetadata: {
     title: 'Confluenza',
     editBaseUrl: 'https://github.com/confluenza/confluenza/blob/master'
@@ -16,3 +17,5 @@ module.exports = {
     'gatsby-plugin-root-import'
   ]
 }
+
+export default config

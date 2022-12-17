@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
 import Media from 'react-media'
 
@@ -110,13 +110,13 @@ const IntroPanel = ({ data }) => {
   return (
     <Panel ref={panel}>
       <Media
-        query='(max-width: 799px)' render={() => (
-          <Title>Confluenza</Title>
-        )}
+        query='(max-width: 799px)'
+        render={() => <Title>Confluenza</Title>}
       />
       <Img alt='Intro' src={getImage(data, 'intro-panel')} />
       <Media
-        query='(min-width: 800px)' render={() => (
+        query='(min-width: 800px)'
+        render={() => (
           <TitleContainer>
             <Title>Confluenza</Title>
             <Subtitle>flexible markdown documentation</Subtitle>
@@ -124,9 +124,8 @@ const IntroPanel = ({ data }) => {
         )}
       />
       <Media
-        query='(max-width: 799px)' render={() => (
-          <Subtitle>flexible markdown documentation</Subtitle>
-        )}
+        query='(max-width: 799px)'
+        render={() => <Subtitle>flexible markdown documentation</Subtitle>}
       />
     </Panel>
   )

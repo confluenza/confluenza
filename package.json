@@ -3,14 +3,22 @@
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.5",
-    "@babel/eslint-parser": "^7.19.1",
-    "@babel/eslint-plugin": "^7.19.1",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "babel-jest": "^29.3.1",
     "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.7",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gatsby": "^5.3.2",
     "gzip-size": "^7.0.0",
@@ -18,11 +26,12 @@
     "jest-emotion": "^11.0.0",
     "lerna": "^6.2.0",
     "lerna-changelog": "^2.2.0",
+    "prettier": "^2.8.1",
     "pretty-bytes": "^6.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "standard": "^17.0.0"
+    "typescript": "^4.9.4"
   },
   "workspaces": {
     "packages": [
@@ -32,28 +41,10 @@
   "scripts": {
     "test": "yarn lint && yarn jest --passWithNoTests",
     "test:watch": "yarn jest --watch",
-    "lint": "yarn standard",
-    "lint:fix": "yarn standard --fix --verbose",
+    "lint": "eslint 'workspaces/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'workspaces/**/*.{js,jsx,ts,tsx}' --fix",
     "build": "yarn lerna run build --scope '@confluenza/**' --ignore '@confluenza/gatsby-theme-confluenza'",
     "deploy": "yarn lerna run build --ignore homepage && yarn lerna run build --scope homepage"
-  },
-  "standard": {
-    "parser": "@babel/eslint-parser",
-    "ignore": [
-      "workspaces/homepage/public/**",
-      "workspaces/gatsby-theme-confluenza/public/**",
-      "workspaces/design-assets/**",
-      "workspaces/demo-component-navigator/build/**",
-      "**/node_modules/**",
-      "**/lib/**",
-      "**/es/**",
-      "**/iife/**"
-    ],
-    "envs": [
-      "es6",
-      "browser",
-      "jest"
-    ]
   },
   "packageManager": "yarn@3.3.0"
 }

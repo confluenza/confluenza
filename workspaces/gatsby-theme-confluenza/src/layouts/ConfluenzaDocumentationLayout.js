@@ -1,8 +1,7 @@
-import React from "react";
-import { rhythm } from "../utils/typography";
-import { StaticQuery, graphql } from "gatsby";
+import { rhythm } from '../utils/typography'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import { DocumentationLayout } from "@confluenza/confluenza";
+import { DocumentationLayout } from '@confluenza/confluenza'
 
 export const SiteInformation = graphql`
   fragment SiteInformation on Site {
@@ -13,7 +12,7 @@ export const SiteInformation = graphql`
       mdx
     }
   }
-`;
+`
 
 export const ConfluenzaConfig = graphql`
   fragment ConfluenzaConfig on ConfluenzaYamlConnection {
@@ -22,7 +21,7 @@ export const ConfluenzaConfig = graphql`
       title
     }
   }
-`;
+`
 
 export const MarkdownConnection = graphql`
   fragment MarkdownConnection on MarkdownRemarkConnection {
@@ -48,7 +47,7 @@ export const MarkdownConnection = graphql`
       }
     }
   }
-`;
+`
 
 export const MdxDataConnection = graphql`
   fragment MdxDataConnection on MdxConnection {
@@ -66,7 +65,7 @@ export const MdxDataConnection = graphql`
       }
     }
   }
-`;
+`
 
 const confluenzaQuery = graphql`
   query Navigation {
@@ -92,35 +91,25 @@ const confluenzaQuery = graphql`
       ...MdxDataConnection
     }
   }
-`;
+`
 
 const ConfluenzaDocumentationLayout = ({ children, location }) => {
+  const data = useStaticQuery(confluenzaQuery)
+  const mdxEnabled = data.site.fields && data.site.fields.mdx
+  let updatedData = data
+  if (mdxEnabled) {
+    updatedData = {
+      ...data,
+      navigation: {
+        docs: [...data.navigation.docs, ...data.mdxNavigation.docs]
+      }
+    }
+  }
   return (
-    <StaticQuery
-      query={confluenzaQuery}
-      render={(data) => {
-        const mdxEnabled = data.site.fields && data.site.fields.mdx;
-        let updatedData = data;
-        if (mdxEnabled) {
-          updatedData = {
-            ...data,
-            navigation: {
-              docs: [...data.navigation.docs, ...data.mdxNavigation.docs],
-            },
-          };
-        }
-        return (
-          <DocumentationLayout
-            location={location}
-            data={updatedData}
-            rhythm={rhythm}
-          >
-            {children}
-          </DocumentationLayout>
-        );
-      }}
-    />
-  );
-};
+    <DocumentationLayout location={location} data={updatedData} rhythm={rhythm}>
+      {children}
+    </DocumentationLayout>
+  )
+}
 
-export { ConfluenzaDocumentationLayout };
+export { ConfluenzaDocumentationLayout }

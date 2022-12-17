@@ -1,5 +1,11 @@
-const { compileMDXWithCustomOptions } = require(`gatsby-plugin-mdx`);
-const { remarkHeadingsPlugin } = require(`./remark-headings-plugin`);
+// const { compileMDXWithCustomOptions } = require(`gatsby-plugin-mdx`);
+// const { remarkHeadingsPlugin } = require(`./remark-headings-plugin`);
+import { createRequire } from 'node:module'
+
+import { compileMDXWithCustomOptions } from 'gatsby-plugin-mdx'
+import { remarkHeadingsPlugin } from './remark-headings-plugin.mjs'
+
+const require = createRequire(import.meta.url)
 
 const edgesSelector = `
   edges {
@@ -9,7 +15,7 @@ const edgesSelector = `
       }
     }
   }
-`;
+`
 
 const nodesSelectorMdx = `
   nodes {
@@ -20,7 +26,7 @@ const nodesSelectorMdx = `
       contentFilePath
     }
   }
-`;
+`
 
 const markdownQuery = `
   allMarkdownRemark(
@@ -28,7 +34,7 @@ const markdownQuery = `
   ) {
     ${edgesSelector}
   }
-`;
+`
 
 const mdxQuery = `
   allMdx(
@@ -36,35 +42,35 @@ const mdxQuery = `
   ) {
     ${nodesSelectorMdx}
   }
-`;
+`
 
 const mdxEnabled = (options) => {
-  let mdx = true;
+  let mdx = true
 
-  if (Object.prototype.hasOwnProperty.call(options, "mdx")) {
-    mdx = options.mdx;
+  if (Object.prototype.hasOwnProperty.call(options, 'mdx')) {
+    mdx = options.mdx
   }
 
-  return mdx;
-};
+  return mdx
+}
 
-exports.createPages = async ({ actions, graphql }, options) => {
-  const { createPage } = actions;
+export const createPages = async ({ actions, graphql }, options) => {
+  const { createPage } = actions
   const markdownTemplate = require.resolve(
-    "./src/templates/markdownTemplate.js"
-  );
+    './src/templates/markdownTemplate.js'
+  )
 
-  const mdx = mdxEnabled(options);
+  const mdx = mdxEnabled(options)
 
   const queryResult = await graphql(`
     query {
       ${markdownQuery}
-      ${mdx ? mdxQuery : ""}
+      ${mdx ? mdxQuery : ''}
     }
-  `);
+  `)
 
   if (queryResult.errors) {
-    throw new Error(queryResult.errors);
+    throw new Error(queryResult.errors)
   }
 
   queryResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -72,10 +78,10 @@ exports.createPages = async ({ actions, graphql }, options) => {
       createPage({
         path: node.frontmatter.path,
         component: markdownTemplate,
-        context: { templatePath: node.frontmatter.path },
-      });
+        context: { templatePath: node.frontmatter.path }
+      })
     }
-  });
+  })
 
   if (mdx) {
     queryResult.data.allMdx.nodes.forEach((node) => {
@@ -83,26 +89,26 @@ exports.createPages = async ({ actions, graphql }, options) => {
         createPage({
           path: node.frontmatter.path,
           component: `${markdownTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-          context: { templatePath: node.frontmatter.path },
-        });
+          context: { templatePath: node.frontmatter.path }
+        })
       }
-    });
+    })
   }
-};
+}
 
-exports.onCreateNode = ({ node, actions }, options) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === "Site") {
-    const mdx = mdxEnabled(options);
+export const onCreateNode = ({ node, actions }, options) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'Site') {
+    const mdx = mdxEnabled(options)
     createNodeField({
       node,
-      name: "mdx",
-      value: mdx,
-    });
+      name: 'mdx',
+      value: mdx
+    })
   }
-};
+}
 
-exports.createSchemaCustomization = async ({
+export const createSchemaCustomization = async ({
   getNode,
   getNodesByType,
   pathPrefix,
@@ -110,9 +116,9 @@ exports.createSchemaCustomization = async ({
   cache,
   actions,
   schema,
-  store,
+  store
 }) => {
-  const { createTypes } = actions;
+  const { createTypes } = actions
 
   const headingsResolver = schema.buildObjectType({
     name: `Mdx`,
@@ -120,42 +126,42 @@ exports.createSchemaCustomization = async ({
       headings: {
         type: `[MdxHeading]`,
         async resolve(mdxNode) {
-          const fileNode = getNode(mdxNode.parent);
+          const fileNode = getNode(mdxNode.parent)
 
           if (!fileNode) {
-            return null;
+            return null
           }
 
           const result = await compileMDXWithCustomOptions(
             {
               source: mdxNode.body,
-              absolutePath: fileNode.absolutePath,
+              absolutePath: fileNode.absolutePath
             },
             {
               pluginOptions: {},
               customOptions: {
                 mdxOptions: {
-                  remarkPlugins: [remarkHeadingsPlugin],
-                },
+                  remarkPlugins: [remarkHeadingsPlugin]
+                }
               },
               getNode,
               getNodesByType,
               pathPrefix,
               reporter,
               cache,
-              store,
+              store
             }
-          );
+          )
 
           if (!result) {
-            return null;
+            return null
           }
 
-          return result.metadata.headings;
-        },
-      },
-    },
-  });
+          return result.metadata.headings
+        }
+      }
+    }
+  })
 
   createTypes([
     `
@@ -164,6 +170,6 @@ exports.createSchemaCustomization = async ({
         depth: Int
       }
     `,
-    headingsResolver,
-  ]);
-};
+    headingsResolver
+  ])
+}

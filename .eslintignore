@@ -1,0 +1,8 @@
+workspaces/homepage/public/**
+workspaces/gatsby-theme-confluenza/public/**
+workspaces/gatsby-theme-confluenza/remark-headings-plugin.js
+workspaces/design-assets/**
+workspaces/demo-component-navigator/build/**
+**/node_modules/**
+**/lib/**
+**/es/**

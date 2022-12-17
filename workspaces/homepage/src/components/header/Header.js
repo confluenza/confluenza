@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import { getImage } from 'src/components/assets'
 
@@ -36,11 +35,12 @@ const Menu = styled.div({
 const HyperWrapper = styled.div({
   display: 'flex',
   justifyContent: 'center',
-  width: '100vw',
+  width: '100%',
   '@media (min-width: 800px)': {
     position: 'fixed',
     width: '100%',
     top: 0,
+    left: 0,
     zIndex: 0
   },
   backgroundColor: 'black'
@@ -60,7 +60,11 @@ const Header = ({ data }) => (
   <HyperWrapper>
     <Wrapper>
       <Logo>
-        <LogoImg alt='header logo' src={getImage(data, 'header-logo')} width='40px' />
+        <LogoImg
+          alt='header logo'
+          src={getImage(data, 'header-logo')}
+          width='40px'
+        />
         <LogoText>Confluenza</LogoText>
       </Logo>
       <Menu>
@@ -70,14 +74,16 @@ const Header = ({ data }) => (
           target='_blank'
           // see https://mathiasbynens.github.io/rel-noopener
           rel='noopener noreferrer'
-        >Github
+        >
+          Github
         </MenuLinkExternal>
         <MenuLinkExternal
           styles={{ color: 'white' }}
           href='https://twitter.com/confluenza1'
           target='_blank'
           rel='noopener noreferrer'
-        >Twitter
+        >
+          Twitter
         </MenuLinkExternal>
         {/* <MenuLinkExternal
           styles={{ color: 'white' }}
