@@ -4,7 +4,8 @@ title: Using MDX in Confluenza
 tag: user
 sortIndex: 30
 ---
-import { WithBorder, ImportingMDXDocuments } from '../../components/mdx'
+
+import { WithBorder, ImportingMDXDocuments } from "../../components/mdx";
 
 [MDX](https://mdxjs.com) allows you to use JSX directly in your Markdown documents.
 
@@ -21,7 +22,7 @@ Below you see a component that renders its content with a border of the given th
 This component is imported as any other regular react component with:
 
 ```javascript
-import { WithBorder } from '../../components/mdx'
+import { WithBorder } from "../../components/mdx";
 ```
 
 > The import statement must be placed directly after _frontmatter_ if one is used.
@@ -59,24 +60,19 @@ Another approach would be add the following to your site's `gatsby-config.js`:
 
 ```javascript
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes, createFieldExtension } = actions
+  const { createTypes, createFieldExtension } = actions;
   createFieldExtension({
-    name: 'noMdx',
+    name: "noMdx",
     extend: () => ({
-      resolve (source, args, context, info) {
+      resolve(source, args, context, info) {
         if (source[info.fieldName]) {
-          return context.defaultFieldResolver(
-            source,
-            args,
-            context,
-            info
-          )
+          return context.defaultFieldResolver(source, args, context, info);
         } else {
-          return ''
+          return "";
         }
-      }
-    })
-  })
+      },
+    }),
+  });
   const typeDefs = `
     type Mdx implements Node @infer {
       frontmatter: MdxFrontmatter,
@@ -86,20 +82,20 @@ exports.createSchemaCustomization = ({ actions }) => {
       path: String @noMdx,
       tag: String @noMdx
     }
-  `
-  createTypes(typeDefs)
-}
+  `;
+  createTypes(typeDefs);
+};
 ```
 
 Here we basicaly make sure that `Mdx` and `MdxFrontmatter` are defined with `title`, `path`, and `tag`.
 
 > Unfortunatley, we could not just add this to `gatsby-node.js` of the `gatsby-theme-confluenza` package.
-It would work in a source plugin, but is not allowed in themes.
+> It would work in a source plugin, but is not allowed in themes.
 
 > You will experience similar problems when your site has MDX but no single Markdown content.
-This is far less probable that there is no single Markdown document in your source tree,
-but in such a case, just make sure, you add a dummy Markdown file,
-or you use a similar hack that we show above working for `Mdx` and `MdxFrontmatter` schema types.
+> This is far less probable that there is no single Markdown document in your source tree,
+> but in such a case, just make sure, you add a dummy Markdown file,
+> or you use a similar hack that we show above working for `Mdx` and `MdxFrontmatter` schema types.
 
 `gatsby-theme-confluenza` also provides an option to disable support for MDX:
 
