@@ -1,5 +1,14 @@
 const path = require("path");
-const emoji = require("remark-emoji");
+// const emoji = require("remark-emoji");
+
+const wrapESMPlugin = (name) =>
+  function wrapESM(opts) {
+    return async (...args) => {
+      const mod = await import(name);
+      const plugin = mod.default(opts);
+      return plugin(...args);
+    };
+  };
 
 const workspacesDirNames = ["workspaces", "packages"];
 
@@ -84,7 +93,7 @@ module.exports = ({ mdx = false, ignore = [] }) => {
         resolve: "gatsby-plugin-mdx",
         options: {
           mdxOptions: {
-            remarkPlugins: [emoji],
+            remarkPlugins: [wrapESMPlugin("remark-emoji")],
           },
           gatsbyRemarkPlugins: [
             "gatsby-remark-autolink-headers",
