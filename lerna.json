@@ -7,7 +7,7 @@
       "registry": "https://registry.npmjs.org/"
     }
   },
-  "version": "1.0.42",
+  "version": "1.0.43",
   "changelog": {
     "repo": "confluenza/confluenza",
     "ignoreCommitters": ["allcontributors"],

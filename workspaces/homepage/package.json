@@ -2,7 +2,7 @@
   "private": true,
   "name": "homepage",
   "description": "Confluenza homepage",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "author": "Marcin Czenko <marcin@everydayproductive.com>",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "node": "14.x"
   },
   "dependencies": {
-    "@confluenza/gatsby-theme-confluenza": "^1.0.42",
+    "@confluenza/gatsby-theme-confluenza": "^1.0.43",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "gatsby": "^5.3.2",
