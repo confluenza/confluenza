@@ -16,9 +16,10 @@
   ],
   "files": [
     "src",
-    "gatsby-config.js",
-    "gatsby-node.js",
-    "index.js"
+    "gatsby-config.mjs",
+    "gatsby-node.mjs",
+    "index.js",
+    "remark-headings-plugin.mjs"
   ],
   "engines": {
     "node": ">=12.0.0"
