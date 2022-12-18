@@ -1,3 +1,12 @@
+## v1.0.44 (2022-12-18)
+
+#### :bug: Bug Fix
+* [#212](https://github.com/confluenza/confluenza/pull/212) fix: removes body attribute from mdx graphql query in markdown template ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 2
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+- [@dependabot[bot]](https://github.com/apps/dependabot)
+
 ## v1.0.43 (2022-12-18)
 
 #### :bug: Bug Fix
