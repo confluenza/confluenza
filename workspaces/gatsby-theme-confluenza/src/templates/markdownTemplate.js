@@ -81,7 +81,6 @@ export const pageQuery = graphql`
       }
     }
     mdx: mdx(frontmatter: { path: { eq: $templatePath } }) {
-      body
       frontmatter {
         title
       }
