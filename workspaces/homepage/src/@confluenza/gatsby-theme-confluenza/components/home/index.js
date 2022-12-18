@@ -7,7 +7,7 @@ const Wrapper = styled.div({
   flexFlow: 'column nowrap',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '100%',
+  width: 'calc(100vw - 1rem)',
   backgroundColor: 'black',
   boxSizing: 'border-box',
   margin: 0,
