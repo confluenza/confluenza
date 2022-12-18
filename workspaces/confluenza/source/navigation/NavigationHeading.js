@@ -13,7 +13,10 @@ class NavigationHeading extends React.Component {
     this.hash = currentLocation.hash
     this.href = href
     if (this.linkClassName) {
-      if (`${this.location}${this.hash}` === this.href) {
+      if (
+        `${this.location}${this.hash}` === this.href ||
+        `${this.location}/${this.hash}` === this.href
+      ) {
         return { className: `${this.linkClassName} active` }
       } else {
         return { className: this.linkClassName }
@@ -22,7 +25,7 @@ class NavigationHeading extends React.Component {
     return null
   }
 
-  recordLinkNode = node => {
+  recordLinkNode = (node) => {
     this.linkClassName = node && node.className
     if (`${this.location}${this.hash}` === this.href) {
       this.setState({ cln: `${this.linkClassName} active` })
@@ -31,7 +34,7 @@ class NavigationHeading extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { path, value, index } = this.props
     const slugger = new GithubSlugger()
     const anchor = slugger.slug(value)
