@@ -1,3 +1,11 @@
+## v1.0.43 (2022-12-18)
+
+#### :bug: Bug Fix
+* [#208](https://github.com/confluenza/confluenza/pull/208) fixes the package.json in confluenza-gatsby-theme ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.42 (2022-12-18)
 
 #### :heart_eyes_cat: Enhancement
