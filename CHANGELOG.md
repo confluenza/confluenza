@@ -1,3 +1,11 @@
+## v1.0.42 (2022-12-18)
+
+#### :heart_eyes_cat: Enhancement
+* [#207](https://github.com/confluenza/confluenza/pull/207) Update dependencies ([@marcinczenko](https://github.com/marcinczenko))
+
+#### Committers: 1
+- Marcin Czenko ([@marcinczenko](https://github.com/marcinczenko))
+
 ## v1.0.41 (2022-10-12)
 
 #### :heart_eyes_cat: Enhancement
