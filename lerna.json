@@ -1,20 +1,16 @@
 {
   "lerna": "6.2.0",
-  "packages": [
-    "workspaces/*"
-  ],
+  "packages": ["workspaces/*"],
   "command": {
     "publish": {
       "npmClient": "npm",
       "registry": "https://registry.npmjs.org/"
     }
   },
-  "version": "1.0.41",
+  "version": "1.0.42",
   "changelog": {
     "repo": "confluenza/confluenza",
-    "ignoreCommitters": [
-      "allcontributors"
-    ],
+    "ignoreCommitters": ["allcontributors"],
     "labels": {
       "PR: Breaking Change :bomb:": ":bomb: Breaking Change",
       "PR: New Feature :rocket:": ":rocket: New Feature",
