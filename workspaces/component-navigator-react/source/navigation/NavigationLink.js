@@ -5,7 +5,7 @@ const NavigationLink = React.forwardRef((props, ref) => (
   <Link
     {...props}
     ref={ref}
-    style={{
+    css={{
       display: 'inline-block',
       position: 'relative',
       left: '1rem',
