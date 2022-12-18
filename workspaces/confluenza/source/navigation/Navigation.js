@@ -16,6 +16,18 @@ const List = styled.ul({
   margin: 0
 })
 
+const ScrollWrapper = styled.div({
+  overflowY: 'auto',
+  position: 'relative',
+  flex: '1 1 0',
+  WebkitOverflowScrolling: 'touch',
+  '::-webkit-scrollbar': {
+    display: 'none'
+  },
+  '-ms-overflow-style': 'none' /* IE and Edge */,
+  scrollbarWidth: 'none'
+})
+
 export class Navigation extends React.PureComponent {
   navigationGroups
 
@@ -206,6 +218,7 @@ export class Navigation extends React.PureComponent {
       addedContentHeight: delta,
       navigationElementTotalHeight
     })
+    this.props.onStateChanged?.()
   }
 
   renderNavigationGroup = (group) => (
@@ -280,23 +293,9 @@ export class Navigation extends React.PureComponent {
 
   render() {
     return (
-      <div
-        onScroll={this.handleOnScroll}
-        ref={this.scrollerRef}
-        style={{
-          overflowY: 'auto',
-          position: 'relative',
-          flex: '1 1 0',
-          WebkitOverflowScrolling: 'touch',
-          '::-webkit-scrollbar': {
-            display: 'none'
-          },
-          '-ms-overflow-style': 'none' /* IE and Edge */,
-          scrollbarWidth: 'none'
-        }}
-      >
+      <ScrollWrapper onScroll={this.handleOnScroll} ref={this.scrollerRef}>
         {this.navigationGroups.map((g) => this.renderNavigationGroup(g))}
-      </div>
+      </ScrollWrapper>
     )
   }
 }
