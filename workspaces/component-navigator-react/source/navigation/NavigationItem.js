@@ -15,20 +15,36 @@ const List = styled.ul({
 })
 
 class NavigationItem extends React.Component {
-  renderNavigationHeading = (heading, index, path) => (
+  renderNavigationHeading = (heading, index) => (
     <NavigationHeading key={index} {...heading} index={index} />
   )
 
-  render () {
-    const { node: { headings, frontmatter: { title, path } }, onChange, location } = this.props
+  render() {
+    const {
+      node: {
+        headings,
+        frontmatter: { title, path }
+      },
+      onChange,
+      location
+    } = this.props
 
     return (
       <li key={path}>
-        <MidLevelNavigationItem location={location} path={path} title={title} headings={headings} onChange={onChange}>
-          {headings && headings.length > 0 &&
+        <MidLevelNavigationItem
+          location={location}
+          path={path}
+          title={title}
+          headings={headings}
+          onChange={onChange}
+        >
+          {headings && headings.length > 0 && (
             <List>
-              {headings.map((heading, index) => this.renderNavigationHeading(heading, index, path))}
-            </List>}
+              {headings.map((heading, index) =>
+                this.renderNavigationHeading(heading, index, path)
+              )}
+            </List>
+          )}
         </MidLevelNavigationItem>
       </li>
     )

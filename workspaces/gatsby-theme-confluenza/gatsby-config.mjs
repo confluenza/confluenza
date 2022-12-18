@@ -1,5 +1,19 @@
-const path = require('path')
-const emoji = require('remark-emoji')
+import path from 'path'
+import { createRequire } from 'node:module'
+import { fileURLToPath } from 'url'
+const require = createRequire(import.meta.url)
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const wrapESMPlugin = (name) =>
+  function wrapESM(opts) {
+    return async (...args) => {
+      const mod = await import(name)
+      const plugin = mod.default(opts)
+      return plugin(...args)
+    }
+  }
 
 const workspacesDirNames = ['workspaces', 'packages']
 
@@ -12,8 +26,9 @@ const rootPath = () => {
   }
 }
 
-module.exports = ({ mdx = false, ignore = [] }) => {
+const config = ({ ignore = [] }) => {
   return {
+    jsxRuntime: 'automatic',
     siteMetadata: {
       title: 'Confluenza',
       editBaseUrl: 'https://github.com/confluenza/confluenza/blob/master'
@@ -83,7 +98,9 @@ module.exports = ({ mdx = false, ignore = [] }) => {
       {
         resolve: 'gatsby-plugin-mdx',
         options: {
-          remarkPlugins: [emoji],
+          mdxOptions: {
+            remarkPlugins: [wrapESMPlugin('remark-emoji')]
+          },
           gatsbyRemarkPlugins: [
             'gatsby-remark-autolink-headers',
             {
@@ -128,3 +145,5 @@ module.exports = ({ mdx = false, ignore = [] }) => {
     ]
   }
 }
+
+export default config

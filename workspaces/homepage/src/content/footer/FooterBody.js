@@ -1,4 +1,3 @@
-import React from 'react'
 import Media from 'react-media'
 import { getImage } from 'src/components/assets'
 import { MenuLink } from 'src/components/ui-blocks'
@@ -13,13 +12,14 @@ const FooterBody = ({ data }) => (
       <MenuLink to='/users/quick-start'>Quick Start</MenuLink>
       <MenuLink to='/users/using-confluenza'>Using Confluenza</MenuLink>
       <MenuLink to='/users/mdx'>MDX in Confluenza</MenuLink>
-      <MenuLink to='/developers/making-confluenza-yours'>Making Confluenza Yours</MenuLink>
+      <MenuLink to='/developers/making-confluenza-yours'>
+        Making Confluenza Yours
+      </MenuLink>
       <MenuLink to='/developers/contributing'>Contributing</MenuLink>
     </FooterMenu>
     <Media
-      query='(min-width: 800px)' render={() => (
-        <FooterGraphic imageUrl={getImage(data, 'intro-panel')} />
-      )}
+      query='(min-width: 800px)'
+      render={() => <FooterGraphic imageUrl={getImage(data, 'intro-panel')} />}
     />
   </FooterRow>
 )

@@ -1,16 +1,11 @@
-exports.createSchemaCustomization = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   const { createTypes, createFieldExtension } = actions
   createFieldExtension({
     name: 'noMdx',
     extend: () => ({
-      resolve (source, args, context, info) {
+      resolve(source, args, context, info) {
         if (source[info.fieldName]) {
-          return context.defaultFieldResolver(
-            source,
-            args,
-            context,
-            info
-          )
+          return context.defaultFieldResolver(source, args, context, info)
         } else {
           return ''
         }

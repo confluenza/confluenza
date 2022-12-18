@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BoxContentWrapper, ContentBox, Title, Text } from './ui'
 
 const Box1Content = () => (
@@ -13,7 +11,8 @@ const Box1Content = () => (
     <ContentBox css={{ marginBottom: 0 }}>
       <Title>Gatsby</Title>
       <Text>
-        Take advantage of simplicity of static pages with reach ecosystem of plugins.
+        Take advantage of simplicity of static pages with reach ecosystem of
+        plugins.
       </Text>
     </ContentBox>
     <ContentBox>
@@ -25,7 +24,8 @@ const Box1Content = () => (
     <ContentBox>
       <Title>Monorepos</Title>
       <Text>
-        Document your monorepo workspaces with markdown and flexible content-grouping.
+        Document your monorepo workspaces with markdown and flexible
+        content-grouping.
       </Text>
     </ContentBox>
   </BoxContentWrapper>

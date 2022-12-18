@@ -1,6 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-import { DocumentationLayoutGrid, SidebarGridItem, ContentGridItem } from './DocumentationLayoutGrid'
+import {
+  DocumentationLayoutGrid,
+  SidebarGridItem,
+  ContentGridItem
+} from './DocumentationLayoutGrid'
 import { Navigation } from '../navigation'
 import { MenuButton } from '../navigation/MenuButton'
 import { SiteTitle } from './SiteTitle'
@@ -11,7 +15,14 @@ import { FixedNavigation } from './FixedNavigation'
 import { useScrollResoration } from './useScrollRestoration'
 import { useMobileDocumentNavigator } from './useMobileDocumentNavigator'
 
-const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, deltas, rhythm }) => {
+const DocumentationLayoutSmall = ({
+  children,
+  location,
+  data,
+  onStateChanged,
+  deltas,
+  rhythm
+}) => {
   const [menuActive, setMenuActive] = useState(false)
   const [position, setPosition] = useState('relative')
   const [transition, setTransition] = useState('none')
@@ -62,14 +73,17 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
 
   // This hook responds to the change of location: the user
   // selected a link in the navigation menu.
-  useMobileDocumentNavigator({
-    onNewPathSelected: () => {
-      closeMenu()
-      disableScrollRestoration()
-      enableMenuAnimation(animationDuration, 0.3)
+  useMobileDocumentNavigator(
+    {
+      onNewPathSelected: () => {
+        closeMenu()
+        disableScrollRestoration()
+        enableMenuAnimation(animationDuration, 0.3)
+      },
+      location
     },
-    location
-  }, [location])
+    [location]
+  )
 
   useEffect(() => {
     if (menuActive) {
@@ -87,7 +101,7 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       // action (by pressing the "toggle menu" button) or (2) as
       // a result of changing location (user selected a new menu item).
       // In both cases we use the closeMenu function above to trigger
-      // the closing process. We could not restore the scroll possition
+      // the closing process. We could not restore the scroll position
       // right there as this would be too early - the changing from
       // 'position: fixed' to 'position: relative' needs to be effective
       // before we can change the scroll position.
@@ -99,11 +113,19 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
     // eslint-disable-next-line
   }, [menuActive])
 
-  const { site: { siteMetadata: { title } }, navigation: { docs }, config: { nodes: confluenzaConfig }, menuButton } = data
+  const {
+    site: {
+      siteMetadata: { title }
+    },
+    navigation: { docs },
+    config: { nodes: confluenzaConfig },
+    menuButton
+  } = data
   return (
     <>
       <DocumentationLayoutGrid
-        rhythm={rhythm} css={{
+        rhythm={rhythm}
+        css={{
           position,
           height: '100vh',
           left: menuActive ? 0 : '-100vw',
@@ -115,7 +137,8 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
       >
         <SidebarGridItem>
           <FixedNavigation
-            rhythm={rhythm} css={{
+            rhythm={rhythm}
+            css={{
               left: menuActive ? '0' : '-100vw',
               minWidth: '100vw',
               maxWidth: '100vw',
@@ -134,12 +157,12 @@ const DocumentationLayoutSmall = ({ children, location, data, onStateChanged, de
             <PoweredByConfluenza />
           </FixedNavigation>
         </SidebarGridItem>
-        <ContentGridItem>
-          {children}
-        </ContentGridItem>
+        <ContentGridItem>{children}</ContentGridItem>
       </DocumentationLayoutGrid>
       <MenuButton
-        onClick={toggleMenu} backgroundImage={menuButton && menuButton.publicURL} css={{
+        onClick={toggleMenu}
+        backgroundImage={menuButton && menuButton.publicURL}
+        css={{
           position: 'fixed',
           zIndex: 20,
           bottom: '30px',

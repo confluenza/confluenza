@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from "react";
 import styled from '@emotion/styled'
 import { Global } from '@emotion/react'
 
@@ -7,20 +7,24 @@ const Wrapper = styled.div({
   flexFlow: 'column nowrap',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '100vw',
-  backgroundColor: 'black'
+  width: 'calc(100vw - 1rem)',
+  backgroundColor: 'black',
+  boxSizing: 'border-box',
+  margin: 0,
+  padding: 0
 })
 
 const Home = ({ children }) => (
   <Wrapper>
-    <Global styles={{
-      'html,body': {
-        backgroundColor: 'black',
-        margin: 0,
-        padding: 0,
-        boxSizing: 'border-box'
-      }
-    }}
+    <Global
+      styles={{
+        body: {
+          backgroundColor: 'black',
+          margin: 0,
+          padding: 0,
+          boxSizing: 'border-box'
+        }
+      }}
     />
     {children}
   </Wrapper>

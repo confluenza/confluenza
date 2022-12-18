@@ -1,7 +1,10 @@
 import Typography from 'typography'
 import moragaTheme from 'typography-theme-moraga'
 
-moragaTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+moragaTheme.overrideThemeStyles = () => ({
+  html: {
+    overflowY: 'auto'
+  },
   a: {
     textDecoration: 'none',
     color: '#F486CA'

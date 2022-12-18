@@ -1,6 +1,5 @@
-import React from 'react'
 import { rhythm } from '../utils/typography'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import { DocumentationLayout } from '@confluenza/confluenza'
 
@@ -60,7 +59,7 @@ export const MdxDataConnection = graphql`
           tag
           sortIndex
         }
-        headings(depth: h2) {
+        headings {
           value
         }
       }
@@ -76,18 +75,18 @@ const confluenzaQuery = graphql`
     menuButton: file(base: { eq: "confluenza-menu-button.png" }) {
       publicURL
     }
-    config: allConfluenzaYaml(filter: {tag: {ne: null}}) {
+    config: allConfluenzaYaml(filter: { tag: { ne: null } }) {
       ...ConfluenzaConfig
     }
     navigation: allMarkdownRemark(
       filter: { frontmatter: { path: { ne: "/404.html" } } }
-      sort: { fields: [frontmatter___content___absolutePath], order: ASC }
+      sort: { frontmatter: { content: { absolutePath: ASC } } }
     ) {
       ...MarkdownConnection
     }
     mdxNavigation: allMdx(
       filter: { frontmatter: { path: { ne: "/404.html" } } }
-      sort: { fields: [fileAbsolutePath], order: ASC }
+      sort: { internal: { contentFilePath: ASC } }
     ) {
       ...MdxDataConnection
     }
@@ -95,22 +94,21 @@ const confluenzaQuery = graphql`
 `
 
 const ConfluenzaDocumentationLayout = ({ children, location }) => {
+  const data = useStaticQuery(confluenzaQuery)
+  const mdxEnabled = data.site.fields && data.site.fields.mdx
+  let updatedData = data
+  if (mdxEnabled) {
+    updatedData = {
+      ...data,
+      navigation: {
+        docs: [...data.navigation.docs, ...data.mdxNavigation.docs]
+      }
+    }
+  }
   return (
-    <StaticQuery
-      query={confluenzaQuery}
-      render={data => {
-        const mdxEnabled = data.site.fields && data.site.fields.mdx
-        let updatedData = data
-        if (mdxEnabled) {
-          updatedData = { ...data, navigation: { docs: [...data.navigation.docs, ...data.mdxNavigation.docs] } }
-        }
-        return (
-          <DocumentationLayout location={location} data={updatedData} rhythm={rhythm}>
-            {children}
-          </DocumentationLayout>
-        )
-      }}
-    />
+    <DocumentationLayout location={location} data={updatedData} rhythm={rhythm}>
+      {children}
+    </DocumentationLayout>
   )
 }
 

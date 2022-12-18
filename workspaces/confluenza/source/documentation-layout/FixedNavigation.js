@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-const FixedNavigation = styled.div(({ rhythm }) => ({
+const FixedNavigation = styled.div(() => ({
   display: 'flex',
   flexFlow: 'column nowrap',
   position: 'fixed',

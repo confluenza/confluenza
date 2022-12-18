@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 
 const NavigationLink = React.forwardRef((props, ref) => (
   <Link
-    {...props} ref={ref} css={{
+    {...props}
+    ref={ref}
+    css={{
       display: 'inline-block',
       position: 'relative',
       left: '1rem',
@@ -46,5 +48,7 @@ const NavigationLink = React.forwardRef((props, ref) => (
     {props.children}
   </Link>
 ))
+
+NavigationLink.displayName = 'NavigationLink'
 
 export { NavigationLink }

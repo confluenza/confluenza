@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from '@emotion/styled'
 import { AnimationBox } from './AnimationBox'
 
-const Wrapper = styled.div(props => ({
+const Wrapper = styled.div((props) => ({
   display: 'flex',
   flexFlow: 'column nowrap',
   alignItems: 'flex-end',
@@ -10,7 +9,7 @@ const Wrapper = styled.div(props => ({
   color: props.color || 'black'
 }))
 
-const Decor = styled.div(props => {
+const Decor = styled.div((props) => {
   if (props.width === 0) {
     return {
       width: 0,
@@ -26,21 +25,15 @@ const Decor = styled.div(props => {
 })
 
 const HeaderBox = ({ trigger, color, children }) => (
-  <AnimationBox
-    startValue={0}
-    stopValue='100%'
-    key={trigger}
-  >
-    {
-      width => (
-        <Wrapper>
-          <Wrapper color={color}>
-            {children}
-            <Decor color={color} width={width} />
-          </Wrapper>
+  <AnimationBox startValue={0} stopValue='100%' key={trigger}>
+    {(width) => (
+      <Wrapper>
+        <Wrapper color={color}>
+          {children}
+          <Decor color={color} width={width} />
         </Wrapper>
-      )
-    }
+      </Wrapper>
+    )}
   </AnimationBox>
 )
 

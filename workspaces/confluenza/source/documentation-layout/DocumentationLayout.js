@@ -1,4 +1,3 @@
-import React from 'react'
 import Media from 'react-media'
 
 import { useUnusualReloader } from './useUnusualReloader'
@@ -14,29 +13,39 @@ const DocumentationLayout = ({ children, location, data, rhythm }) => {
   }
   return (
     <Media query='(min-width: 1100px)'>
-      {matches =>
-        matches
-          ? (
-            <DocumentationLayoutWide location={location} data={data} rhythm={rhythm}>
-              {children}
-            </DocumentationLayoutWide>
-            )
-          : (
-            <Media query='(min-width: 800px)'>
-              {matches =>
-                matches
-                  ? (
-                    <DocumentationLayoutMedium location={location} data={data} rhythm={rhythm}>
-                      {children}
-                    </DocumentationLayoutMedium>
-                    )
-                  : (
-                    <DocumentationLayoutSmall location={location} data={data} rhythm={rhythm}>
-                      {children}
-                    </DocumentationLayoutSmall>
-                    )}
-            </Media>
-            )}
+      {(matches) =>
+        matches ? (
+          <DocumentationLayoutWide
+            location={location}
+            data={data}
+            rhythm={rhythm}
+          >
+            {children}
+          </DocumentationLayoutWide>
+        ) : (
+          <Media query='(min-width: 800px)'>
+            {(matches) =>
+              matches ? (
+                <DocumentationLayoutMedium
+                  location={location}
+                  data={data}
+                  rhythm={rhythm}
+                >
+                  {children}
+                </DocumentationLayoutMedium>
+              ) : (
+                <DocumentationLayoutSmall
+                  location={location}
+                  data={data}
+                  rhythm={rhythm}
+                >
+                  {children}
+                </DocumentationLayoutSmall>
+              )
+            }
+          </Media>
+        )
+      }
     </Media>
   )
 }
