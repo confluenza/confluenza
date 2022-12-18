@@ -101,7 +101,7 @@ const DocumentationLayoutSmall = ({
       // action (by pressing the "toggle menu" button) or (2) as
       // a result of changing location (user selected a new menu item).
       // In both cases we use the closeMenu function above to trigger
-      // the closing process. We could not restore the scroll possition
+      // the closing process. We could not restore the scroll position
       // right there as this would be too early - the changing from
       // 'position: fixed' to 'position: relative' needs to be effective
       // before we can change the scroll position.
