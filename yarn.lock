@@ -4169,6 +4169,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.20.7":
+  version: 7.20.7
+  resolution: "@babel/runtime@npm:7.20.7"
+  dependencies:
+    regenerator-runtime: ^0.13.11
+  checksum: 4629ce5c46f06cca9cfb9b7fc00d48003335a809888e2b91ec2069a2dcfbfef738480cff32ba81e0b7c290f8918e5c22ddcf2b710001464ee84ba62c7e32a3a3
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.9.2":
   version: 7.16.3
   resolution: "@babel/runtime@npm:7.16.3"
@@ -15747,6 +15756,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-core-utils@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "gatsby-core-utils@npm:4.4.0"
+  dependencies:
+    "@babel/runtime": ^7.20.7
+    ci-info: 2.0.0
+    configstore: ^5.0.1
+    fastq: ^1.13.0
+    file-type: ^16.5.3
+    fs-extra: ^10.1.0
+    got: ^11.8.5
+    import-from: ^4.0.0
+    lmdb: 2.5.3
+    lock: ^1.1.0
+    node-object-hash: ^2.3.10
+    proper-lockfile: ^4.1.2
+    resolve-from: ^5.0.0
+    tmp: ^0.2.1
+    xdg-basedir: ^4.0.0
+  checksum: 4f3634f727e6ed953c62e0500831b46aa974ef1281b03690b893e0f4d6d15891ce1dfe17e59137b1cecbc7726fb3744f96c1fdfdad462bb0ec1af6bb9d79dd17
+  languageName: node
+  linkType: hard
+
 "gatsby-graphiql-explorer@npm:^3.3.0":
   version: 3.3.0
   resolution: "gatsby-graphiql-explorer@npm:3.3.0"
@@ -16130,11 +16162,11 @@ __metadata:
   linkType: hard
 
 "gatsby-transformer-remark@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "gatsby-transformer-remark@npm:6.3.1"
+  version: 6.4.0
+  resolution: "gatsby-transformer-remark@npm:6.4.0"
   dependencies:
-    "@babel/runtime": ^7.15.4
-    gatsby-core-utils: ^4.3.1
+    "@babel/runtime": ^7.20.7
+    gatsby-core-utils: ^4.4.0
     gray-matter: ^4.0.3
     hast-util-raw: ^6.1.0
     hast-util-to-html: ^7.1.3
@@ -16157,7 +16189,7 @@ __metadata:
     unist-util-visit: ^2.0.3
   peerDependencies:
     gatsby: ^5.0.0-next
-  checksum: 021ad18b1244969e089e52fd78e142a620c1a9abff1560d22421e8e48d30bc0a5c0718af2694c7a94b624e31bbebff680ae78aa31885e5f0358116ed57b25e27
+  checksum: 54a3a79f3e6ff67db638829a6248b37ed1b23982a145139f7ddb3bf07a6e5d6bd3aff43ab07cfb3ea61806b5e3d42945aaa1b1c2105d74ed0db4c38833bc9e79
   languageName: node
   linkType: hard
 
@@ -25777,6 +25809,13 @@ __metadata:
   version: 1.4.2
   resolution: "regenerate@npm:1.4.2"
   checksum: 3317a09b2f802da8db09aa276e469b57a6c0dd818347e05b8862959c6193408242f150db5de83c12c3fa99091ad95fb42a6db2c3329bfaa12a0ea4cbbeb30cb0
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.11":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
   languageName: node
   linkType: hard
 
