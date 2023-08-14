@@ -1,6 +1,8 @@
 {
-  "lerna": "6.2.0",
-  "packages": ["workspaces/*"],
+  "lerna": "7.1.5",
+  "packages": [
+    "workspaces/*"
+  ],
   "command": {
     "publish": {
       "npmClient": "npm",
@@ -8,17 +10,5 @@
     }
   },
   "version": "1.0.44",
-  "changelog": {
-    "repo": "confluenza/confluenza",
-    "ignoreCommitters": ["allcontributors"],
-    "labels": {
-      "PR: Breaking Change :bomb:": ":bomb: Breaking Change",
-      "PR: New Feature :rocket:": ":rocket: New Feature",
-      "PR: Enhancement :heart_eyes_cat:": ":heart_eyes_cat: Enhancement",
-      "PR: Bug Fix :bug:": ":bug: Bug Fix",
-      "PR: Documentation :book:": ":book: Documentation"
-    }
-  },
-  "npmClient": "yarn",
-  "useWorkspaces": true
+  "npmClient": "yarn"
 }
