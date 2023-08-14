@@ -18,8 +18,8 @@
     "source"
   ],
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@react-frontend-developer/css-grid-helper": "^2.0.1",
     "react-media": "^1.10.0"
   },
@@ -29,8 +29,8 @@
     "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "^11.10.5",
-    "@testing-library/react": "^13.4.0"
+    "@emotion/babel-plugin": "^11.11.0",
+    "@testing-library/react": "^14.0.0"
   },
   "publishConfig": {
     "access": "public"
