@@ -1,14 +1,12 @@
 {
   "lerna": "7.1.5",
-  "packages": [
-    "workspaces/*"
-  ],
+  "packages": ["workspaces/*"],
   "command": {
     "publish": {
       "npmClient": "npm",
       "registry": "https://registry.npmjs.org/"
     }
   },
-  "version": "1.0.44",
+  "version": "1.0.45",
   "npmClient": "yarn"
 }

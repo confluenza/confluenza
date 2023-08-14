@@ -1,6 +1,6 @@
 {
   "name": "@confluenza/gatsby-theme-confluenza",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "license": "MIT",
   "main": "index.js",
   "description": "Confluenza Gatsby Theme",
@@ -32,7 +32,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@confluenza/confluenza": "^1.0.44",
+    "@confluenza/confluenza": "^1.0.45",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@emotion/styled-base": "^11.0.0",
